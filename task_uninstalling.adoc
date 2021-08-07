@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_uninstalling.html 
+keywords: uninstalling, uninstall, reinstall 
+summary: Cloud Manager 包含一个卸载脚本、您可以使用该脚本卸载软件以排除问题或从主机中永久删除软件。 
+---
+= 卸载 Cloud Manager
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 包含一个卸载脚本、您可以使用该脚本卸载软件以排除问题或从主机中永久删除软件。
+
+.步骤
+. 在 Linux 主机上运行卸载脚本：
++
+* /opt/application/netapp/cloudmanager/bin/uninstall.sh [silent]*
+
++
+_silent_ 运行此脚本，而不提示您进行确认。
+
+

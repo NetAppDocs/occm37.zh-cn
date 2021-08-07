@@ -1,0 +1,100 @@
+---
+pagenav: false 
+sidebar: sidebar 
+permalink: task_connecting_kubernetes.html 
+keywords: kubernetes, persistent volumes, containers, persistent storage, kubeconfig, trident, kubernetes cluster, storage classes, classes, cvo-single, cvo-ha, thick provisioning, trident_trident, connect, disconnect, provision 
+summary: Cloud Manager 可以在 Kubernetes 集群上自动部署 NetApp Trident ，以便将 ONTAP 用作容器的永久性存储。这适用于 Cloud Volumes ONTAP 和内部 ONTAP 集群。入门包括几个步骤。 
+---
+= 使用 ONTAP 作为 Kubernetes 的永久性存储
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 可以自动部署 https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html["NetApp Trident"^] 在 Kubernetes 集群上，以便可以使用 ONTAP 作为容器的永久性存储。这适用于 Cloud Volumes ONTAP 和内部 ONTAP 集群。
+
+在完成这些步骤之前，您需要 link:reference_before.html["创建 Cloud Volumes ONTAP 系统"] 或  通过 Cloud Manager 。
+
+如果您使用部署 Kubernetes 集群 https://cloud.netapp.com/kubernetes-service["NetApp Kubernetes Service"^]， Cloud Manager 可以通过您的 NetApp Cloud Central 帐户自动发现集群。如果是这种情况，请跳过前两个步骤，从第 3 步开始。
+
+
+
+=== 验证网络连接
+
+. Cloud Manager 和 Kubernetes 集群之间以及从 Kubernetes 集群到 ONTAP 系统之间必须具有网络连接。
+. 安装 Trident 时， Cloud Manager 需要出站 Internet 连接才能访问以下端点：
++
+https://packages.cloud.google.com/yum \https://github.com/NetApp/trident/releases/download/
+
++
+当您将工作环境连接到 Kubernetes 集群时， Cloud Manager 会在该集群上安装 Trident 。
+
+
+
+
+
+=== 将 Kubernetes 配置文件上传到 Cloud Manager
+
+[role="quick-margin-para"]
+对于每个 Kubernetes 集群，帐户管理员需要上传一个 YAML 格式的配置文件（ kubeconfig ）。上传文件后， Cloud Manager 会验证与集群的连接，并保存 kubeconfig 文件的加密副本。
+
+[role="quick-margin-para"]
+单击 * Kubernetes Clusters > Discover > Upload File* ，然后选择 kubeconfig 文件。
+
+[role="quick-margin-para"]
+image:screenshot_kubernetes_setup.gif["屏幕截图显示了 Kubernetes 集群选项卡和发现按钮，然后显示了您单击上传文件上传 kubeconfig 文件的屏幕。"]
+
+
+
+=== 将您的工作环境连接到 Kubernetes 集群
+
+[role="quick-margin-para"]
+在工作环境中，单击 Kubernetes 图标并按照提示进行操作。您可以将不同的集群连接到不同的 ONTAP 系统，将多个集群连接到同一个 ONTAP 系统。
+
+[role="quick-margin-para"]
+您可以选择将 NetApp 存储类设置为 Kubernetes 集群的默认存储类。默认情况下，当用户创建永久性卷时， Kubernetes 集群可以使用已连接的 ONTAP 系统作为后端存储。
+
+[role="quick-margin-para"]
+image:screenshot_kubernetes_connect.gif["屏幕截图显示了 Cloud Volumes ONTAP 工作环境中的 Kubernetes 图标以及后续页面，您可以通过此页面选择 Kubernetes 集群，然后单击 \"Connect\" 。"]
+
+
+
+=== 开始配置永久性卷
+
+[role="quick-margin-para"]
+使用原生 Kubernetes 接口和构造请求和管理永久性卷。Cloud Manager 会创建四个 Kubernetes 存储类，您可以在配置永久性卷时使用这些存储类：
+
+* * NetApp 文件 * ：用于将永久性卷绑定到单节点 ONTAP 系统
+* * netapp-file-san* ：用于将 iSCSI 永久性卷绑定到单节点 ONTAP 系统
+* * netapp-file-redundred* ：用于将永久性卷绑定到 ONTAP HA 对
+* * netapp-file-redundred-san-san ：用于将 iSCSI 永久性卷绑定到 ONTAP HA 对
+
+
+[role="quick-margin-para"]
+Cloud Manager 会将 Trident 配置为默认使用以下配置选项：
+
+* 精简卷
+* 默认 Snapshot 策略
+* 可访问的 Snapshot 目录
+
+
+[role="quick-margin-para"]
+https://netapp-trident.readthedocs.io/["了解有关使用适用于 Kubernetes 的 Trident 配置第一个卷的更多信息"^]
+
+.什么是 trident 卷？
+****
+Cloud Manager 会在连接到 Kubernetes 集群的第一个 ONTAP 系统上创建一个卷。卷的名称将附加 "_trident 或 trident 。 " ONTAP 使用此卷连接到 Kubernetes 集群。您不应删除这些卷。
+
+****
+.断开或删除 Kubernetes 集群时会发生什么情况？
+****
+使用 Cloud Manager ，您可以断开各个 ONTAP 系统与 Kubernetes 集群的连接。断开系统连接后，不能再将该 ONTAP 系统用作容器的永久性存储。不会删除现有永久性卷。
+
+从 Kubernetes 集群断开所有系统的连接后，您还可以从 Cloud Manager 中删除整个 Kubernetes 配置。删除集群时， Cloud Manager 不会卸载 Trident ，也不会删除任何永久性卷。
+
+这两种操作都只能通过 API 来执行。我们计划在未来版本中将这些操作添加到界面中。link:api.html#_kubernetes["单击此处了解有关 API 的详细信息"]。
+
+****

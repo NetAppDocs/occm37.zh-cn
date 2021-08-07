@@ -1,0 +1,415 @@
+---
+sidebar: sidebar 
+permalink: reference_new_occm.html 
+keywords: what's new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes 
+summary: Cloud Manager 通常会每月推出一个新版本，为您提供新功能，增强功能和错误修复。 
+---
+= Cloud Manager 3.7 中的新增功能和功能
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 通常会每月推出一个新版本，为您提供新功能，增强功能和错误修复。
+
+
+TIP: 正在查找先前版本？link:https://docs.netapp.com/us-en/occm36/reference_new_occm.html["3.6 中的新增功能"^]
+
+
+
+
+
+== Cloud Manager 3.7.5 更新（ 2019 年 12 月 16 日）
+
+此更新包括以下增强功能：
+
+* <<Cloud Volumes ONTAP 9.7>>
+* <<Cloud Compliance for Cloud Volumes ONTAP>>
+
+
+
+
+=== Cloud Volumes ONTAP 9.7
+
+Cloud Volumes ONTAP 9.7 现已在 AWS ， Azure 和 Google 云平台中推出。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_97.html["了解 Cloud Volumes ONTAP 9.7 中的新增功能"^]。
+
+
+
+=== 适用于 Cloud Volumes ONTAP 的云合规性
+
+云合规性是一项适用于 AWS 和 Azure 中 Cloud Volumes ONTAP 的数据隐私和合规服务。借助人工智能（ AI ）驱动的技术，云合规性可帮助企业了解数据环境并识别 Cloud Volumes ONTAP 系统中的敏感数据。
+
+Cloud Compliance 目前作为受控可用性版本提供。
+
+link:concept_cloud_compliance.html["了解有关云合规性的更多信息"]。
+
+
+
+== Cloud Manager 3.7.5 （ 2019 年 12 月 3 日）
+
+Cloud Manager 3.7.5 包括以下增强功能。
+
+* <<High write speed for Cloud Volumes ONTAP in GCP>>
+* <<On-prem ONTAP clusters as persistent storage for Kubernetes>>
+* <<Latest Trident version for Kubernetes>>
+* <<Support for Azure general-purpose v2 storage accounts>>
+* <<Prefixes in Azure storage account names using APIs>>
+
+
+
+
+=== GCP 中的 Cloud Volumes ONTAP 写入速度较快
+
+现在，您可以在 Google 云平台中对新的和现有的 Cloud Volumes ONTAP 系统启用高写入速度。如果工作负载需要快速写入性能，则高写入速度是一个不错的选择。
+
+* link:task_planning_your_config.html#choosing-a-write-speed["了解如何选择写入速度"]
+* link:task_modifying_ontap_cloud.html#changing-write-speed-to-normal-or-high["了解如何更改现有系统上的写入速度"]
+
+
+
+
+=== 将内部 ONTAP 集群作为 Kubernetes 的永久性存储
+
+现在，您可以使用 Cloud Manager 将内部 ONTAP 集群用作容器的永久性存储。与 Cloud Volumes ONTAP 类似， Cloud Manager 可自动部署 NetApp Trident ，并将 ONTAP 连接到 Kubernetes 集群。
+
+将 Kubernetes 集群添加到 Cloud Manager 后，您可以从 " 工作环境 " 页面将其连接到内部 ONTAP 集群：
+
+image:screenshot_kubernetes_connect_onprem.gif["适用于 Kubernetes 的 \" 工作环境 \" 页面，内部 ONTAP 系统和 \" 连接 \" 按钮的屏幕截图。此按钮可在您选择工作环境后使用。"]
+
+link:task_connecting_kubernetes.html["了解如何开始使用"]。
+
+
+
+=== 适用于 Kubernetes 的最新 Trident 版本
+
+现在，当您将工作环境连接到 Kubernetes 集群时， Cloud Manager 将安装最新版本的 Trident （版本 19.07.1 ）。
+
+
+
+=== 支持 Azure 通用 v2 存储帐户
+
+在 Azure 中部署新的 Cloud Volumes ONTAP 系统时， Cloud Manager 为诊断和数据分层创建的存储帐户现已成为通用 v2 存储帐户。
+
+
+
+=== 使用 API 的 Azure 存储帐户名称中的前缀
+
+现在，您可以为 Cloud Manager 为 Cloud Volumes ONTAP 创建的 Azure 存储帐户的名称添加前缀。在 Azure 中部署新 Cloud Volumes ONTAP 系统时，只需使用 _storageAccountPrefix_ 参数即可。
+
+link:api.html["有关使用 API 的详细信息，请参见 API 开发人员指南"]。
+
+
+
+== Cloud Manager 3.7.4 （ 2019 年 10 月 6 日）
+
+Cloud Manager 3.7.4 包括以下增强功能。
+
+* <<Support for Azure NetApp Files>>
+* <<Cloud Volumes ONTAP for GCP enhancements>>
+* <<Backup to S3 enhancement>>
+* <<Encryption of boot and root disks in AWS>>
+* <<Support for the AWS Bahrain region>>
+* <<Support for the Azure UAE North region>>
+
+
+
+
+=== 支持 Azure NetApp Files
+
+现在，您可以直接从 Cloud Manager 查看和创建 Azure NetApp Files 的 NFS 卷。这一增强功能延续了我们的目标，即帮助您从一个界面管理云存储。
+
+link:task_manage_anf.html["了解如何开始使用"]。
+
+此功能需要新的权限，如最新所示 https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.7.4.json["适用于 Azure 的 Cloud Manager 策略"^]。
+
+[source, json]
+----
+"Microsoft.NetApp/netAppAccounts/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete"
+----
+
+
+=== 适用于 GCP 的 Cloud Volumes ONTAP 增强功能
+
+Cloud Manager 3.7.4 为 Cloud Volumes ONTAP for Google 云平台提供了以下增强功能：
+
+GCP Marketplace 中的按需购买订阅::
++
+--
+https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager["Google 云平台市场：适用于 Cloud Volumes ONTAP 的 Cloud Manager"^]
+
+--
+共享 VPC::
++
+--
+通过共享 VPC ，您可以跨多个项目配置和集中管理虚拟网络。您可以在 _host project_ 中设置共享 VPC 网络，并在 _service project_ 中部署 Cloud Manager 和 Cloud Volumes ONTAP 虚拟机实例。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud 文档：共享 VPC 概述"^]。
+
+--
+多个 Google Cloud 项目::
++
+--
+image:screenshot_gcp_project.gif["显示 \" 工作环境 \" 向导中的项目选择选项的屏幕截图。"]
+
+有关设置 Cloud Manager 服务帐户的更多详细信息， link:task_getting_started_gcp.html#service-account["请参见此页面上的步骤 4b"]。
+
+--
+使用 Cloud Manager API 时由客户管理的加密密钥::
++
+--
+请参见 link:api.html#_creating_systems_in_gcp["API 开发人员指南"^] 有关使用 GCP 加密参数的详细信息。
+
+此功能需要新的权限，如最新所示 https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.7.4_GCP.yaml["适用于 GCP 的 Cloud Manager 策略"^]：
+
+[source, yaml]
+----
+- cloudkms.cryptoKeyVersions.useToEncrypt
+- cloudkms.cryptoKeys.get
+- cloudkms.cryptoKeys.list
+- cloudkms.keyRings.list
+----
+--
+
+
+
+
+=== 备份到 S3 增强功能
+
+现在，您可以删除现有卷的备份。以前，您只能删除已删除卷的备份。
+
+link:task_backup_to_s3.html["了解有关备份到 S3 的更多信息"]。
+
+
+
+=== AWS 中的启动和根磁盘加密
+
+使用 AWS 密钥管理服务（ KMS ）启用数据加密后， Cloud Volumes ONTAP 的启动磁盘和根磁盘也会进行加密。这包括 HA 对中调解器实例的启动磁盘。磁盘将使用您在创建工作环境时选择的 CMK 进行加密。
+
+
+NOTE: 启动和根磁盘在 Azure 和 Google Cloud Platform 中始终加密，因为默认情况下，这些云提供商会启用加密。
+
+
+
+=== 支持 AWS 巴林地区
+
+Cloud Manager 和 Cloud Volumes ONTAP 现在在 AWS 中东（巴林）地区受支持。
+
+
+
+=== 支持 Azure UAE 北部地区
+
+Azure UAE 北部地区现在支持 Cloud Manager 和 Cloud Volumes ONTAP 。
+
+https://cloud.netapp.com/cloud-volumes-global-regions["查看所有受支持的区域"^]。
+
+
+
+== Cloud Manager 3.7.3 更新（ 2019 年 9 月 15 日）
+
+现在，您可以使用 Cloud Manager 将数据从 Cloud Volumes ONTAP 备份到 Amazon S3 。
+
+
+
+=== 备份到 S3
+
+备份到 S3 是 Cloud Volumes ONTAP 的一项附加服务，可提供完全托管的备份和还原功能，以保护云数据并对其进行长期归档。备份存储在 S3 对象存储中，与用于近期恢复或克隆的卷 Snapshot 副本无关。
+
+link:task_backup_to_s3.html["了解如何开始使用"]。
+
+此功能需要更新 https://mysupport.netapp.com/cloudontap/iampolicies["Cloud Manager 策略"^]。现在需要以下 VPC 端点权限：
+
+[source, json]
+----
+"ec2:DescribeVpcEndpoints",
+"ec2:CreateVpcEndpoint",
+"ec2:ModifyVpcEndpoint",
+"ec2:DeleteVpcEndpoints"
+----
+
+
+== Cloud Manager 3.7.3 （ 2019 年 9 月 11 日）
+
+Cloud Manager 3.7.3 包括以下增强功能。
+
+* <<Discovery and management of Cloud Volumes Service for AWS>>
+* <<New subscription required in the AWS Marketplace>>
+* <<Support for AWS GovCloud (US-East)>>
+
+
+
+
+=== 发现和管理适用于 AWS 的 Cloud Volumes Service
+
+现在，您可以通过 Cloud Manager 发现中的云卷 https://cloud.netapp.com/cloud-volumes-service-for-aws["适用于 AWS 的 Cloud Volumes Service"^] 订阅。发现后，您可以直接从 Cloud Manager 添加其他云卷。此增强功能提供了一个单一管理平台，您可以从中管理 NetApp 云存储。
+
+link:task_manage_cvs_aws.html["了解如何开始使用"]。
+
+
+
+=== AWS Marketplace 需要新订阅
+
+https://aws.amazon.com/marketplace/pp/B07QX2QLXX["AWS Marketplace 中提供了新订阅"^]。要部署 Cloud Volumes ONTAP 9.6 PAYGO ，需要一次性订阅（ 30 天免费试用系统除外）。通过订阅，我们还可以为 Cloud Volumes ONTAP PAYGO 和 BYOL 提供附加功能。对于您创建的每个 Cloud Volumes ONTAP PAYGO 系统以及您启用的每个附加功能，此订阅将向您收取费用。
+
+从 9.6 版开始，此新订阅方法将取代您先前为 Cloud Volumes ONTAP PAYGO 订阅的两个现有 AWS Marketplace 订阅。您仍需要通过订阅 https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=cloud+volumes+ontap+byol["部署 Cloud Volumes ONTAP BYOL 时的现有 AWS Marketplace 页面"^]。
+
+link:reference_aws_marketplace.html["了解有关每个 AWS Marketplace 页面的更多信息"]。
+
+
+
+=== 支持 AWS GovCloud （美国东部）
+
+Cloud Manager 和 Cloud Volumes ONTAP 现在在 AWS GovCloud （美国东部）地区受支持。
+
+
+
+== Cloud Volumes ONTAP 在 GCP 中全面上市（ 2019 年 9 月 3 日）
+
+现在，当您自带许可证（ BYOL ）时， Cloud Volumes ONTAP 在 Google 云平台（ GCP ）中普遍可用。此外，还提供按需购买促销。此促销活动为无限数量的系统提供免费许可证，有效期将于 2019 年 9 月底到期。
+
+* link:task_getting_started_gcp.html["了解如何开始使用 GCP"]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_96.html["查看支持的配置"^]
+
+
+
+
+== Cloud Manager 3.7.2 （ 2019 年 8 月 5 日）
+
+* <<FlexCache licenses>>
+* <<Kubernetes storage classes for iSCSI>>
+* <<Management of inodes>>
+* <<Support for the Hong Kong region in AWS>>
+* <<Support for the Australia Central regions in Azure>>
+
+
+
+
+=== FlexCache 许可证
+
+现在， Cloud Manager 将为所有新的 Cloud Volumes ONTAP 系统生成 FlexCache 许可证。此许可证包含 500 GB 的使用量限制。
+
+要生成许可证， Cloud Manager 需要访问 \https://ipa-signer.cloudmanager.netapp.com 。确保此 URL 可从防火墙访问。
+
+
+
+=== 适用于 iSCSI 的 Kubernetes 存储类
+
+将 Cloud Volumes ONTAP 连接到 Kubernetes 集群时， Cloud Manager 现在还会创建两个 Kubernetes 存储类，可用于 iSCSI 永久性卷：
+
+* * netapp-file-san* ：用于将 iSCSI 永久性卷绑定到单节点 Cloud Volumes ONTAP 系统
+* * netapp-file-redundred-san-san ：用于将 iSCSI 永久性卷绑定到 Cloud Volumes ONTAP HA 对
+
+
+
+
+=== 管理索引节点
+
+Cloud Manager 现在可监控卷上的索引节点使用情况。使用 85% 的索引节点时， Cloud Manager 会增加卷的大小以增加可用索引节点的数量。卷可以包含的文件数取决于其包含的索引节点数。
+
+
+NOTE: 只有在容量管理模式设置为自动（这是默认设置）时， Cloud Manager 才会监控索引节点使用量。
+
+
+
+=== 在 AWS 中为香港地区提供支持
+
+Cloud Manager 和 Cloud Volumes ONTAP 现在在 AWS 的亚太地区（香港）地区受支持。
+
+
+
+=== 支持 Azure 中的澳大利亚中部地区
+
+Cloud Manager 和 Cloud Volumes ONTAP 现在在以下 Azure 地区受支持：
+
+* 澳大利亚中部
+* 澳大利亚中部 2.
+
+
+https://cloud.netapp.com/cloud-volumes-global-regions["请参见支持的区域的完整列表"^]。
+
+
+
+== 关于备份和还原的更新（ 2019 年 7 月 15 日）
+
+从 3.7.1 版开始， Cloud Manager 不再支持下载备份并使用其还原 Cloud Manager 配置。 link:task_restoring.html["您需要按照以下步骤还原 Cloud Manager"]。
+
+
+
+== Cloud Manager 3.7.1 （ 2019 年 7 月 1 日）
+
+* 此版本主要包含错误修复。
+* 其中包括一项增强功能： Cloud Manager 现在可在向 NetApp 支持部门注册的每个 Cloud Volumes ONTAP 系统（新系统和现有系统）上安装 NetApp 卷加密（ NVE ）许可证。
++
+** link:task_adding_nss_accounts.html["将 NetApp 支持站点帐户添加到 Cloud Manager"]
+** link:task_registering.html["注册按需购买的系统"]
+** link:task_encrypting_volumes.html["设置 NetApp 卷加密"]
++
+
+NOTE: Cloud Manager 不会在位于中国地区的系统上安装 NVE 许可证。
+
+
+
+
+
+
+
+== Cloud Manager 3.7 更新（ 2019 年 6 月 16 日）
+
+Cloud Volumes ONTAP 9.6 现已作为私有预览版在 AWS ， Azure 和 Google 云平台中提供。要加入私有预览，请向 ng-Cloud-Volume-ONTAP-preview@netapp.com 发送请求。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_96.html["了解 Cloud Volumes ONTAP 9.6 中的新增功能"^]
+
+
+
+== Cloud Manager 3.7 （ 2019 年 6 月 5 日）
+
+* <<Support for upcoming Cloud Volumes ONTAP 9.6 release>>
+* <<NetApp Cloud Central accounts>>
+* <<Backup and restore with the Cloud Backup Service>>
+
+
+
+
+=== 支持即将发布的 Cloud Volumes ONTAP 9.6 版
+
+Cloud Manager 3.7 支持即将发布的 Cloud Volumes ONTAP 9.6 版。9.6 版在 Google 云平台中提供了 Cloud Volumes ONTAP 的私有预览。9.6 发布后，我们将更新发行说明。
+
+
+
+=== NetApp Cloud Central 帐户
+
+我们增强了您管理云资源的方式。每个 Cloud Manager 系统都将与一个 _NetApp Cloud Central 帐户关联。该帐户支持多租户，并计划在未来用于其他 NetApp 云数据服务。
+
+在 Cloud Manager 中， Cloud Central 帐户是 Cloud Manager 系统以及用户部署 Cloud Volumes ONTAP 的 _workspace _ 的容器。
+
+link:concept_cloud_central_accounts.html["了解 Cloud Central 帐户如何支持多租户"]。
+
+
+NOTE: Cloud Manager 需要访问 ｛ \https://cloudmanager.cloud.netapp.com_ ｝ 才能连接到 Cloud Central 帐户服务。在防火墙上打开此 URL ，以确保 Cloud Manager 可以联系此服务。
+
+
+
+==== 将您的系统与 Cloud Central 帐户集成
+
+升级到 Cloud Manager 3.7 后， NetApp 会选择特定的 Cloud Manager 系统与 Cloud Central 帐户集成。在此过程中， NetApp 会创建一个帐户，为每个用户分配新角色，创建工作空间并将现有工作环境放置在这些工作空间中。Cloud Volumes ONTAP 系统不会发生中断。
+
+link:concept_cloud_central_accounts.html#faq["如果您有任何疑问、请参阅此常见问题解答。"]。
+
+
+
+=== 使用 Cloud Backup Service 进行备份和还原
+
+NetApp Cloud Backup Service for Cloud Volumes ONTAP 可提供完全托管的备份和还原功能，用于保护和长期归档云数据。您可以将 Cloud Backup Service 与适用于 AWS 的 Cloud Volumes ONTAP 集成。服务创建的备份存储在 AWS S3 对象存储中。
+
+https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup Service 的更多信息"^]。
+
+要开始使用，请安装并配置备份代理，然后启动备份和还原操作。如果您需要帮助，我们建议您使用 Cloud Manager 中的聊天图标与我们联系。
+
+
+NOTE: 不再支持此手动过程。在 3.7.3 版中， Cloud Manager 集成了备份到 S3 功能。

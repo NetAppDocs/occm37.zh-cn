@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: task_encrypting_volumes.html 
+keywords: encrypt, encryption, data, volumes, netapp volume encryption, volume encryption, nve, key managers, kmip, key management servers, license, ssl certificates 
+summary: NetApp 卷加密是一种基于软件的技术，用于一次对一个卷上的空闲数据进行加密。数据， Snapshot 副本和元数据已加密。数据访问由一个唯一的 XTS-AES-256 密钥提供，每个卷一个。 
+---
+= 使用 NetApp 卷加密对卷进行加密
+:toc: macro
+:hardbreaks:
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NetApp 卷加密（ NVE ）是一种基于软件的技术，用于一次对一个卷上的空闲数据进行加密。数据， Snapshot 副本和元数据已加密。数据访问由一个唯一的 XTS-AES-256 密钥提供，每个卷一个。
+
+.关于此任务
+* 从 Cloud Manager 3.7.1 开始，向 NetApp 支持部门注册的每个 Cloud Volumes ONTAP 系统都会自动安装 NetApp 卷加密许可证。
++
+** link:task_adding_nss_accounts.html["将 NetApp 支持站点帐户添加到 Cloud Manager"]
+** link:task_registering.html["注册按需购买的系统"]
++
+
+NOTE: Cloud Manager 不会在位于中国地区的系统上安装 NVE 许可证。
+
+
+
+* 目前， Cloud Volumes ONTAP 通过外部密钥管理服务器支持 NetApp 卷加密。不支持板载密钥管理器。
+* 您需要从 ONTAP 命令行界面设置 NetApp 卷加密。
++
+然后，您可以使用命令行界面或 System Manager 对特定卷启用加密。Cloud Manager 不支持从其用户界面及其 API 进行 NetApp 卷加密。
+
+
+
+link:concept_security.html["了解有关支持的加密技术的更多信息"]。
+
+.步骤
+. 查看中支持的密钥管理器列表 http://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]。
++
+
+TIP: 搜索 * 密钥管理器 * 解决方案。
+
+. link:task_connecting_to_otc.html["连接到 Cloud Volumes ONTAP 命令行界面"^]。
+. 安装 SSL 证书并连接到外部密钥管理服务器。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-DD718B42-038D-4009-84FF-20BBD6530BC2.html["ONTAP 9 NetApp 加密高级指南：配置外部密钥管理"^]
+
+. 使用命令行界面或 System Manager 创建新的加密卷或转换现有的未加密卷。
++
+** 命令行界面
++
+*** 对于新卷，请使用带有 -encrypt 参数的 * volume cre* 命令。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-A5D3FDEF-CA10-4A54-9E17-DB9E9954082E.html["ONTAP 9 NetApp 加密高级指南：在新卷上启用加密"^]
+
+*** 对于现有卷，请使用 * volume encryption conversion start* 命令。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1468CE48-A0D9-4D45-BF78-A11C26724051.html["ONTAP 9 NetApp 加密高级指南：使用 volume encryption conversion start 命令在现有卷上启用加密"^]
+
+
+
+** System Manager
++
+*** 对于新卷，请单击 * 存储 > 卷 > 创建 > 创建 FlexVol * ，然后选择 * 已加密 * 。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-3FA865E2-AE14-40A9-BF76-A2D7EB44D387.html["使用 System Manager 进行 ONTAP 9 集群管理：创建 FlexVol 卷"^]
+
+*** 对于现有卷，请选择卷，单击 * 编辑 * ，然后选择 * 加密 * 。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-906E88E4-8CE9-465F-8AC7-0C089080B2C5.html["使用 System Manager 进行 ONTAP 9 集群管理：编辑卷属性"^]
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: task_manage_cvs_aws.html 
+keywords: cloud volumes service for aws, cloud volumes, create cloud volumes, discover cloud volumes service for aws, delete cloud volumes, cloud volumes service subscription, discover cloud volumes service subscription, access key, secret key, discover region, service level, allowed clients 
+summary: 您可以通过 Cloud Manager 发现 Cloud Volumes Service for AWS 订阅中的 NFS 云卷。发现后，您可以直接从 Cloud Manager 添加其他 NFS 云卷。 
+---
+= 管理适用于 AWS 的 Cloud Volumes Service
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过 Cloud Manager 发现中的 NFS 云卷 https://cloud.netapp.com/cloud-volumes-service-for-aws["适用于 AWS 的 Cloud Volumes Service"^] 订阅。发现后，您可以直接从 Cloud Manager 添加其他 NFS 云卷。
+
+
+NOTE: Cloud Manager 不支持使用 Cloud Volumes Service for AWS 的 SMB 或双协议卷。
+
+
+
+== 开始之前
+
+* 通过 Cloud Manager ，可以发现 _existent_ Cloud Volumes Service for AWS 订阅。请参见 https://docs.netapp.com/us-en/cloud_volumes/aws/media/cvs_aws_account_setup.pdf["《 NetApp Cloud Volumes Service for AWS 帐户设置指南》"^] 如果您尚未设置订阅。
++
+您必须先对每个区域执行此设置过程，并从 Cloud Volumes Service 配置第一个卷，然后才能在 Cloud Manager 中发现该区域。
+
+* 您需要获取 Cloud Volumes API 密钥和机密密钥，才能将其提供给 Cloud Manager 。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["有关说明，请参见 Cloud Volumes Service for AWS 文档"^]。
+
+
+
+
+== 发现 Cloud Volumes Service for AWS 订阅
+
+要开始使用，您需要发现 AWS 区域中的云卷。您可以稍后发现其他区域。
+
+.步骤
+. 在工作环境页面上，单击 * 发现 * 。
+. 选择 * 适用于 AWS* 的 Cloud Volumes Service 。
++
+image:screenshot_discover.gif["显示 Cloud Manager 中的 \" 发现 \" 页面的屏幕截图，您可以通过此页面发现 Cloud Volumes Service 集群， Cloud Volumes ONTAP 系统或 ONTAP for AWS 订阅中的云卷。"]
+
+. 提供有关 Cloud Volumes Service 订阅的信息：
++
+.. 选择云卷所在的 AWS 区域。
+.. 输入 Cloud Volumes API 密钥和机密密钥。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["有关说明，请参见 Cloud Volumes Service for AWS 文档"^]。
+.. 单击 * 执行 * 。
++
+image:screenshot_cvs_aws_details.gif["Cloud Volumes Service 详细信息页面的屏幕截图，可用于发现您的配置。它包含三个字段： AWS 区域，访问密钥和机密密钥。"]
+
+
+
+
+
+Cloud Manager 现在应在 " 工作环境 " 页面上显示您的 Cloud Volumes Service for AWS 配置。
+
+image:screenshot_cvs_aws_cloud.gif["Cloud Volumes Service for AWS 在 \" 工作环境 \" 页面上的屏幕截图。"]
+
+
+
+== 发现其他区域
+
+如果您在其他区域有云卷，则需要发现每个区域。
+
+.步骤
+. 在 " 工作环境 " 页面上，选择工作环境（但不要双击打开它）。
+. 在右侧窗格中，单击 * 发现其他区域的 Cloud Volumes Service * 。
++
+image:screenshot_cvs_discover_region.gif["显示 \"Discover Cloud Volumes Service in Another Region \" 选项的屏幕截图。选择工作环境后，此窗格将打开。"]
+
+. 提供有关 Cloud Volumes Service 订阅的信息：
++
+.. 选择云卷所在的 AWS 区域。
+.. 输入 Cloud Volumes API 密钥和机密密钥。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["有关说明，请参见 Cloud Volumes Service for AWS 文档"^]。
+.. 单击 * 执行 * 。
+
+
+
+
+Cloud Manager 可发现有关选定区域中的云卷的信息。
+
+
+
+== 创建云卷
+
+您可以使用 Cloud Manager 创建 NFSv3 云卷。您只能创建具有初始大小和单个导出策略的云卷。必须从 Cloud Volume Service 用户界面编辑卷。
+
+. 打开工作环境。
+. 单击 * 添加新卷 * 。
+. 输入有关卷的详细信息：
++
+.. 输入卷的名称。
+.. 指定一个介于 100 GiB 到 90 ， 000 GiB 范围内的大小（相当于 88 TiB ）。
++
+
+NOTE: Cloud Manager 以 GiB 显示卷，而 Cloud Volumes Service 以 GB 显示卷。
+
+.. 指定服务级别：标准，高级或极速。
++
+https://docs.netapp.com/us-en/cloud_volumes/aws/reference_selecting_service_level_and_quota.html#service-levels["详细了解这些服务级别"^]。
+
+.. 选择一个区域。您可以在 Cloud Manager 发现的区域中创建卷。
+.. 通过指定 IP 地址或无类别域间路由（ CIDR ）来限制客户端访问。
++
+image:screenshot_cvs_aws_add_volume.gif["Cloud Volumes Service for AWS 的添加新卷屏幕的屏幕截图。"]
+
+
+
+. 单击 * 执行 * 。
+
+
+
+
+== 正在删除云卷
+
+删除不再需要的云卷。
+
+.步骤
+. 打开工作环境。
+. 将鼠标悬停在卷上，然后单击菜单。单击 * 删除 * 。
++
+image:screenshot_cvs_aws_menu.gif["屏幕截图显示了一个卷，右上角提供的菜单以及两个选项：信息和删除。"]
+
+. 确认要删除此卷。
+
+
+
+
+== 获取帮助
+
+有关一般服务问题，请使用 Cloud Manager 聊天工具。
+
+对于与云卷相关的技术支持问题，请使用 Cloud Volumes Service 用户界面的 " 支持 " 选项卡中的 20 位 "930" 序列号。打开 Web 服务单或致电支持部门时，请使用此支持 ID 。请务必从 Cloud Volumes Service 用户界面激活 Cloud Volumes Service 序列号以获得支持。 https://docs.netapp.com/us-en/cloud_volumes/aws/task_activating_support_entitlement.html["此处将介绍这些步骤"^]。
+
+
+
+== 限制
+
+* Cloud Manager 不支持 SMB 或双协议卷。
+* 您只能创建具有初始大小和单个导出策略的云卷。必须从 Cloud Volume Service 用户界面编辑卷。
+* Cloud Manager 不支持与 Cloud Volumes Service for AWS 订阅之间的数据复制。
+* 不支持从 Cloud Manager 中删除 Cloud Volumes Service for AWS 订阅。从 Cloud Manager 发现某个区域不收取任何费用。
+
+
+
+
+== 相关链接
+
+* https://cloud.netapp.com/cloud-volumes-service-for-aws["NetApp Cloud Central ：适用于 AWS 的 Cloud Volumes Service"^]
+* https://docs.netapp.com/us-en/cloud_volumes/aws/["NetApp Cloud Volumes Service for AWS 文档"^]
+

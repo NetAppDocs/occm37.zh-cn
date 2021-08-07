@@ -1,0 +1,339 @@
+---
+sidebar: sidebar 
+permalink: reference_firewall_rules_gcp.html 
+keywords: firewall rules, gcp, ports, google, tcp, udp, snapmirror 
+summary: Cloud Manager 可创建包含 Cloud Manager 和 Cloud Volumes ONTAP 成功运行所需的入站和出站规则的 GCP 防火墙规则。您可能希望参考这些端口进行测试或使用自己的安全组。 
+translate: false 
+---
+= GCP 的防火墙规则
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 可创建包含 Cloud Manager 和 Cloud Volumes ONTAP 成功运行所需的入站和出站规则的 GCP 防火墙规则。您可能希望参考这些端口进行测试或使用自己的安全组。
+
+
+
+== 云管理器规则
+
+Cloud Manager 的防火墙规则需要入站和出站规则。
+
+
+
+=== 云管理器的入站规则
+
+预定义的防火墙规则中的入站规则源为 0.0.0.0/0 。
+
+[cols="10,10,80"]
+|===
+| 协议 | Port | 目的 
+
+
+| SSH | 22. | 提供对云管理器主机的 SSH 访问 
+
+
+| HTTP | 80 | 提供从客户端 Web 浏览器到云管理器 Web 控制台的 HTTP 访问 
+
+
+| HTTPS | 443. | 提供从客户端 Web 浏览器到云管理器 Web 控制台的 HTTPS 访问 
+|===
+
+
+=== 云管理器的出站规则
+
+为 Cloud Manager 预定义的防火墙规则将打开所有出站流量。如果可以接受，请遵循基本出站规则。如果您需要更严格的规则、请使用高级出站规则。
+
+
+
+==== 基本外向规则
+
+Cloud Manager 的预定义防火墙规则包括以下出站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | Port | 目的 
+
+
+| 所有 TCP | 全部 | 所有出站流量 
+
+
+| 所有 UDP | 全部 | 所有出站流量 
+|===
+
+
+==== 高级出站规则
+
+如果您需要严格的出站流量规则、则可以使用以下信息仅打开 Cloud Manager 出站通信所需的端口。
+
+
+NOTE: 源 IP 地址是 Cloud Manager 主机。
+
+[cols="5*"]
+|===
+| 服务 | 协议 | Port | 目标 | 目的 
+
+
+.9+| Active Directory | TCP | 88 | Active Directory 目录林 | Kerberos V 身份验证 
+
+
+| TCP | 139. | Active Directory 目录林 | NetBIOS 服务会话 
+
+
+| TCP | 389. | Active Directory 目录林 | LDAP 
+
+
+| TCP | 445 | Active Directory 目录林 | Microsoft SMB/CIFS over TCP （通过 TCP ）和 NetBIOS 成帧 
+
+
+| TCP | 464. | Active Directory 目录林 | Kerberos V 更改和设置密码（ set_change ） 
+
+
+| TCP | 749 | Active Directory 目录林 | Active Directory Kerberos V 更改和设置密码（ RPCSEC_GSS ） 
+
+
+| UDP | 137. | Active Directory 目录林 | NetBIOS 名称服务 
+
+
+| UDP | 138. | Active Directory 目录林 | NetBIOS 数据报服务 
+
+
+| UDP | 464. | Active Directory 目录林 | Kerberos 密钥管理 
+
+
+| API 调用和 AutoSupport | HTTPS | 443. | 出站 Internet 和 ONTAP 集群管理 LIF | API 调用 GCP 和 ONTAP 、并将 AutoSupport 消息发送到 NetApp 
+
+
+| API 调用 | TCP | 3000 | ONTAP 集群管理 LIF | API 调用 ONTAP 
+
+
+| DNS | UDP | 53. | DNS | 用于云管理器进行 DNS 解析 
+|===
+
+
+== Cloud Volumes ONTAP 的规则
+
+Cloud Volumes ONTAP 的安全组需要入站和出站规则。
+
+
+
+=== Cloud Volumes ONTAP 的入站规则
+
+预定义安全组中入站规则的源代码为 0.0.0.0/0 。
+
+[cols="10,10,80"]
+|===
+| 协议 | Port | 目的 
+
+
+| 所有 ICMP | 全部 | Ping 实例 
+
+
+| HTTP | 80 | 使用集群管理 LIF 的 IP 地址对系统管理器 Web 控制台进行 HTTP 访问 
+
+
+| HTTPS | 443. | 使用集群管理 LIF 的 IP 地址对 System Manager Web 控制台进行 HTTPS 访问 
+
+
+| SSH | 22. | SSH 访问集群管理 LIF 或节点管理 LIF 的 IP 地址 
+
+
+| TCP | 111. | 远程过程调用 NFS 
+
+
+| TCP | 139. | 用于 CIFS 的 NetBIOS 服务会话 
+
+
+| TCP | 161-162. | 简单网络管理协议 
+
+
+| TCP | 445 | Microsoft SMB/CIFS over TCP （通过 TCP ）和 NetBIOS 成帧 
+
+
+| TCP | 635 | NFS 挂载 
+
+
+| TCP | 749 | Kerberos 
+
+
+| TCP | 2049. | NFS 服务器守护进程 
+
+
+| TCP | 3260 | 通过 iSCSI 数据 LIF 进行 iSCSI 访问 
+
+
+| TCP | 4045 | NFS 锁定守护进程 
+
+
+| TCP | 4046 | NFS 的网络状态监视器 
+
+
+| TCP | 10000 | 使用 NDMP 备份 
+
+
+| TCP | 11104. | 管理 SnapMirror 的集群间通信会话 
+
+
+| TCP | 11105. | 使用集群间 LIF 进行 SnapMirror 数据传输 
+
+
+| UDP | 111. | 远程过程调用 NFS 
+
+
+| UDP | 161-162. | 简单网络管理协议 
+
+
+| UDP | 635 | NFS 挂载 
+
+
+| UDP | 2049. | NFS 服务器守护进程 
+
+
+| UDP | 4045 | NFS 锁定守护进程 
+
+
+| UDP | 4046 | NFS 的网络状态监视器 
+
+
+| UDP | 4049. | NFS Rquotad 协议 
+|===
+
+
+=== Cloud Volumes ONTAP 的出站规则
+
+为 Cloud Volumes ONTAP 预定义的安全组将打开所有出站流量。如果可以接受，请遵循基本出站规则。如果您需要更严格的规则、请使用高级出站规则。
+
+
+
+==== 基本外向规则
+
+为 Cloud Volumes ONTAP 预定义的安全组包括以下出站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | Port | 目的 
+
+
+| 所有 ICMP | 全部 | 所有出站流量 
+
+
+| 所有 TCP | 全部 | 所有出站流量 
+
+
+| 所有 UDP | 全部 | 所有出站流量 
+|===
+
+
+==== 高级出站规则
+
+如果您需要严格的出站流量规则、则可以使用以下信息仅打开 Cloud Volumes ONTAP 出站通信所需的端口。
+
+
+NOTE: 源是 Cloud Volumes ONTAP 系统上的接口（ IP 地址）。
+
+[cols="10,10,10,20,20,40"]
+|===
+| 服务 | 协议 | Port | 源 | 目标 | 目的 
+
+
+.18+| Active Directory | TCP | 88 | 节点管理 LIF | Active Directory 目录林 | Kerberos V 身份验证 
+
+
+| UDP | 137. | 节点管理 LIF | Active Directory 目录林 | NetBIOS 名称服务 
+
+
+| UDP | 138. | 节点管理 LIF | Active Directory 目录林 | NetBIOS 数据报服务 
+
+
+| TCP | 139. | 节点管理 LIF | Active Directory 目录林 | NetBIOS 服务会话 
+
+
+| TCP | 389. | 节点管理 LIF | Active Directory 目录林 | LDAP 
+
+
+| TCP | 445 | 节点管理 LIF | Active Directory 目录林 | Microsoft SMB/CIFS over TCP （通过 TCP ）和 NetBIOS 成帧 
+
+
+| TCP | 464. | 节点管理 LIF | Active Directory 目录林 | Kerberos V 更改和设置密码（ set_change ） 
+
+
+| UDP | 464. | 节点管理 LIF | Active Directory 目录林 | Kerberos 密钥管理 
+
+
+| TCP | 749 | 节点管理 LIF | Active Directory 目录林 | Kerberos V 更改和设置密码（ RPCSEC_GSS ） 
+
+
+| TCP | 88 | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | Kerberos V 身份验证 
+
+
+| UDP | 137. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | NetBIOS 名称服务 
+
+
+| UDP | 138. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | NetBIOS 数据报服务 
+
+
+| TCP | 139. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | NetBIOS 服务会话 
+
+
+| TCP | 389. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | LDAP 
+
+
+| TCP | 445 | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | Microsoft SMB/CIFS over TCP （通过 TCP ）和 NetBIOS 成帧 
+
+
+| TCP | 464. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | Kerberos V 更改和设置密码（ set_change ） 
+
+
+| UDP | 464. | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | Kerberos 密钥管理 
+
+
+| TCP | 749 | 数据 LIF （ NFS 、 CIFS ） | Active Directory 目录林 | Kerberos V 更改和设置密码（ RPCSEC_GSS ） 
+
+
+.3+| 集群 | 所有流量 | 所有流量 | 一个节点上的所有 LIF | 其它节点上的所有 LIF | 集群间通信（仅限 Cloud Volumes ONTAP HA ） 
+
+
+| TCP | 3000 | 节点管理 LIF | HA 调解器 | ZAPI 调用（仅适用于 Cloud Volumes ONTAP HA ） 
+
+
+| ICMP | 1. | 节点管理 LIF | HA 调解器 | 保持活动状态（仅限 Cloud Volumes ONTAP HA ） 
+
+
+| DHCP | UDP | 68 | 节点管理 LIF | DHCP | 首次设置 DHCP 客户端 
+
+
+| DHCP | UDP | 67 | 节点管理 LIF | DHCP | DHCP 服务器 
+
+
+| DNS | UDP | 53. | 节点管理 LIF 和数据 LIF （ NFS 、 CIFS ） | DNS | DNS 
+
+
+| NDMP | TCP | 18600 – 18699 | 节点管理 LIF | 目标服务器 | NDMP 副本 
+
+
+| SMTP | TCP | 25. | 节点管理 LIF | 邮件服务器 | SMTP 警报、可用于 AutoSupport 
+
+
+.4+| SNMP | TCP | 161. | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| UDP | 161. | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| TCP | 162. | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| UDP | 162. | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+.2+| SnapMirror | TCP | 11104. | 集群间 LIF | ONTAP 集群间 LIF | 管理 SnapMirror 的集群间通信会话 
+
+
+| TCP | 11105. | 集群间 LIF | ONTAP 集群间 LIF | SnapMirror 数据传输 
+
+
+| 系统日志 | UDP | 514. | 节点管理 LIF | 系统日志服务器 | 系统日志转发消息 
+|===

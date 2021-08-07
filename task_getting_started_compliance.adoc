@@ -1,0 +1,218 @@
+---
+sidebar: sidebar 
+permalink: task_getting_started_compliance.html 
+keywords: cloud compliance, get started, enable cloud compliance, cifs credentials, smb credentials, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance 
+summary: 完成几个步骤，开始在 AWS 或 Azure 中的 Cloud Volumes ONTAP 系统上使用 Cloud Compliance 。 
+---
+= Cloud Volumes ONTAP 云合规性入门
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+完成几个步骤，开始在 AWS 或 Azure 中使用适用于 Cloud Volumes ONTAP 的云合规性。
+
+
+
+== 快速入门
+
+按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
+
+
+
+==== 验证您的配置是否符合要求
+
+* 确保 Cloud Compliance 实例可以访问出站 Internet 。
++
+Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系统相同的 VPC 或 vNet 中。
+
+* 确保用户可以从直接连接到 AWS 或 Azure 的主机访问 Cloud Manager 界面，也可以从与 Cloud Compliance 实例位于同一网络中的主机（此实例将具有专用 IP 地址）访问 Cloud Manager 界面。
+* 确保您可以使 Cloud Compliance 实例保持运行。
+
+
+
+
+==== 在 Cloud Volumes ONTAP 上启用云合规性
+
+* 新工作环境：在创建工作环境时，请确保始终启用 Cloud Compliance （默认情况下处于启用状态）。
+* 现有工作环境：单击 * 合规性 * ，也可以编辑工作环境列表，然后单击 * 显示合规性信息板 * 。
+
+
+
+
+==== 确保能够访问卷
+
+[role="quick-margin-para"]
+现在已启用 Cloud Compliance ，请确保它可以访问卷。
+
+* 云合规性实例需要与每个 Cloud Volumes ONTAP 子网建立网络连接。
+* Cloud Volumes ONTAP 的安全组必须允许来自云合规性实例的入站连接。
+* NFS 卷导出策略必须允许从 Cloud Compliance 实例进行访问。
+* Cloud Compliance 需要 Active Directory 凭据才能扫描 CIFS 卷。
++
+单击 * 合规性 * > * CIFS 扫描状态 * > * 编辑 CIFS 凭据 * 并提供凭据。凭据可以是只读的，但提供管理员凭据可确保 Cloud Compliance 可以读取需要提升权限的数据。
+
+
+
+
+
+==== 确保 Cloud Manager 与 Cloud Compliance 之间的连接
+
+* Cloud Manager 的安全组必须允许通过端口 80 与 Cloud Compliance 实例之间的入站和出站流量。
+* 如果您的 AWS 网络不使用 NAT 或代理访问 Internet ，则 Cloud Manager 的安全组必须允许通过 TCP 端口 3128 从 Cloud Compliance 实例传输入站流量。
+
+
+
+
+== 查看前提条件
+
+在启用 Cloud Compliance 之前，请查看以下前提条件以确保您的配置受支持。启用 Cloud Compliance 后，您需要确保组件之间的连接。下面将介绍这些内容。
+
+启用出站 Internet 访问::
++
+--
+[cols="43,57"]
+|===
+| 端点 | 目的 
+
+
+| https://cloudmanager.cloud.netapp.com | 与 Cloud Manager 服务进行通信，其中包括 Cloud Central 帐户。 
+
+
+| https://netapp-cloud-account.auth0.com | 与 NetApp Cloud Central 进行通信以实现集中式用户身份验证。 
+
+
+| https://cloud-compliance-support-netapp.s3.us-west-1.amazonaws.com \https://hub.docker.com | 提供对软件映像、清单和模板的访问。 
+
+
+| https://kinesis.us-east-1.amazonaws.com | 使 NetApp 能够从审计记录流化数据。 
+
+
+| https://cognito-idp.us-east-1.amazonaws.com \https://cognito-identity.us-east-1.amazonaws.com | 支持 Cloud Compliance 访问和下载清单和模板，以及发送日志和指标。 
+|===
+--
+验证 Web 浏览器与 Cloud Compliance 的连接::
++
+--
+
+TIP: 如果您要从公有 IP 地址访问 Cloud Manager ，则您的 Web 浏览器可能未在网络中的主机上运行。
+
+--
+保持云合规性正常运行:: 云合规性实例需要保持运行状态，才能持续扫描数据。
+
+
+
+
+== 在新的工作环境中实现云合规性
+
+默认情况下，工作环境向导会启用 Cloud Compliance 。请务必保持此选项处于启用状态。
+
+.步骤
+. 单击 * 创建 Cloud Volumes ONTAP * 。
+. 选择 Amazon Web Services 或 Microsoft Azure 作为云提供商，然后选择单个节点或 HA 系统。
+. 填写详细信息和凭据页面。
+. 在服务页面上，保持 Cloud Compliance 处于启用状态，然后单击 * 继续 * 。
++
+image:screenshot_cloud_compliance.gif["显示工作环境向导中的服务页面的屏幕截图。"]
+
+. 完成向导中的页面以部署系统。
++
+有关帮助，请参见 link:task_deploying_otc_aws.html["在 AWS 中启动 Cloud Volumes ONTAP"] 和 。
+
+
+
+已在 Cloud Volumes ONTAP 系统上启用云合规性。如果这是您首次启用 Cloud Compliance ， Cloud Manager 会在您的云提供商中部署 Cloud Compliance 实例。一旦实例可用，它就会在将数据写入您创建的每个卷时开始扫描数据。
+
+
+
+== 在现有工作环境中实现云合规性
+
+从 Cloud Manager 的 * 合规性 * 选项卡在现有 Cloud Volumes ONTAP 系统上启用云合规性。
+
+另一个选项是，通过分别选择每个工作环境，从 * 工作环境 * 选项卡中启用 Cloud Compliance 。除非您只有一个系统，否则完成此操作需要较长时间。
+
+.适用于多个工作环境的步骤
+. 在 Cloud Manager 顶部，单击 * 合规性 * 。
+. 如果要在特定工作环境中启用 Cloud Compliance ，请单击编辑图标。
++
+否则， Cloud Manager 将设置为在您有权访问的所有工作环境中启用 Cloud Compliance 。
+
++
+image:screenshot_show_compliance_dashboard.gif["合规性选项卡的屏幕截图，显示了选择要扫描的工作环境时要单击的图标。"]
+
+. 单击 * 显示合规性信息板 * 。
+
+
+.适用于单个工作环境的步骤
+. 在 Cloud Manager 顶部，单击 * 工作环境 * 。
+. 选择工作环境。
+. 在右侧窗格中，单击 * 启用合规性 * 。
++
+image:screenshot_enable_compliance.gif["一个屏幕截图，其中显示了启用合规性图标，在您选择工作环境后，该图标将显示在工作环境选项卡中。"]
+
+
+
+如果这是您首次启用 Cloud Compliance ， Cloud Manager 会在您的云提供商中部署 Cloud Compliance 实例。
+
+Cloud Compliance 开始扫描每个工作环境中的数据。一旦 Cloud Compliance 完成初始扫描，合规性信息板中就会显示数据。所需时间取决于数据量—可能需要几分钟或几小时。
+
+
+
+== 验证 Cloud Compliance 是否有权访问卷
+
+通过检查网络，安全组和导出策略，确保云合规性可以访问 Cloud Volumes ONTAP 上的卷。您需要为 Cloud Compliance 提供 CIFS 凭据，以便它可以访问 CIFS 卷。
+
+.步骤
+. 确保云合规性实例与每个 Cloud Volumes ONTAP 子网之间存在网络连接。
++
+Cloud Manager 将云合规性实例部署在与请求中的第一个 Cloud Volumes ONTAP 系统相同的 VPC 或 vNet 中。因此，如果某些 Cloud Volumes ONTAP 系统位于不同的子网或虚拟网络中，则此步骤非常重要。
+
+. 确保 Cloud Volumes ONTAP 的安全组允许来自云合规性实例的入站流量。
++
+您可以从 Cloud Compliance 实例的 IP 地址打开流量安全组，也可以从虚拟网络内部打开所有流量的安全组。
+
+. 确保 NFS 卷导出策略包含 Cloud Compliance 实例的 IP 地址，以便它可以访问每个卷上的数据。
+. 如果您使用 CIFS ，请为 Cloud Compliance 提供 Active Directory 凭据，以便它可以扫描 CIFS 卷。
++
+.. 在 Cloud Manager 顶部，单击 * 合规性 * 。
+.. 在右上角，单击 * CIFS 扫描状态 * 。
++
+image:screenshot_cifs_credentials.gif["合规性选项卡的屏幕截图，其中显示了内容窗格右上角的 CIFS 扫描状态按钮。"]
+
+.. 对于每个 Cloud Volumes ONTAP 系统，单击 * 编辑 CIFS 凭据 * ，然后输入 Cloud Compliance 访问系统上的 CIFS 卷所需的用户名和密码。
++
+凭据可以是只读的，但提供管理员凭据可确保 Cloud Compliance 可以读取任何需要提升权限的数据。这些凭据存储在 Cloud Compliance 实例上。
+
++
+输入凭据后，您应看到一条消息，指出所有 CIFS 卷均已成功通过身份验证。
+
++
+image:screenshot_cifs_status.gif["屏幕截图显示了 CIFS 扫描状态页面以及已成功提供 CIFS 凭据的一个 Cloud Volumes ONTAP 系统。"]
+
+
+
+
+
+
+
+== 验证 Cloud Manager 是否可以访问 Cloud Compliance
+
+确保 Cloud Manager 与 Cloud Compliance 之间的连接，以便您可以查看 Cloud Compliance 发现的合规性洞察。
+
+.步骤
+. 请确保 Cloud Manager 的安全组允许通过端口 80 传入和传出云合规性实例的流量。
++
+通过此连接，您可以在合规性选项卡中查看信息。
+
+. 如果 AWS 网络不使用 NAT 或代理访问 Internet ，请修改 Cloud Manager 的安全组，以允许通过 TCP 端口 3128 从 Cloud Compliance 实例传输入站流量。
++
+这是必需的，因为 Cloud Compliance 实例使用 Cloud Manager 作为代理访问 Internet 。
+
++
+
+NOTE: 默认情况下，此端口在所有新的 Cloud Manager 实例上处于打开状态，从 3.1.5 版开始。它不会在该版本之前创建的 Cloud Manager 实例上打开。
+
+

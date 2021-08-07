@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: concept_cloud_central.html 
+keywords: netapp cloud central, cloud central, cloud data services, data services, user authentication, authentication, video 
+summary: NetApp Cloud Central 为访问和管理 NetApp 云数据服务提供了一个集中位置。 
+---
+= NetApp Cloud Central
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+https://cloud.netapp.com["NetApp Cloud Central"^] 提供一个中央位置，用于访问和管理 NetApp 云数据服务。这些服务使您能够在云中运行关键应用程序、创建自动化灾难恢复站点、备份 SaaS 数据、并在多个云中有效地迁移和控制数据。
+
+Cloud Manager 与 NetApp Cloud Central 的集成提供了多种优势、包括简化的部署体验、查看和管理多个云管理系统的单一位置以及集中式用户身份验证。
+
+通过集中式用户身份验证、您可以在云管理器系统之间以及云管理器与其他数据服务（如云同步）之间使用相同的凭据集。如果您忘记了密码、也可以轻松地重置密码。
+
+image:screenshot_cloud_central.gif["显示 Cloud Central 中 Fabric 视图的屏幕截图。"]

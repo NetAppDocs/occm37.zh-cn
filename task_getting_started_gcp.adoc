@@ -1,0 +1,119 @@
+---
+pagenav: false 
+sidebar: sidebar 
+permalink: task_getting_started_gcp.html 
+keywords: google cloud platform, gcp, deploy cloud manager, launch cloud manager, create cloud manager, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, storage access key, gcp role, role, iam role, permissions, gcp permissions 
+summary: 先设置 GCP ，然后从 NetApp Cloud Central 部署 Cloud Manager 软件，开始使用 Cloud Volumes ONTAP 。 
+---
+= 在 Google 云平台中开始使用 Cloud Volumes ONTAP
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+先设置 GCP ，然后从 NetApp Cloud Central 部署 Cloud Manager 软件，开始使用 Cloud Volumes ONTAP 。
+
+要在 GCP 中部署 Cloud Volumes ONTAP ，必须在 Google 云平台中安装 Cloud Manager 。
+
+
+
+=== 设置网络
+
+[role="quick-margin-para"]
+支持从目标 VPC 进行出站 Internet 访问，以便 Cloud Manager 和 Cloud Volumes ONTAP 可以与多个端点联系。
+
+[role="quick-margin-para"]
+此步骤非常重要，因为 Cloud Manager 无法在没有出站 Internet 访问的情况下部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 。
+
+
+
+=== 设置 GCP 权限和项目
+
+[role="quick-margin-para"]
+确保已设置两组权限：
+
+. 确保从 NetApp Cloud Central 部署 Cloud Manager 的 GCP 用户在中具有权限 https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["GCP 的 Cloud Central 策略"^]。
++
+https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["您可以使用 YAML 文件创建自定义角色"^] 然后将其附加到用户。您需要使用 gcloud 命令行创建角色。
+
+. 设置一个服务帐户，该帐户具有 Cloud Manager 在项目中创建和管理 Cloud Volumes ONTAP 系统所需的权限。
++
+您将在第 6 步中将此服务帐户与 Cloud Manager VM 关联。
+
++
+** https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["在 GCP 中创建角色"^] 其中包括中定义的权限。同样，您需要使用 gcloud 命令行。
++
+此 YAML 文件中包含的权限与步骤 2a 中的权限不同。
+
+** https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["创建 GCP 服务帐户并应用刚刚创建的自定义角色"^]。
+** 如果要在其他项目中部署 Cloud Volumes ONTAP ， https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["通过向该项目添加具有 Cloud Manager 角色的服务帐户来授予访问权限"^]。您需要对每个项目重复此步骤。
+
+
+
+
+
+
+=== 设置用于数据分层的 GCP
+
+[role="quick-margin-para"]
+要将冷数据从 Cloud Volumes ONTAP 9.7 分层到低成本对象存储（ Google 云存储分段），必须满足两项要求：
+
+. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["创建服务帐户"^] 具有预定义的存储管理员角色和作为用户的 Cloud Manager 服务帐户。
++
+稍后在创建 Cloud Volumes ONTAP 工作环境时，您需要选择此服务帐户。此服务帐户与您在第 2 步中创建的服务帐户不同。
+
+. https://cloud.google.com/vpc/docs/configure-private-google-access["为专用 Google 访问配置 Cloud Volumes ONTAP 子网"^]。
+
+
+[role="quick-margin-para"]
+如果要在 Cloud Volumes ONTAP 9.6 中使用数据分层， link:task_adding_gcp_accounts.html["然后，按照以下步骤进行操作"]。
+
+
+
+=== 启用 Google Cloud API
+
+[role="quick-margin-para"]
+https://cloud.google.com/apis/docs/getting-started#enabling_apis["在项目中启用以下 Google Cloud API"^]。部署 Cloud Manager 和 Cloud Volumes ONTAP 需要使用这些 API 。
+
+* Cloud Deployment Manager V2 API
+* Cloud Resource Manager API
+* 计算引擎 API
+* Stackdriver 日志记录 API
+
+
+
+
+=== 从 GCP Marketplace 订阅
+
+[role="quick-margin-para"]
+https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager["从 GCP Marketplace 订阅 Cloud Volumes ONTAP"^] 确保在免费试用结束后不会中断服务。对于您创建的每个 Cloud Volumes ONTAP PAYGO 系统，此订阅将向您收取费用。
+
+
+
+=== 从 NetApp Cloud Central 启动 Cloud Manager
+
+[role="quick-margin-para"]
+部署和管理 Cloud Volumes ONTAP 需要 Cloud Manager 软件。在 GCP 中启动 Cloud Manager 实例只需几分钟 https://cloud.netapp.com["Cloud Central"^]。
+
+[role="quick-margin-para"]
+选择 GCP 作为云提供商时， Google 会提示您登录到您的帐户并授予权限。单击 " 允许 " 可授予对部署 Cloud Manager 所需计算 API 的访问权限。
+
+
+
+=== 使用 Cloud Manager 启动 Cloud Volumes ONTAP
+
+[role="quick-margin-para"]
+在 Cloud Manager 准备就绪后、只需单击“创建”、选择要部署的系统类型并完成向导中的步骤。25 分钟后、您的第一个 Cloud Volumes ONTAP 系统应该已启动并正在运行。
+
+.相关链接
+* link:concept_evaluating.html["评估"]
+* link:reference_networking_cloud_manager.html["云管理器的网络要求"]
+* link:reference_networking_gcp.html["GCP 中的 Cloud Volumes ONTAP 的网络要求"]
+* link:reference_firewall_rules_gcp.html["GCP 的防火墙规则"]
+* link:reference_permissions.html#what-cloud-manager-does-with-gcp-permissions["Cloud Manager 如何使用 GCP 权限"]
+* link:task_deploying_gcp.html["在 GCP 中启动 Cloud Volumes ONTAP"]
+* link:task_installing_linux.html["在 Linux 主机上下载并安装 Cloud Manager 软件"]
+

@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: task_manage_anf.html 
+keywords: azure netapp files, create volumes, delete volumes, create nfs volumes, delete nfs volumes, netapp account, capacity pool, create capacity pool, azure netapp files permissions, azure permissions, mount path, get mount path, find mount path, mount volume 
+summary: 直接从 Cloud Manager 查看和创建适用于 Azure NetApp Files 的 NFS 卷。 
+---
+= 管理 Azure NetApp Files 的卷
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+查看并创建 NFS 卷 https://cloud.netapp.com/azure-netapp-files["Azure NetApp Files"^] 直接从 Cloud Manager 访问。
+
+
+
+== 设置配置
+
+您的配置需要满足一些要求，然后才能从 Cloud Manager 管理 Azure NetApp Files 的卷。
+
+. 必须在 Azure 门户中完成以下操作来设置 Azure NetApp Files ：
++
+** https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-register["注册 Azure NetApp Files"^]
+** https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-create-netapp-account["创建 NetApp 帐户"^]
+** https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool["设置容量池"^]
+** https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-delegate-subnet["将子网委派给 Azure NetApp Files"^]
+
+
+. Cloud Manager 必须按如下方式设置：
++
+** Cloud Manager 必须在设置了 Azure NetApp Files 的帐户中的 Azure 中运行。
+** Cloud Manager 虚拟机必须通过接收权限 https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["托管身份"^]。
++
+如果您从 Cloud Central 部署了 Cloud Manager ，则一切准备就绪。Cloud Central 会自动在 Cloud Manager 虚拟机上启用系统分配的托管身份。
+
++
+如果您从 Azure Marketplace 部署了 Cloud Manager ，则应遵循此操作 link:task_launching_azure_mktp.html["启用托管身份的说明"]。
+
+** 分配给 Cloud Manager 虚拟机的 Azure 角色必须包含最新列出的权限 https://occm-sample-policies.s3.amazonaws.com/Policy_for_cloud_Manager_Azure_3.7.4.json["适用于 Azure 的 Cloud Manager 策略"^]：
++
+[source, json]
+----
+"Microsoft.NetApp/netAppAccounts/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read",
+"Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete"
+----
+
+
+
+
+设置配置后， Cloud Manager 会自动在 " 工作环境 " 页面上显示 Azure NetApp Files ：
+
+image:screenshot_anf_cloud.gif["Azure NetApp Files 云在 \" 工作环境 \" 页面上的屏幕截图。"]
+
+
+
+== 正在创建卷
+
+您可以使用 Cloud Manager 为 Azure NetApp Files 创建 NFSv3 卷。
+
+.步骤
+. 打开工作环境。
+. 单击 * 添加新卷 * 。
+. 在 * 帐户信息 * 页面中输入有关卷的基本详细信息：
++
+.. 选择 Azure 订阅和 Azure NetApp Files 帐户。
+.. 输入卷的名称。
+.. 选择一个容量池并指定一个配额，即分配给卷的逻辑存储容量。
++
+image:screenshot_anf_account_info.gif["新 Azure NetApp Files 卷的 \"Account Information\" 页面的屏幕截图。"]
+
+
+
+. 填写 * 位置和导出策略 * 页面：
++
+.. 选择一个 vNet 和子网。
+.. 配置导出策略以控制对卷的访问。
++
+image:screenshot_anf_location.gif["新 Azure NetApp Files 卷的位置和导出策略页面的屏幕截图。"]
+
+
+
+. 单击 * 执行 * 。
+
+
+
+
+== 获取卷的挂载路径
+
+复制卷的挂载路径，以便将卷挂载到 Linux 计算机。
+
+.步骤
+. 打开工作环境。
+. 将鼠标悬停在卷上，然后单击菜单。
++
+image:screenshot_anf_volume_menu.gif["屏幕截图显示了一个卷以及右上角提供的菜单。"]
+
+. 单击 * 挂载命令 * 。
++
+image:screenshot_anf_mount.gif["屏幕截图显示了一个卷以及在您选择菜单后可用的挂载命令选项。"]
+
+. 复制挂载路径并使用复制的文本将卷挂载到 Linux 计算机。
+
+
+
+
+== 删除卷
+
+删除不再需要的卷。
+
+.步骤
+. 打开工作环境。
+. 将鼠标悬停在卷上，然后单击菜单。
++
+image:screenshot_anf_volume_menu.gif["屏幕截图显示了一个卷以及右上角提供的菜单。"]
+
+. 单击 * 删除 * 。
+. 确认要删除此卷。
+
+
+
+
+== 获取帮助
+
+有关一般服务问题，请使用 Cloud Manager 聊天工具。
+
+对于与 Azure NetApp Files 相关的技术支持问题，请使用 Azure 门户将支持请求记录到 Microsoft 。选择关联的 Azure NetApp Files 订阅，然后在 * 存储 * 下选择 * Microsoft * 服务名称。 * 提供创建 支持请求所需的其余信息。
+
+Cloud Manager 在 * 支持信息板 * 菜单选项下提供本地 AutoSupport 下载。此 7z 文件包含一个 Azure 调试文件，用于显示与 Azure NetApp Files 帐户的入站和出站通信。
+
+
+
+== 限制
+
+* Cloud Manager 不支持 SMB 卷。
+* Cloud Manager 不支持您管理容量池或卷快照。
+* 您可以创建具有初始大小和单个导出策略的卷。必须从 Azure 门户中的 Azure NetApp Files 界面编辑卷。
+* Cloud Manager 不支持与 Azure NetApp Files 之间的数据复制。
+
+
+
+
+== 相关链接
+
+* https://cloud.netapp.com/azure-netapp-files["NetApp 云中心： Azure NetApp Files"^]
+* https://docs.microsoft.com/en-us/azure/azure-netapp-files/["Azure NetApp Files 文档"^]
+

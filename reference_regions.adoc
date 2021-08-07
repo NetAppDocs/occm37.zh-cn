@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: reference_regions.html 
+keywords: region, regions, mumbai, seoul, singapore, sydney, tokyo, frankfurt, paris, london, ireland, canada, govcloud, us east, us west, sao paulo, australia, japan, korea, southeast asia, east asia, germany, north europe, uk south, uk west, west europe, canada, central us, east us, north central, south central, west us, west central 
+summary: 许多 AWS 区域和 Microsoft Azure 区域均支持 Cloud Manager 和 Cloud Volumes ONTAP 。 
+---
+= 支持的区域
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+许多 AWS 区域和 Microsoft Azure 区域均支持 Cloud Manager 和 Cloud Volumes ONTAP 。
+
+https://cloud.netapp.com/cloud-volumes-global-regions["单击此处可查看支持的区域列表"^]。

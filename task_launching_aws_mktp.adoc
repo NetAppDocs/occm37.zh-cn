@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: task_launching_aws_mktp.html 
+keywords: install, installation, installing, marketplace, aws, launch, launching, ec2 console, iam role 
+summary: 最好使用 NetApp Cloud Central 在 AWS 中启动 Cloud Manager 、但如果需要，您可以从 AWS Marketplace 启动它。 
+---
+= 从 AWS Marketplace 启动 Cloud Manager
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+最好使用在 AWS 中启动 Cloud Manager https://cloud.netapp.com["NetApp Cloud Central"^]，但如果需要，您可以从 AWS Marketplace 启动它。
+
+
+TIP: 如果您从 AWS Marketplace 启动 Cloud Manager 、 Cloud Manager 仍与 NetApp Cloud Central 集成。 link:concept_cloud_central.html["了解有关集成的更多信息。"]。
+
+以下步骤介绍了如何从 EC2 控制台启动实例，因为控制台允许您将 IAM 角色附加到 Cloud Manager 实例。使用 * 从网站启动 * 操作无法执行此操作。
+
+.步骤
+. 为 EC2 实例创建 IAM 策略和角色：
++
+.. 从以下位置下载 Cloud Manager IAM 策略：
++
+https://mysupport.netapp.com/cloudontap/iampolicies["NetApp Cloud Manager ： AWS ， Azure 和 GCP 策略"^]
+
+.. 从 IAM 控制台，通过从 Cloud Manager IAM 策略复制和粘贴文本来创建您自己的策略。
+.. 创建角色类型为 Amazon EC2 的 IAM 角色，并将您在上一步骤中创建的策略附加到该角色。
+
+
+. https://aws.amazon.com/marketplace/pp/B07QX2QLXX["从 AWS Marketplace 订阅"^] 确保在免费试用 Cloud Volumes ONTAP 结束后不会中断服务。对于您创建的每个 Cloud Volumes ONTAP 9.6 及更高版本的 PAYGO 系统以及您启用的每个附加功能，此订阅将向您收取费用。
+. 现在转到 https://aws.amazon.com/marketplace/pp/B018REK8QG["AWS Marketplace 上的 Cloud Manager 页面"^] 从 AMI 部署 Cloud Manager 。
+. 在 Marketplace 页面上，单击 * 继续订阅 * ，然后单击 * 继续配置 * 。
+. 更改任何默认选项，然后单击 * 继续启动 * 。
+. 在 * 选择操作 * 下，选择 * 通过 EC2 启动 * ，然后单击 * 启动 * 。
+. 按照提示配置和部署实例：
++
+** * 选择实例类型 * ：根据区域可用性，选择支持的实例类型之一（建议使用 T3.medium ）。
++
+link:reference_cloud_mgr_reqs.html["查看支持的实例类型列表"]。
+
+** * 配置实例 * ：选择 VPC 和子网，您在第 1 步中创建的 IAM 角色以及其他符合您要求的配置选项。
++
+image:screenshot_aws_iam_role.gif["显示 AWS 中配置实例页面上的字段的屏幕截图。此时将选择您应在步骤 1 中创建的 IAM 角色。"]
+
+** * 添加存储 * ：保留默认存储选项。
+** * 添加标记 * ：根据需要输入实例的标记。
+** * 配置安全组 * ：指定 Cloud Manager 实例所需的连接方法： SSH ， HTTP 和 HTTPS 。
+** * 审阅 * ：查看您选择的内容，然后单击 * 启动 * 。
++
+AWS 使用指定的设置启动软件。云管理器实例和软件应在大约五分钟内运行。
+
+
+
+. 从连接到云管理器虚拟机的主机上打开 Web 浏览器，然后输入以下 URL ：
++
+http://_ipaddress_:80[]
+
+. 登录后，设置 Cloud Manager ：
++
+.. 指定要与此 Cloud Manager 系统关联的 Cloud Central 帐户。
++
+link:concept_cloud_central_accounts.html["了解 Cloud Central 帐户"]。
+
+.. 输入系统名称。
++
+image:screenshot_set_up_cloud_manager.gif["屏幕截图显示了设置 Cloud Manager 屏幕，您可以通过该屏幕选择 Cloud Central 帐户并将 Cloud Manager 系统命名为。"]
+
+
+
+
+
+现在已安装并设置了 Cloud Manager 。

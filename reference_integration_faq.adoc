@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: reference_integration_faq.html 
+keywords: faq, questions, integration, migration, cloud manager, cloud central, authentication, users, accounts, email, ldap, scripts, automation 
+summary: 升级到 Cloud Manager 3.5 时、如果尚未集成、 NetApp 将选择特定的云管理器系统与 NetApp Cloud Central 集成。此常见问题解答可以回答您可能对流程提出的问题。 
+translate: false 
+---
+= 常见问题：将 Cloud Manager 与 NetApp Cloud Central 集成
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+从 Cloud Manager 3.4 或更早版本升级时，如果尚未集成特定的 Cloud Manager 系统， NetApp 将选择这些系统与 NetApp Cloud Central 集成。此常见问题解答可以回答您可能对流程提出的问题。
+
+
+
+== 什么是 NetApp Cloud Central ？
+
+NetApp Cloud Central 为访问和管理 NetApp 云数据服务提供了一个集中位置。这些服务使您能够在云中运行关键应用程序、创建自动化灾难恢复站点、备份 SaaS 数据、并在多个云中有效地迁移和控制数据。
+
+
+
+== 为什么 NetApp 将我的云管理器系统与云中心集成？
+
+Cloud Manager 与 NetApp Cloud Central 的集成提供了多种优势、包括简化的部署体验、查看和管理多个云管理系统的单一位置以及集中式用户身份验证。
+
+
+
+== 集成过程中会发生什么情况？
+
+NetApp 会将您的 Cloud Manager 系统中的所有本地用户帐户迁移到 Cloud Central 中提供的集中式用户身份验证。
+
+
+
+== 集中式用户身份验证如何工作？
+
+通过集中式用户身份验证、您可以在云管理器系统之间以及云管理器与其他数据服务（如云同步）之间使用相同的凭据集。如果您忘记了密码、也可以轻松地重置密码。
+
+
+
+== 我是否需要注册一个 Cloud Central 用户帐户？
+
+当我们将您的云管理器系统与 Cloud Central 集成时、 NetApp 将为您创建一个云中心用户帐户。您只需重置密码即可完成注册过程。
+
+
+
+== 如果我已经拥有云中心用户帐户、该怎么办？
+
+如果用于登录到 Cloud Manager 的电子邮件地址与 Cloud Central 用户帐户的电子邮件地址匹配，则您可以登录到您的 Cloud Manager 系统。
+
+
+
+== 如果我的 Cloud Manager 系统具有多个用户帐户、该怎么办？
+
+NetApp 将所有本地用户帐户迁移到 Cloud Central 用户帐户。每个用户都需要重置其密码。
+
+
+
+== 如果我的用户帐户在多个云管理器系统中使用相同的电子邮件地址会怎样？
+
+您只需重置一次密码、然后就可以使用同一个 Cloud Central 用户帐户登录到每个 Cloud Manager 系统。
+
+
+
+== 如果我的本地用户帐户使用无效的电子邮件地址会怎样？
+
+重置密码需要有效的电子邮件地址。通过 Cloud Manager 界面右下角的聊天图标与我们联系。
+
+
+
+== 如果我有适用于云管理器 API 的自动化脚本怎么办？
+
+所有 API 都向后兼容。如果您在重置密码时更改了密码，则需要更新使用密码的脚本。
+
+
+
+== 如果我的云管理器系统使用 LDAP 、该怎么办？
+
+如果您的系统使用 LDAP 、 NetApp 将无法自动将系统与 Cloud Central 集成。您需要手动执行以下步骤：
+
+. 从部署新的 Cloud Manager 系统 https://cloud.netapp.com/["NetApp Cloud Central"^]。
+. https://services.cloud.netapp.com/misc/federation-support["使用新系统设置 LDAP 。"^]。
+. link:task_adding_ontap_cloud.html["发现现有 Cloud Volumes ONTAP 系统"] 从新的 Cloud Manager 系统。
+. 删除旧的云管理器系统。
+
+
+
+
+== 我在哪里安装了 Cloud Manager 系统是否重要？
+
+否无论系统驻留在何处、是在 AWS 、 Azure 中、还是在您的办公场所中、 NetApp 都将与 Cloud Central 集成。
+
+
+NOTE: 唯一的例外是 AWS 商业云服务环境。

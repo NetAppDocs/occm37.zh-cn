@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: task_setting_up_cloud_manager.html 
+keywords:  
+summary: 您可以在部署 Cloud Manager 后立即开始创建 Cloud Volumes ONTAP 系统。但是，您可能需要先执行其他设置，包括设置 Cloud Central 帐户，添加云提供商帐户，安装 HTTPS 证书等。 
+---
+= 设置云管理器
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在部署 Cloud Manager 后立即开始创建 Cloud Volumes ONTAP 系统。但是，您可能需要先执行其他设置，包括设置 Cloud Central 帐户，添加云提供商帐户，安装 HTTPS 证书等。
+
+* link:task_setting_up_cloud_central_accounts.html["设置 Cloud Central 帐户"]
+* link:task_adding_aws_accounts.html["将 AWS 帐户添加到 Cloud Manager"]
+* link:task_adding_azure_accounts.html["将 Azure 帐户添加到 Cloud Manager"]
+* link:task_adding_gcp_accounts.html["将 GCP 帐户添加到 Cloud Manager"]
+* link:task_adding_nss_accounts.html["将 NetApp 支持站点帐户添加到 Cloud Manager"]
+* link:task_installing_https_cert.html["安装 HTTPS 证书"]
+* link:task_setting_up_kms.html["设置 AWS KMS"]
+

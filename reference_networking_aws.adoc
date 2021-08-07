@@ -1,0 +1,177 @@
+---
+sidebar: sidebar 
+permalink: reference_networking_aws.html 
+keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, tiering, storage tier, storage tiering, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability 
+summary: 设置 AWS 网络，以便 Cloud Volumes ONTAP 系统可以正常运行。 
+---
+= AWS 中的 Cloud Volumes ONTAP 的网络要求
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+设置 AWS 网络，以便 Cloud Volumes ONTAP 系统可以正常运行。
+
+
+
+== 适用于 Cloud Volumes ONTAP 的一般 AWS 网络要求
+
+以下要求必须在 AWS 中满足。
+
+Cloud Volumes ONTAP 节点的出站 Internet 访问::
++
+--
+路由和防火墙策略必须允许 AWS HTTP/HTTPS 流量传输到以下端点，以便 Cloud Volumes ONTAP 可以发送 AutoSupport 消息：
+
+* https://support.netapp.com/aods/asupmessage
+* https://support.netapp.com/asupprod/post/1.0/postAsup
++
+如果您有 NAT 实例、则必须定义允许 HTTPS 流量从私有子网传输到 Internet 的入站安全组规则。
+
+
+
+--
+HA 调解器的出站 Internet 访问::
++
+--
+手动选项可以是 NAT 网关或从目标子网到 AWS EC2 服务的接口 VPC 端点。有关 VPC 端点的详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html["AWS 文档：接口 VPC 端点（ AWS PrivateLink ）"^]。
+
+--
+IP 地址数::
++
+--
+* 单个节点： 6 个 IP 地址
+* 单个 AZs 中的 HA 对： 15 个地址
+* 多个 AZs 中的 HA 对： 15 或 16 个 IP 地址
++
+请注意， Cloud Manager 会在单节点系统上创建 SVM 管理 LIF ，但不会在单个 AZ 中的 HA 对上创建。您可以选择是否在多个 AZs 中的 HA 对上创建 SVM 管理 LIF 。
+
++
+
+TIP: LIF 是与物理端口关联的 IP 地址。SnapCenter 等管理工具需要 SVM 管理 LIF 。
+
+
+
+--
+安全组:: 您不需要创建安全组，因为 Cloud Manager 可以为您提供这些功能。如果您需要使用自己的，请参见 link:reference_security_groups.html["安全组规则"]。
+从 Cloud Volumes ONTAP 连接到 AWS S3 以进行数据分层::
++
+--
+创建 VPC 端点时，请确保选择与 Cloud Volumes ONTAP 实例对应的区域、 VPC 和路由表。您还必须修改安全组才能添加出站 HTTPS 规则、该规则允许通信到 S3 端点。否则， Cloud Volumes ONTAP 无法连接到 S3 服务。
+
+如果遇到任何问题，请参见 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS 支持知识中心：为什么我无法使用网关 VPC 端点连接到 S3 存储分段？"^]
+
+--
+连接到其他网络中的 ONTAP 系统:: 要在 AWS 中的 Cloud Volumes ONTAP 系统和其他网络中的 ONTAP 系统之间复制数据、您必须在 AWS VPC 和其他网络之间建立 VPN 连接—例如 Azure VNet 或您的公司网络。有关说明，请参见 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["AWS 文档：设置 AWS VPN 连接"^]。
+用于 CIFS 的 DNS 和 Active Directory::
++
+--
+DNS 服务器必须为 Active Directory 环境提供名称解析服务。您可以将 DHCP 选项集配置为使用默认的 EC2 DNS 服务器、该服务器不能是 Active Directory 环境使用的 DNS 服务器。
+
+有关说明，请参见 https://docs.aws.amazon.com/quickstart/latest/active-directory-ds/welcome.html["AWS 文档： AWS 云上的 Active Directory 域服务：快速入门参考部署"^]。
+
+--
+
+
+
+
+== 适用于多个 AWS 中的 Cloud Volumes ONTAP HA 的 AWS 网络要求
+
+其他 AWS 网络要求适用于使用多可用性区域（ Azs ）的 Cloud Volumes ONTAP HA 配置。您应该在启动 HA 对之前查看这些要求、因为您必须在 Cloud Manager 中输入网络详细信息。
+
+要了解 HA 对的工作原理，请参见 link:concept_ha.html["高可用性对"]。
+
+可用性区域:: 此 HA 部署模型使用多个 AUS 来确保数据的高可用性。您应该为每个 Cloud Volumes ONTAP 实例和调解器实例使用专用的 AZ ，该实例在 HA 对之间提供通信通道。
+用于 NAS 数据和集群 /SVM 管理的浮动 IP 地址::
++
+--
+一个浮动 IP 地址用于集群管理、一个用于节点 1 上的 NFS/CIFS 数据、一个用于节点 2 上的 NFS/CIFS 数据。SVM 管理的第四个浮动 IP 地址是可选的。
+
+
+NOTE: 如果将 SnapDrive for Windows 或 SnapCenter 与 HA 对结合使用，则 SVM 管理 LIF 需要浮动 IP 地址。如果在部署系统时未指定 IP 地址，则可以稍后创建 LIF 。有关详细信息，请参见 link:task_setting_up_ontap_cloud.html["设置 Cloud Volumes ONTAP"]。
+
+创建 Cloud Volumes ONTAP HA 工作环境时，您需要在 Cloud Manager 中输入浮动 IP 地址。在启动系统时， Cloud Manager 会将 IP 地址分配给 HA 对。
+
+对于部署 HA 配置的 AWS 区域中的所有 vPC ，浮动 IP 地址必须不在 CIDR 块的范围内。将浮动 IP 地址视为您所在地区 VPC 之外的逻辑子网。
+
+以下示例显示了 AWS 区域中浮动 IP 地址与 VPC 之间的关系。虽然浮动 IP 地址不在所有 VPC 的 CIDR 块之外，但它们可以通过路由表路由到子网。
+
+image:diagram_ha_floating_ips.png["一个概念图，显示了 AWS 区域中五个 vPC 的 CIDR 块以及 VPC 的 CIDR 块之外的三个浮动 IP 地址。"]
+
+
+NOTE: Cloud Manager 可自动创建用于 iSCSI 访问和从 VPC 外部的客户端进行 NAS 访问的静态 IP 地址。您无需满足这些类型的 IP 地址的任何要求。
+
+--
+传输网关，用于从 VPC 外部启用浮动 IP 访问:: link:task_setting_up_transit_gateway.html["设置 AWS 传输网关"] 允许从 HA 对所在的 VPC 外部访问 HA 对的浮动 IP 地址。
+路由表::
++
+--
+如果 VPC 中的子网只有一个路由表（主路由表），则 Cloud Manager 会自动将浮动 IP 地址添加到该路由表中。如果您有多个路由表，则在启动 HA 对时选择正确的路由表非常重要。否则，某些客户端可能无法访问 Cloud Volumes ONTAP 。
+
+例如，您可能有两个子网与不同的路由表相关联。如果选择路由表 A ，而不选择路由表 B ，则与路由表 A 关联的子网中的客户端可以访问 HA 对，但与路由表 B 关联的子网中的客户端无法访问。
+
+有关路由表的详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
+
+--
+与 NetApp 管理工具的连接::
++
+--
+. 在其他 VPC 和中部署 NetApp 管理工具 link:task_setting_up_transit_gateway.html["设置 AWS 传输网关"]。通过网关，可以从 VPC 外部访问集群管理接口的浮动 IP 地址。
+. 在与 NAS 客户端具有类似路由配置的同一 VPC 中部署 NetApp 管理工具。
+
+
+--
+
+
+
+
+=== 配置示例
+
+下图显示了作为主动 - 被动配置运行的 AWS 中的最佳 HA 配置：
+
+image:diagram_ha_networking.png["显示 Cloud Volumes ONTAP HA 架构中组件的概念映像：两个 Cloud Volumes ONTAP 节点和一个调解器实例，每个节点位于不同的可用性区域。"]
+
+
+
+== VPC 配置示例
+
+为了更好地了解如何在 AWS 中部署 Cloud Manager 和 Cloud Volumes ONTAP 、您应该查看最常见的 VPC 配置。
+
+* 具有公共和私有子网以及 NAT 设备的 VPC
+* 一台带有专用子网和 VPN 连接的 VPC 到您的网络
+
+
+
+
+=== 具有公共和私有子网以及 NAT 设备的 VPC
+
+此 VPC 配置包括公共和私有子网、将 VPC 连接到 Internet 的 Internet 网关、以及公共子网中启用来自私有子网的出站 Internet 流量的 NAT 网关或 NAT 实例。在此配置中、您可以在公共子网或私有子网中运行 Cloud Manager 、但建议使用公共子网，因为它允许从 VPC 外部的主机进行访问。然后，您可以在私有子网中启动 Cloud Volumes ONTAP 实例。
+
+
+NOTE: 您可以使用 HTTP 代理来提供 Internet 连接，而不是 NAT 设备。
+
+有关此场景的更多详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html["AWS 文档：场景 2 ：采用公有和专用子网（ NAT ）的 VPC"^]。
+
+下图显示了在公共子网中运行的云管理器以及在私有子网中运行的单节点系统：
+
+image:diagram_vpc_public_and_private.png["此图显示了公有子网中运行的 Cloud Manager 和 NAT 实例，以及专用子网中运行的 Cloud Volumes ONTAP 实例和 NetApp 支持实例。"]
+
+
+
+=== 一台带有专用子网和 VPN 连接的 VPC 到您的网络
+
+此 VPC 配置是一种混合云配置，其中 Cloud Volumes ONTAP 将成为私有环境的扩展。此配置包括私有子网和虚拟专用网关、该网关与您的网络建立 VPN 连接。通过 VPN 隧道进行路由允许 EC2 实例通过网络和防火墙访问 Internet 。您可以在私有子网或数据中心运行 Cloud Manager 。然后，您将在私有子网中启动 Cloud Volumes ONTAP 。
+
+
+NOTE: 您也可以使用此配置中的代理服务器来允许 Internet 访问。代理服务器可以位于数据中心或 AWS 中。
+
+如果要在数据中心的 FAS 系统和 AWS 中的 Cloud Volumes ONTAP 系统之间复制数据，则应使用 VPN 连接以确保链接的安全。
+
+有关此场景的更多详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html["AWS 文档：场景 4 ：仅使用专用子网的 VPC 和 AWS 托管 VPN 访问"^]。
+
+下图显示了在数据中心中运行的云管理器以及在私有子网中运行的单节点系统：
+
+image:diagram_vpc_private.png["此图显示了在数据中心运行的 Cloud Manager ，以及在专用子网中运行的 Cloud Volumes ONTAP 实例和 NetApp 支持实例。数据中心与 Amazon Web Services 之间具有 VPN 连接。"]

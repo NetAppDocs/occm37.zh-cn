@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: reference_networking_gcp.html 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, tiering, data tiering, bucket, private google access, set up data tiering, data tiering requirement, gcp networking, google networking, shared vpc, host project, service project 
+summary: 设置您的 Google 云平台网络，以便 Cloud Volumes ONTAP 系统可以正常运行。 
+---
+= GCP 中的 Cloud Volumes ONTAP 的网络要求
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+设置您的 Google 云平台网络，以便 Cloud Volumes ONTAP 系统可以正常运行。
+
+共享 VPC::
++
+--
+通过共享 VPC ，您可以跨多个项目配置和集中管理虚拟网络。您可以在 _host project_ 中设置共享 VPC 网络，并在 _service project_ 中部署 Cloud Manager 和 Cloud Volumes ONTAP 虚拟机实例。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud 文档：共享 VPC 概述"^]。
+
+唯一要求是为共享 VPC 主机项目中的 Cloud Manager 服务帐户提供以下权限：
+
+compute.s防火墙 。 * compute.networks.* compute.subnetworks.*
+
+Cloud Manager 需要这些权限才能查询主机项目中的防火墙， VPC 和子网。
+
+--
+Cloud Volumes ONTAP 的出站 Internet 访问::
++
+--
+路由和防火墙策略必须允许通过 HTTP/HTTPS 流量访问以下端点，以便 Cloud Volumes ONTAP 可以发送 AutoSupport 消息：
+
+* https://support.netapp.com/aods/asupmessage
+* https://support.netapp.com/asupprod/post/1.0/postAsup
+
+
+--
+IP 地址数::
++
+--
+请注意， Cloud Manager 不会在 GCP 中为 Cloud Volumes ONTAP 创建 SVM 管理 LIF 。
+
+
+TIP: LIF 是与物理端口关联的 IP 地址。SnapCenter 等管理工具需要 SVM 管理 LIF 。
+
+--
+防火墙规则:: 您无需创建防火墙规则，因为 Cloud Manager 可以为您创建。如果您需要使用自己的，请参见 link:reference_firewall_rules_gcp.html["GCP 防火墙规则"]。
+从 Cloud Volumes ONTAP 连接到 Google 云存储以进行数据分层::
++
+--
+有关在 Cloud Manager 中设置数据分层所需的其他步骤，请参见 link:task_tiering.html["将冷数据分层到低成本对象存储"]。
+
+--
+连接到其他网络中的 ONTAP 系统::
++
+--
+有关说明，请参见 https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud 文档： Cloud VPN 概述"^]。
+
+--
+

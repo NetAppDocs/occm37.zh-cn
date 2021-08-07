@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: concept_accounts_aws.html 
+keywords: cloud provider accounts, aws, aws accounts, keys, multiple accounts, permissions, aws permissions, policy, policies, json 
+summary: 通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes ONTAP 系统的 AWS 帐户。您可以在初始 AWS 帐户中部署所有 Cloud Volumes ONTAP 系统，也可以设置其他帐户。 
+---
+= AWS 帐户和权限
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes ONTAP 系统的 AWS 帐户。您可以在初始 AWS 帐户中部署所有 Cloud Volumes ONTAP 系统，也可以设置其他帐户。
+
+
+
+== 初始 AWS 帐户
+
+从 NetApp Cloud Central 部署 Cloud Manager 时，您需要使用有权启动 Cloud Manager 实例的 AWS 帐户。中列出了所需的权限 https://mysupport.netapp.com/cloudontap/iampolicies["适用于 AWS 的 NetApp Cloud Central 策略"^]。
+
+当 Cloud Central 在 AWS 中启动 Cloud Manager 实例时，它会为此实例创建 IAM 角色和实例配置文件。它还会附加一个策略，为 Cloud Manager 提供在该 AWS 帐户中部署和管理 Cloud Volumes ONTAP 的权限。 link:reference_permissions.html#what-cloud-manager-does-with-aws-permissions["查看 Cloud Manager 如何使用权限"]。
+
+image:diagram_permissions_initial_aws.png["一个概念映像，显示 Cloud Central 在 AWS 帐户中部署 Cloud Manager 。IAM 策略会分配给一个 IAM 角色，该角色会附加到 Cloud Manager 实例。"]
+
+Cloud Manager 会在您创建新的工作环境时默认选择此云提供商帐户：
+
+image:screenshot_accounts_select_aws.gif["屏幕截图，显示 \"Details\" 和 \"amp\" ； \"Credentials\" 页面中的 \"Switch Account\" 选项。"]
+
+
+
+== 其他 AWS 帐户
+
+如果您要在不同的 AWS 帐户中启动 Cloud Volumes ONTAP ，则可以选择一种 link:task_adding_aws_accounts.html["为 IAM 用户或受信任帐户中某个角色的 ARN 提供 AWS 密钥"]。下图显示了另外两个帐户，一个通过可信帐户中的 IAM 角色提供权限，另一个通过 IAM 用户的 AWS 密钥提供权限：
+
+image:diagram_permissions_multiple_aws.png["一个概念映像，显示另外两个帐户。每个都有一个 IAM 策略，一个附加到 IAM 用户，另一个附加到 IAM 角色。"]
+
+您可以这样做 link:task_adding_aws_accounts.html#adding-aws-accounts-to-cloud-manager["将云提供商帐户添加到 Cloud Manager"] 指定 IAM 角色的 Amazon 资源名称（ ARN ）或 IAM 用户的 AWS 密钥。
+
+添加其他帐户后，您可以在创建新的工作环境时切换到该帐户：
+
+image:screenshot_accounts_switch_aws.gif["单击详细信息和 amp ；凭据页面中的切换帐户后，显示在云提供商帐户之间进行选择的屏幕截图。"]
+
+.市场部署和内部部署如何？
+****
+以上各节介绍了 NetApp Cloud Central 中建议的部署方法。您也可以从在 AWS 中部署 Cloud Manager link:task_launching_aws_mktp.html["AWS Marketplace"] 您可以做到 。
+
+如果您使用 Marketplace ，则会以相同方式提供权限。您只需手动创建和设置 IAM 角色，然后为任何其他帐户提供权限即可。
+
+对于内部部署，您不能为 Cloud Manager 系统设置 IAM 角色，但可以像为其他 AWS 帐户提供权限一样提供权限。
+
+****

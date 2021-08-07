@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: reference_aws_marketplace.html 
+keywords: aws marketplace, marketplace pages, marketplace offerings, subscribe, subscribing 
+summary: AWS Marketplace for Cloud Manager 和 Cloud Volumes ONTAP 提供了多种产品。如果您不确定需要使用哪个页面，请阅读下面的内容，我们将根据您的目标引导您转到正确的页面。 
+translate: false 
+---
+= 适用于 Cloud Manager 和 Cloud Volumes ONTAP 的 AWS Marketplace 页面
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AWS Marketplace for Cloud Manager 和 Cloud Volumes ONTAP 提供了多种产品。如果您不确定需要使用哪个页面，请阅读下面的内容，我们将根据您的目标引导您转到正确的页面。
+
+在所有情况下，请记住，您不能从 AWS Marketplace 在 AWS 中启动 Cloud Volumes ONTAP 。您需要直接从 Cloud Manager 启动它。
+
+[cols="34,33,33"]
+|===
+| 目标 | 要使用的 AWS Marketplace 页面 | 更多信息 
+
+
+| 为 9.6 及更高版本启用 Cloud Volumes ONTAP PAYGO 部署 .2+| https://aws.amazon.com/marketplace/pp/B07QX2QLXX["Cloud Manager （适用于 Cloud Volumes ONTAP ）"^] .2+| 通过此 AWS Marketplace 页面，可以为 Cloud Volumes ONTAP 9.6 及更高版本的 PAYGO 版本收费。它还支持为 Cloud Volumes ONTAP 附加功能收费。此页面不允许您在 AWS 中启动 Cloud Manager 。此操作应通过完成 https://cloud.netapp.com["NetApp Cloud Central"^]或使用此表第 4 行列出的 AMI 。 
+
+
+| 为 Cloud Volumes ONTAP 启用附加功能（ PAYGO 或 BYOL ） 
+
+
+| 使用我从 NetApp 购买的许可证（ BYOL ）部署 Cloud Volumes ONTAP  a| 
+* https://aws.amazon.com/marketplace/pp/B00OMA46T0["适用于 AWS 的 Cloud Volumes ONTAP （ BYOL ）"^]
+* https://aws.amazon.com/marketplace/pp/B01H4LVJUC["适用于 AWS 的 Cloud Volumes ONTAP —高可用性（ BYOL ）"^]
+
+| 通过这些 AWS Marketplace 页面，您可以订阅单节点或 HA 版本的 Cloud Volumes ONTAP BYOL 。 
+
+
+| 使用 AMI 从 AWS Marketplace 部署 Cloud Manager | https://aws.amazon.com/marketplace/pp/B018REK8QG["NetApp Cloud Manager （适用于 NetApp Cloud Volumes ONTAP ）"^] | 我们建议您从中启动 AWS 中的 Cloud Manager https://cloud.netapp.com["NetApp Cloud Central"^]，但您可以根据需要从此 AWS Marketplace 页面启动它。 
+
+
+| 启用 Cloud Volumes ONTAP PAYGO （ 9.5 或更早版本）的部署  a| 
+* https://aws.amazon.com/marketplace/pp/B011KEZ734["适用于 AWS 的 Cloud Volumes ONTAP"^]
+* https://aws.amazon.com/marketplace/pp/B01H4LVJ84["适用于 AWS 的 Cloud Volumes ONTAP —高可用性"^]
+
+| 您可以通过这些 AWS Marketplace 页面订阅 Cloud Volumes ONTAP PAYGO 9.5 及更早版本的单节点或 HA 版本。从 9.6 版开始，您需要通过此表第 1 行列出的 AWS Marketplace 页面为 PAYGO 部署订阅。 
+|===

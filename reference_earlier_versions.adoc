@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: reference_earlier_versions.html 
+keywords: documentation, 3.2, 3.3, 3.4, 3.5, 3.6 
+summary: 如果您没有运行最新版本，则可以获得以前版本的 Cloud Manager 的文档。 
+translate: false 
+---
+= 早期版本的 Cloud Manager 文档
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您没有运行最新版本，则可以获得以前版本的 Cloud Manager 的文档。
+
+* https://docs.netapp.com/us-en/occm36/["Cloud Manager 3.6"^]
+* https://docs.netapp.com/us-en/occm35/["Cloud Manager 3.5"^]
+* https://docs.netapp.com/us-en/occm34/["云管理器 3.4."^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62509["Cloud Manager 3.3"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62391["Cloud Manager 3.2"^]
+

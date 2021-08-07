@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: reference_cloud_mgr_reqs.html 
+keywords: configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space, 3306 
+summary: 如果您在自己的主机上安装了 Cloud Manager 、则必须验证对配置的支持、包括操作系统要求、端口要求等。 
+---
+= 云管理器主机要求
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您在自己的主机上安装了 Cloud Manager 、则必须验证对配置的支持、包括操作系统要求、端口要求等。
+
+
+NOTE: 您可以在 GCP 中自己的主机上安装 Cloud Manager ，但不能在内部网络中安装 Cloud Manager 。要在 GCP 中部署 Cloud Volumes ONTAP ，必须在 GCP 中安装 Cloud Manager 。
+
+需要一个专用主机:: 与其他应用程序共享的主机不支持 Cloud Manager 。主机必须是专用主机。
+支持的 AWS EC2 实例类型::
++
+--
+* T2.medium
+* T3.medium （建议）
+* m4.large
+* m5.xlarge
+* m5.2xlarge
+* m5.4xlarge
+* m5.8xlarge
+
+
+--
+支持的 Azure VM 大小:: A2 ， D2 v2 或 D2 v3 （取决于可用性）
+支持的 GCP 计算机类型:: 一种计算机类型，至少具有 2 个 vCPU 和 4 GB 内存。
+支持的操作系统::
++
+--
+* CentOS 7.2
+* CentOS 7.3.
+* CentOS 7.4.
+* CentOS 7.5
+* Red Hat Enterprise Linux 7.2
+* Red Hat Enterprise Linux 7.3
+* Red Hat Enterprise Linux 7.4
+* Red Hat Enterprise Linux 7.5
++
+Red Hat Enterprise Linux 系统必须在 Red Hat 订购管理中注册。如果未注册、系统将无法在安装 Cloud Manager 期间访问存储库以更新所需的第三方软件。
+
++
+这些操作系统的英语版本支持 Cloud Manager 。
+
+
+
+--
+虚拟机管理程序:: 经过认证可运行 CentOS 或 Red Hat Enterprise Linux 的裸机或托管虚拟机管理程序https://access.redhat.com/certified-hypervisors["Red Hat 解决方案：哪些虚拟机管理程序已通过认证，可以运行 Red Hat Enterprise Linux ？"^]
+CPU:: 具有两个内核的 2.27 GHz 或更高性能
+RAM:: 4 GB
+可用磁盘空间:: 50 GB
+出站 Internet 访问:: 安装 Cloud Manager 和使用 Cloud Manager 部署 Cloud Volumes ONTAP 时需要进行出站 Internet 访问。有关端点列表，请参见 link:reference_networking_cloud_manager.html["云管理器的网络要求"]。
+端口::
++
+--
+* 80 用于 HTTP 访问
+* 443 用于 HTTPS 访问
+* 3306 表示云管理器数据库
+* 8080 用于云管理器 API 代理
++
+如果其他服务正在使用这些端口、则安装 Cloud Manager 失败。
+
++
+
+NOTE: 端口 3306 可能存在冲突。如果 MySQL 的另一个实例在主机上运行，则默认情况下使用端口 3306 。您必须更改现有 MySQL 实例使用的端口。
+
++
+您可以在安装 Cloud Manager 时更改默认 HTTP 和 HTTPS 端口。您无法更改 MySQL 数据库的默认端口。如果更改了 HTTP 和 HTTPS 端口、则必须确保用户可以从远程主机访问 Cloud Manager Web 控制台：
+
++
+** 修改安全组以允许通过端口进行入站连接。
+** 在输入 Cloud Manager Web 控制台的 URL 时指定端口。
+
+
+
+
+--
+

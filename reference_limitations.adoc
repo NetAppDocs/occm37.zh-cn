@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: reference_limitations.html 
+keywords: limitations, active directory, ad, iscsi, key managers, ip address, govcloud, cloud manager, Cloud Volumes ONTAP 
+summary: 已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。 
+---
+= 已知限制
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。
+
+
+
+== Cloud Manager 应始终保持运行状态
+
+Cloud Manager 是 Cloud Volumes ONTAP 运行状况和计费的关键组成部分。如果 Cloud Manager 已关闭，则在与 Cloud Manager 的通信中断 4 天以上后， Cloud Volumes ONTAP 系统将关闭。
+
+
+
+== 不支持共享 Linux 主机
+
+与其他应用程序共享的主机不支持 Cloud Manager 。主机必须是专用主机。
+
+
+
+== Cloud Manager 不支持 FlexGroup 卷
+
+虽然 Cloud Volumes ONTAP 支持 FlexGroup 卷，但 Cloud Manager 不支持。如果您从 System Manager 或 CLI 创建 FlexGroup 卷，则应将 Cloud Manager 的容量管理模式设置为手动。对于 FlexGroup 卷，自动模式可能无法正常工作。
+
+
+
+== 默认情况下，新安装的 Cloud Manager 不支持 Active Directory
+
+从 3.4 版开始， Cloud Manager 的新安装不支持使用您组织的 Active Directory 身份验证进行用户管理。如果需要、 NetApp 可以帮助您使用 Cloud Manager 设置 Active Directory 。单击“云管理器”右下角的聊天图标以获得帮助。
+
+
+
+== AWS Govloud （美国）地区的限制
+
+* 如果您要在 AWS 政府云（美国）地区启动 Cloud Volumes ONTAP 实例，则必须在 AWS 政府云（美国）地区部署 Cloud Manager 。
+* 当部署在 AWS 政府云（美国）区域时、 Cloud Manager 无法在适用于 Microsoft Azure 配置的 NetApp 私有存储或适用于 SoftLayer 配置的 NetApp 私有存储中发现 ONTAP 集群。
+
+
+
+
+== Cloud Manager 不设置 iSCSI 卷
+
+使用 Storage System View 在 Cloud Manager 中创建卷时，可以选择 NFS 或 CIFS 协议。必须使用 OnCommand System Manager 为 iSCSI 创建卷。
+
+
+
+== 存储虚拟机（ SVM ）限制
+
+Cloud Volumes ONTAP 支持一个数据服务 SVM 和一个或多个用于灾难恢复的 SVM 。一个提供数据的 SVM 跨整个 Cloud Volumes ONTAP 系统（ HA 对或单个节点）。
+
+Cloud Manager 不为 SVM 灾难恢复提供任何设置或业务流程支持。它也不支持在任何其他 SVM 上执行与存储相关的任务。必须使用 System Manager 或 CLI 进行 SVM 灾难恢复。

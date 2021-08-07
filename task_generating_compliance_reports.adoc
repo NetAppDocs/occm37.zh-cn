@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: task_generating_compliance_reports.html 
+keywords: report, privacy, risk, privacy risk assessment, compliance status, severity, compliance, privacy risk, data subjects, privacy 
+summary: 隐私风险评估报告概述了贵组织的隐私风险状态。生成报告并将其发送给组织中的其他团队，包括高管，合规团队和法律团队。 
+---
+= 查看隐私风险评估报告
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+根据 GDPR 和 CCPA 等隐私法规的要求，隐私风险评估报告概述了贵组织的隐私风险状态。
+
+
+NOTE: NetApp 无法保证 Cloud Compliance 所识别的个人数据和敏感个人数据的 100% 准确性。您应始终通过查看数据来验证此信息。
+
+此报告包含以下信息：
+
+合规状态:: 严重性得分（有关详细信息，请参见下文）以及数据分布，无论数据是非敏感数据，个人数据还是敏感数据。
+评估概述:: 所发现的个人数据类型以及数据类别的细分。
+此评估中的数据主题:: 按地点列出的发现了国家标识符的人数。
+
+
+
+
+== 生成隐私风险评估报告
+
+转到合规性选项卡以生成报告。
+
+.步骤
+. 在 Cloud Manager 顶部，单击 * 合规性 * 。
+. 在 * 报告 * 下，单击 * 隐私风险评估 * 旁边的下载图标。
++
+image:screenshot_privacy_risk_assessment.gif["Cloud Manager 中的合规性选项卡的屏幕截图，其中显示了报告窗格，您可以在其中单击隐私风险评估。"]
+
+
+
+Cloud Compliance 会生成 PDF 报告，您可以根据需要查看该报告并将其发送给其他组。
+
+
+
+== 严重性得分
+
+Cloud Compliance 会根据以下三个变量计算隐私风险评估报告的严重性得分：
+
+* 个人数据在所有数据中所占的百分比。
+* 敏感个人数据在所有数据中所占的百分比。
+* 包含数据主体的文件百分比，由国家 ID ，社会保障号和税务 ID 号等国家标识符确定。
+
+
+用于确定得分的逻辑如下：
+
+[cols="29,71"]
+|===
+| 严重性得分 | 逻辑 
+
+
+| 0 | 所有这三个变量都恰好为 0% 
+
+
+| 1. | 其中一个变量大于 0% 
+
+
+| 2. | 其中一个变量大于 3% 
+
+
+| 3. | 其中两个变量大于 3% 
+
+
+| 4. | 其中三个变量大于 3% 
+
+
+| 5. | 其中一个变量大于 6% 
+
+
+| 6. | 其中两个变量大于 6% 
+
+
+| 7. | 其中三个变量大于 6% 
+
+
+| 8. | 其中一个变量大于 15% 
+
+
+| 9 | 其中两个变量大于 15% 
+
+
+| 10 | 其中三个变量大于 15% 
+|===

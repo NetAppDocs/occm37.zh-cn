@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: task_managing_cloud_central_accounts.html 
+keywords: account settings, workspaces, service connector, account admin, workspace admin, users, associate, disassociate, add user, add users, user management, administer, user, management, remove user, remove users, remove, delete, account, user account, user accounts, add workspace, setup workspace, workspace, service connector, manage service connector, manage workspace, associate service connector 
+summary: 执行初始设置后，您可能需要稍后管理用户，工作空间和服务连接器。 
+---
+= 在 Cloud Central 帐户中管理工作空间和用户
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+link:task_setting_up_cloud_central_accounts.html["执行初始设置后"]，您可能需要稍后管理用户，工作空间和服务连接器。
+
+link:concept_cloud_central_accounts.html["详细了解 Cloud Central 帐户的工作原理"]。
+
+
+
+== 添加用户
+
+将 Cloud Central 用户与 Cloud Central 帐户关联，以便这些用户可以在 Cloud Manager 中创建和管理工作环境。
+
+.步骤
+. 如果用户尚未执行此操作，请让用户转到 https://cloud.netapp.com["NetApp Cloud Central"^] 并创建帐户。
+. 在 Cloud Manager 中，单击 * 帐户设置 * 。
+. 在用户选项卡中，单击 * 关联用户 * 。
+. 输入用户的电子邮件地址并为用户选择一个角色：
++
+** * 帐户管理员 * ：可以在 Cloud Manager 中执行任何操作。
+** * 工作空间管理员 * ：可以在分配的工作空间中创建和管理资源。
+
+
+. 如果选择了 Workspace Admin ，请选择一个或多个要与该用户关联的工作空间。
++
+image:screenshot_associate_user.gif["屏幕截图显示了如何通过选择角色和关联工作空间来关联用户。"]
+
+. 单击 * 关联用户 * 。
+
+
+用户应从 NetApp Cloud Central 收到一封标题为 " 客户关联 " 的电子邮件。 此电子邮件包含访问 Cloud Manager 所需的信息。
+
+用户应从 NetApp Cloud Central 收到一封标题为 " 客户关联 " 的电子邮件。 此电子邮件包含访问 Cloud Manager 所需的信息。
+
+
+
+== 删除用户
+
+解除用户关联后，用户将无法再访问 Cloud Central 帐户中的资源。
+
+.步骤
+. 单击 * 帐户设置 * 。
+. 单击与用户对应的行中的操作菜单。
++
+image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬停在 Users 表中用户名上方时可用的操作菜单。"]
+
+. 单击 * 解除关联用户 * ，然后单击 * 解除关联 * 进行确认。
+
+
+用户无法再访问此 Cloud Central 帐户中的资源。
+
+
+
+== 管理 Workspace Admin 的工作空间
+
+您可以随时将 Workspace Admins 与工作空间关联和解除关联。通过关联用户，用户可以在该工作空间中创建和查看工作环境。
+
+.步骤
+. 单击 * 帐户设置 * 。
+. 单击与用户对应的行中的操作菜单。
++
+image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬停在 Users 表中用户名上方时可用的操作菜单。"]
+
+. 单击 * 管理工作空间 * 。
+. 选择要与用户关联的工作空间，然后单击 * 应用 * 。
+
+
+现在，只要服务连接器也与这些工作空间关联，用户就可以从 Cloud Manager 访问这些工作空间。
+
+
+
+== 管理工作空间
+
+通过创建，重命名和删除工作空间来管理工作空间。请注意，如果某个工作空间包含任何资源，则无法将其删除。必须为空。
+
+.步骤
+. 单击 * 帐户设置 * 。
+. 单击 * 工作空间 * 。
+. 选择以下选项之一：
++
+** 单击 * 添加新工作空间 * 以创建新工作空间。
+** 单击 * 重命名 * 以重命名工作空间。
+** 单击 * 删除 * 以删除此工作空间。
+
+
+
+
+
+
+== 管理 Service Connector 的工作空间
+
+您需要将服务连接器与工作空间关联，以便 Workspace 管理员可以从 Cloud Manager 访问这些工作空间。
+
+如果您只有帐户管理员，则不需要将服务连接器与工作空间相关联。默认情况下，帐户管理员可以访问 Cloud Manager 中的所有工作空间。
+
+link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors["详细了解用户，工作空间和服务连接器"]。
+
+.步骤
+. 单击 * 帐户设置 * 。
+. 单击 * 服务连接器 * 。
+. 单击要关联的服务连接器的 * 管理工作空间 * 。
+. 选择要与服务连接器关联的工作空间，然后单击 * 应用 * 。
+

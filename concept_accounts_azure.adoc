@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: concept_accounts_azure.html 
+keywords: cloud provider accounts, azure, azure accounts, service principal, multiple accounts, permissions, policy, policies, subscriptions 
+summary: 通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes ONTAP 系统的 Azure 帐户。您可以在初始 Azure 帐户中部署所有 Cloud Volumes ONTAP 系统，也可以设置其他帐户。 
+---
+= Azure 帐户和权限
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes ONTAP 系统的 Azure 帐户。您可以在初始 Azure 帐户中部署所有 Cloud Volumes ONTAP 系统，也可以设置其他帐户。
+
+
+
+== 初始 Azure 帐户
+
+从 NetApp Cloud Central 部署 Cloud Manager 时，您需要使用具有部署 Cloud Manager 虚拟机权限的 Azure 帐户。中列出了所需的权限 https://mysupport.netapp.com/cloudontap/iampolicies["适用于 Azure 的 NetApp Cloud Central 策略"^]。
+
+当 Cloud Central 在 Azure 中部署 Cloud Manager 虚拟机时，它会启用 https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["系统分配的受管身份"^] 在 Cloud Manager 虚拟机上，创建自定义角色并将其分配给虚拟机。此角色为 Cloud Manager 提供了在该 Azure 订阅中部署和管理 Cloud Volumes ONTAP 的权限。 link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["查看 Cloud Manager 如何使用权限"]。
+
+image:diagram_permissions_initial_azure.png["一个概念映像，显示 Cloud Central 在 Azure 帐户和订阅中部署 Cloud Manager 。系统分配的受管身份将被启用，并为 Cloud Manager 虚拟机分配自定义角色。"]
+
+Cloud Manager 会在您创建新的工作环境时默认选择此云提供商帐户：
+
+image:screenshot_accounts_select_azure.gif["屏幕截图，显示 \"Details\" 和 \"amp\" ； \"Credentials\" 页面中的 \"Switch Account\" 选项。"]
+
+
+
+== 初始帐户的其他 Azure 订阅
+
+托管身份与您启动 Cloud Manager 的订阅相关联。如果要选择其他 Azure 订阅，则需要 link:task_adding_azure_accounts.html#associating-additional-azure-subscriptions-with-a-managed-identity["将托管身份与这些订阅相关联"]。
+
+
+
+== 其他 Azure 帐户
+
+如果要在不同的 Azure 帐户中部署 Cloud Volumes ONTAP ，则必须通过授予所需权限 link:task_adding_azure_accounts.html["在 Azure Active Directory 中创建和设置服务主体"] 对于每个 Azure 帐户。下图显示了另外两个帐户，每个帐户都设置有一个服务主体和一个提供权限的自定义角色：
+
+image:diagram_permissions_multiple_azure.png["显示初始 Azure 帐户（通过自定义角色和托管身份接收权限）以及通过自定义角色和服务主体接收权限的其他两个帐户的概念映像。"]
+
+您可以这样做 link:task_adding_azure_accounts.html#adding-azure-accounts-to-cloud-manager["将云提供商帐户添加到 Cloud Manager"] 提供有关 AD 服务主体的详细信息。
+
+添加其他帐户后，您可以在创建新的工作环境时切换到该帐户：
+
+image:screenshot_accounts_switch_azure.gif["单击详细信息和 amp ；凭据页面中的切换帐户后，显示在云提供商帐户之间进行选择的屏幕截图。"]
+
+.市场部署和内部部署如何？
+****
+以上各节介绍了 NetApp Cloud Central 中建议的部署方法。您也可以从在 Azure 中部署 Cloud Manager link:task_launching_azure_mktp.html["Azure Marketplace"]，您可以 。
+
+如果您使用 Marketplace ，则会以相同方式提供权限。您只需手动创建和设置 Cloud Manager 的托管身份，然后为任何其他帐户提供权限即可。
+
+对于内部部署，您不能为 Cloud Manager 系统设置托管身份，但可以像为其他帐户提供权限一样提供权限。
+
+****

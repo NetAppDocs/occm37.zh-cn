@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: reference_before.html 
+keywords: prerequisites, requirements, before 
+summary: 在使用 Cloud Manager 创建和管理 Cloud Volumes ONTAP 系统之前、您的云管理器管理员应已准备好网络并安装和设置了 Cloud Manager 。 
+---
+= 在创建 Cloud Volumes ONTAP 系统之前
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在使用 Cloud Manager 创建和管理 Cloud Volumes ONTAP 系统之前、您的云管理器管理员应已准备好网络并安装和设置了 Cloud Manager 。
+
+在开始部署 Cloud Volumes ONTAP 之前应存在以下条件：
+
+* 已满足 Cloud Manager 和 Cloud Volumes ONTAP 的网络连接要求。
+* Cloud Manager 有权在您选择的云提供商中执行操作。
+* 对于 AWS ，您已订阅相应的 AWS Marketplace 页面：
++
+** 如果要部署 PAYGO 系统或启用附加功能： https://aws.amazon.com/marketplace/pp/B07QX2QLXX["Cloud Manager （适用于 Cloud Volumes ONTAP ）页面"^]。
+** 如果要部署 BYOL 系统： https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=cloud+volumes+ontap+byol["AWS Marketplace 中的单个节点或 HA 页面"^]。
+
+
+* 已安装云管理器。
+
+
+.相关链接
+* link:task_getting_started_aws.html["AWS 入门"]
+* link:task_getting_started_azure.html["Azure 入门"]
+* link:task_getting_started_gcp.html["GCP 入门"]
+* link:task_setting_up_cloud_manager.html["设置云管理器"]
+

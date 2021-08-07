@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_renewing_cert.html 
+keywords: https certificate, certificate, renewing 
+summary: 您应该在云管理器 HTTPS 证书过期之前续订该证书，以确保对云管理器 Web 控制台的安全访问。如果在证书过期前未续订证书、则当用户使用 HTTPS 访问 Web 控制台时会显示警告。 
+---
+= 续订 Cloud Manager HTTPS 证书
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应该在云管理器 HTTPS 证书过期之前续订该证书，以确保对云管理器 Web 控制台的安全访问。如果在证书过期前未续订证书、则当用户使用 HTTPS 访问 Web 控制台时会显示警告。
+
+.步骤
+. 在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * HTTPS 设置 * 。
++
+此时将显示有关 Cloud Manager 证书的详细信息、包括到期日期。
+
+. 单击 * 续订 HTTPS 证书 * ，然后按照以下步骤生成 CSR 或安装您自己的 CA 签名证书。
+
+
+Cloud Manager 使用新的 CA 签名证书提供安全 HTTPS 访问。

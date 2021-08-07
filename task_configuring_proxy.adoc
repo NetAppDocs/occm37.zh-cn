@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: task_configuring_proxy.html 
+keywords: proxy, proxy server, proxy, internet 
+summary: 首次部署 Cloud Manager 时，如果系统无法访问 Internet 、则会提示您输入代理服务器。您也可以通过 Cloud Manager 的设置手动输入和修改代理。 
+---
+= 配置 Cloud Manager 以使用代理服务器
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+首次部署 Cloud Manager 时，如果系统无法访问 Internet 、则会提示您输入代理服务器。您也可以通过 Cloud Manager 的设置手动输入和修改代理。
+
+如果您的公司策略要求您使用代理服务器进行与 Internet 的所有 HTTP 通信、则必须配置 Cloud Manager 以使用该代理服务器。代理服务器可以位于云中或网络中。
+
+当您将 Cloud Manager 配置为使用代理服务器时、 Cloud Manager 、 Cloud Volumes ONTAP 和 HA 调解器都使用代理服务器。
+
+.步骤
+. 在 Cloud Manager 控制台的右上角，单击设置图标，然后选择 * Cloud Manager 设置 * 。
++
+image:screenshot_settings_icon.gif["一个屏幕截图，显示 Cloud Manager 控制台右上角的设置图标。"]
+
+. 在 HTTP 代理下，使用语法输入服务器 http://_address:port_[]下，如果服务器需要基本身份验证，请指定用户名和密码，然后单击 * 保存 * 。
++
+
+NOTE: Cloud Manager 不支持包含 @ 字符的密码。
+
+
+
+指定代理服务器后、新的 Cloud Volumes ONTAP 系统会自动配置为在发送 AutoSupport 消息时使用代理服务器。如果在用户创建 Cloud Volumes ONTAP 系统之前未指定代理服务器、则用户必须使用 System Manager 在每个系统的 AutoSupport 选项中手动设置代理服务器。

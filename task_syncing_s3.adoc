@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: task_syncing_s3.html 
+keywords: sync, data, s3, cloud sync, bucket, service, sync to s3, volume sync 
+summary: 您可以通过将工作环境与 NetApp Cloud Sync 集成来将 ONTAP 卷中的数据同步到 Amazon S3 存储分段。然后，您可以将同步数据用作二级副本或使用 AWS 服务（如 EMR 和 RedShift ）进行数据处理。 
+---
+= 正在将数据同步到 Amazon S3
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将工作环境与集成来将 ONTAP 卷中的数据同步到 Amazon S3 存储分段 https://www.netapp.com/us/cloud/data-sync-saas-product-details["NetApp Cloud Sync"^]。然后，您可以将同步数据用作二级副本或使用 AWS 服务（如 EMR 和 RedShift ）进行数据处理。
+
+
+
+== 同步到 S3 功能的工作原理
+
+您可以随时将工作环境与云同步服务集成。在集成工作环境时、 Cloud Sync Service 会将选定卷中的数据同步到单个 S3 存储区。该集成可与 Cloud Volumes ONTAP 工作环境以及内部或部分 NetApp 私有存储（ NPS ）配置的 ONTAP 集群配合使用。
+
+要同步数据、服务将在 VPC 中启动数据代理实例。Cloud Sync 在每个工作环境中使用一个数据代理将卷中的数据同步到 S3 数据桶。初始同步后、服务每天在午夜对任何更改的数据进行一次同步。
+
+image:screenshot_sync_to_s3.gif["屏幕抓图：显示数据代理从正在同步的工作环境中的卷到 S3 存储区的概念性图像。"]
+
+如果要执行高级云同步操作、请直接转至 Cloud Sync 服务。您可以在其中执行操作，例如从 S3 同步到 NFS 服务器、为卷选择不同的 S3 存储区以及修改计划。
+
+
+
+=== 14 天免费试用
+
+如果您是新的 Cloud Sync 用户、则前 14 天免费。免费试用结束后，您必须按小时费率或通过购买许可证为每个 _sync 关系支付费用。您与 S3 存储池同步的每个卷都被视为同步关系。您可以在许可证设置页面中直接从 Cloud Sync 设置这两个付款选项。
+
+
+
+=== 如何获得帮助
+
+使用以下选项可获得与 Cloud Manager Sync to S3 功能相关的任何支持或通常的 Cloud Sync 功能：
+
+* 一般产品反馈： ng-CloudSync-contact@netapp.com
+* 技术支持选项：
++
+** NetApp Cloud Sync 社区
+** 产品内聊天（ Cloud Manager 右下角）
+
+
+
+
+
+
+== 将工作环境与云同步服务集成
+
+如果要直接从 Cloud Manager 将卷同步到 Amazon S3 ，则必须将工作环境与 Cloud Sync 服务集成。
+
+video::3hOtLs70_xE[youtube, width=848,height=480]
+.步骤
+. 打开一个工作环境，然后单击 * 同步到 S3* 。
+. 单击 * 同步 * ，然后按照提示将数据同步到 S3 。
+
+
+
+NOTE: 您无法将数据保护卷同步到 S3 。卷必须可写。
+
+
+
+== 管理卷同步关系
+
+将工作环境与 Cloud Sync 服务集成后、您可以同步其他卷、停止同步卷并删除与 Cloud Sync 的集成。
+
+.步骤
+. 在“工作环境”页面上，双击要管理同步关系的工作环境。
+. 如果要为卷启用或禁用与 S3 的同步，请选择此卷，然后单击 * 同步到 S3* 或 * 删除同步关系 * 。
+. 如果要删除工作环境中的所有同步关系，请单击 * 同步到 S3* 选项卡，然后单击 * 删除同步 * 。
++
+此操作不会从 S3 存储区中删除已同步的数据。如果数据代理未在任何其他同步关系中使用，则 Cloud Sync 服务将删除数据代理。
+
+

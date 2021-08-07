@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: concept_keep_up.html 
+keywords: shut down, shutdown, stop, stopping, billing, power on, power off 
+summary: Cloud Manager 应始终保持运行状态。 
+---
+= 保持 Cloud Manager 正常运行
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 应始终保持运行状态。
+
+Cloud Manager 是 Cloud Volumes ONTAP 运行状况和计费的关键组成部分。如果 Cloud Manager 已关闭，则在与 Cloud Manager 的通信中断 4 天以上后， Cloud Volumes ONTAP 系统将关闭。
