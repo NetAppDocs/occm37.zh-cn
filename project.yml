@@ -1,0 +1,247 @@
+---
+sidebar:
+  entries:
+  - title: Cloud Manager 3.7 文档
+    url: "/index.html"
+  - title: 发行说明
+    entries:
+    - title: 云管理器
+      entries:
+      - title: 新增功能
+        url: "/reference_new_occm.html"
+      - title: 已知问题
+        url: "/reference_issues.html"
+      - title: 已知限制
+        url: "/reference_limitations.html"
+    - title: Cloud Volumes ONTAP
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/
+  - title: 概念
+    entries:
+    - title: 产品概述
+      url: "/concept_overview.html"
+    - title: NetApp Cloud Central
+      url: "/concept_cloud_central.html"
+    - title: Cloud Central 帐户
+      url: "/concept_cloud_central_accounts.html"
+    - title: 云提供商帐户
+      entries:
+      - title: AWS 帐户
+        url: "/concept_accounts_aws.html"
+      - title: Azure 帐户
+        url: "/concept_accounts_azure.html"
+      - title: GCP 帐户
+        url: "/concept_accounts_gcp.html"
+    - title: 存储
+      entries:
+      - title: 磁盘和聚合
+        url: "/concept_storage.html"
+      - title: 数据分层
+        url: "/concept_data_tiering.html"
+      - title: 存储管理
+        url: "/concept_storage_management.html"
+      - title: WORM 存储
+        url: "/concept_worm.html"
+    - title: 高可用性对
+      entries:
+      - title: AWS 中的 HA 对
+        url: "/concept_ha.html"
+      - title: Azure 中的 HA 对
+        url: "/concept_ha_azure.html"
+    - title: 评估
+      url: "/concept_evaluating.html"
+    - title: 许可
+      url: "/concept_licensing.html"
+    - title: 安全性
+      url: "/concept_security.html"
+    - title: 性能
+      url: "/concept_performance.html"
+  - title: 入门
+    entries:
+    - title: 部署概述
+      url: "/reference_deployment_overview.html"
+    - title: 在 AWS 中入门
+      url: "/task_getting_started_aws.html"
+    - title: 在 Azure 开始
+      url: "/task_getting_started_azure.html"
+    - title: 在 GCP 中入门
+      url: "/task_getting_started_gcp.html"
+    - title: 设置 Cloud Manager
+      entries:
+      - title: 设置 Cloud Central 帐户
+        url: "/task_setting_up_cloud_central_accounts.html"
+      - title: 添加 AWS 帐户
+        url: "/task_adding_aws_accounts.html"
+      - title: 添加 Azure 帐户
+        url: "/task_adding_azure_accounts.html"
+      - title: 添加 GCP 帐户
+        url: "/task_adding_gcp_accounts.html"
+      - title: 添加 NetApp 支持站点帐户
+        url: "/task_adding_nss_accounts.html"
+      - title: 安装 HTTPS 证书
+        url: "/task_installing_https_cert.html"
+      - title: 设置 AWS KMS
+        url: "/task_setting_up_kms.html"
+    - title: 网络要求
+      entries:
+      - title: 云管理器
+        url: "/reference_networking_cloud_manager.html"
+      - title: 适用于 AWS 的 Cloud Volumes ONTAP
+        url: "/reference_networking_aws.html"
+      - title: 设置 AWS 传输网关
+        url: "/task_setting_up_transit_gateway.html"
+      - title: 适用于 Azure 的 Cloud Volumes ONTAP
+        url: "/reference_networking_azure.html"
+      - title: 适用于 GCP 的 Cloud Volumes ONTAP
+        url: "/reference_networking_gcp.html"
+    - title: 其他部署选项
+      entries:
+      - title: 云管理器主机要求
+        url: "/reference_cloud_mgr_reqs.html"
+      - title: 在 Linux 上安装 Cloud Manager
+        url: "/task_installing_linux.html"
+      - title: 从 AWS Marketplace 部署 Cloud Manager
+        url: "/task_launching_aws_mktp.html"
+      - title: 从 Azure Marketplace 部署 Cloud Manager
+        url: "/task_launching_azure_mktp.html"
+      - title: 在 Azure Gov 区域部署 Cloud Manager
+        url: "/task_installing_azure_gov.html"
+      - title: 在德国 Azure 地区部署 Cloud Manager
+        url: "/task_installing_azure_germany.html"
+      - title: AWS C2S 入门
+        url: https://docs.netapp.com/us-en/occm/media/c2s.pdf
+    - title: 保持 Cloud Manager 正常运行
+      url: "/concept_keep_up.html"
+  - title: 部署 Cloud Volumes ONTAP
+    entries:
+    - title: 开始之前
+      url: "/reference_before.html"
+    - title: 登录到 Cloud Manager
+      url: "/task_logging_in.html"
+    - title: 规划您的配置
+      url: "/task_planning_your_config.html"
+    - title: 查找您的系统 ID
+      url: "/task_finding_system_id.html"
+    - title: 启用 Flash Cache
+      url: "/task_enabling_flash_cache.html"
+    - title: 在 AWS 中启动 Cloud Volumes ONTAP
+      url: "/task_deploying_otc_aws.html"
+    - title: 在 Azure 中启动 Cloud Volumes ONTAP
+      url: "/task_deploying_otc_azure.html"
+    - title: 在 GCP 中启动 Cloud Volumes ONTAP
+      url: "/task_deploying_gcp.html"
+    - title: 注册按需购买系统
+      url: "/task_registering.html"
+    - title: 设置 Cloud Volumes ONTAP
+      url: "/task_setting_up_ontap_cloud.html"
+  - title: 配置存储
+    entries:
+    - title: 创建卷，聚合和 LUN
+      url: "/task_provisioning_storage.html"
+    - title: 将非活动数据分层到对象存储
+      url: "/task_tiering.html"
+    - title: 使用 ONTAP 作为永久性存储
+      url: "/task_connecting_kubernetes.html"
+    - title: 使用 NetApp 卷加密对卷进行加密
+      url: "/task_encrypting_volumes.html"
+    - title: 管理现有存储
+      url: "/task_managing_storage.html"
+  - title: 复制和保护数据
+    entries:
+    - title: 发现和管理 ONTAP 集群
+      url: "/task_discovering_ontap.html"
+    - title: 在系统之间复制数据
+      url: "/task_replicating_data.html"
+    - title: 备份到 Amazon S3
+      url: "/task_backup_to_s3.html"
+    - title: 将数据同步到 Amazon S3
+      url: "/task_syncing_s3.html"
+  - title: 深入了解数据隐私
+    entries:
+    - title: 了解云合规性
+      url: "/concept_cloud_compliance.html"
+    - title: 入门
+      url: "/task_getting_started_compliance.html"
+    - title: 获得数据可见性和控制权
+      url: "/task_controlling_private_data.html"
+    - title: 生成报告
+      url: "/task_generating_compliance_reports.html"
+    - title: 响应 DAR
+      url: "/task_responding_to_dsar.html"
+    - title: 禁用 Cloud Compliance
+      url: "/task_managing_compliance.html"
+    - title: 常见问题解答
+      url: "/faq_cloud_compliance.html"
+  - title: 管理 Cloud Volumes ONTAP
+    entries:
+    - title: 连接到 Cloud Volumes ONTAP
+      url: "/task_connecting_to_otc.html"
+    - title: 更新软件
+      url: "/task_updating_ontap_cloud.html"
+    - title: 修改系统配置
+      url: "/task_modifying_ontap_cloud.html"
+    - title: 停止并启动系统
+      url: "/task_managing_state.html"
+    - title: 监控 AWS 成本
+      url: "/task_monitoring_costs.html"
+    - title: 改进勒索软件保护
+      url: "/task_protecting_ransomware.html"
+    - title: 添加现有系统
+      url: "/task_adding_ontap_cloud.html"
+    - title: 删除系统
+      url: "/task_deleting_working_env.html"
+  - title: 管理 Cloud Manager
+    entries:
+    - title: 更新 Cloud Manager
+      url: "/task_updating_cloud_manager.html"
+    - title: 管理 Cloud Central 帐户
+      url: "/task_managing_cloud_central_accounts.html"
+    - title: 删除工作环境
+      url: "/task_removing.html"
+    - title: 配置代理设置
+      url: "/task_configuring_proxy.html"
+    - title: 续订 HTTPS 证书
+      url: "/task_renewing_cert.html"
+    - title: 还原 Cloud Manager
+      url: "/task_restoring.html"
+    - title: 卸载 Cloud Manager
+      url: "/task_uninstalling.html"
+  - title: 为文件服务配置卷
+    entries:
+    - title: Azure NetApp Files
+      url: "/task_manage_anf.html"
+    - title: 适用于 AWS 的 Cloud Volumes Service
+      url: "/task_manage_cvs_aws.html"
+  - title: API 和自动化
+    entries:
+    - title: API 开发人员指南
+      url: https://docs.netapp.com/us-en/occm/api.html
+    - title: 自动化示例
+      url: "/reference_infrastructure_as_code.html"
+  - title: 参考
+    entries:
+    - title: Cloud Central 集成常见问题解答
+      url: "/reference_integration_faq.html"
+    - title: 支持的 Cloud Volumes ONTAP 配置
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html
+    - title: 支持的区域
+      url: https://cloud.netapp.com/cloud-volumes-global-regions
+    - title: AWS 的安全组规则
+      url: "/reference_security_groups.html"
+    - title: Azure 的安全组规则
+      url: "/reference_security_groups_azure.html"
+    - title: GCP 的防火墙规则
+      url: "/reference_firewall_rules_gcp.html"
+    - title: AWS Marketplace 页面
+      url: "/reference_aws_marketplace.html"
+    - title: 权限
+      url: "/reference_permissions.html"
+    - title: 默认配置
+      url: "/reference_default_configs.html"
+    - title: 用户角色
+      url: "/reference_user_roles.html"
+    - title: 相关链接
+      url: "/reference_additional_info.html"
+  - title: 早期版本
+    url: "/reference_earlier_versions.html"
+  - title: 法律声明
+    url: "/reference_legal_notices.html"

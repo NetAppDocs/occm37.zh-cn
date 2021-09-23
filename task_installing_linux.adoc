@@ -51,14 +51,10 @@ NOTE: 您可以在 GCP 中自己的主机上安装 Cloud Manager ，但不能在
 * 示例 *
 
 +
-....
-chmod +x OnCommandCloudManager-V3.7.0.sh
-....
+ chmod +x OnCommandCloudManager-V3.7.0.sh
 . 运行安装脚本：
 +
-....
-./OnCommandCloudManager-V3.7.0.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]
-....
+ ./OnCommandCloudManager-V3.7.0.sh [silent] [proxy=ipaddress] [proxyport=port] [proxyuser=user_name] [proxypwd=password]
 +
 _silent_ 运行安装时不提示您提供信息。
 
