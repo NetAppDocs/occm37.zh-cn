@@ -18,7 +18,7 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta http-equiv="nss-product" content="OnCommand"/>
+  <meta http-equiv="nss-product" content="OnCommand Cloud Manager"/>
   
   <meta name="description" content="通过搜索主题的全名或已知标识符（例如电子邮件地址）并下载报告来响应数据主题访问请求（ Data Subject Access Request ， DAR ）。本报告旨在帮助贵组织满足 GDPR 或类似数据隐私法律的要求。">
   <meta name="keywords" content=" dsar, data subject access request, search, search for name, report, gdpr, data privacy laws, data subject, compliance">
@@ -159,7 +159,12 @@
     gtag('config', 'UA-81697994-3');
   }
   </script>
+  <script src='/zh-cn/occm37/js/version-dropdown.js'></script>
   <script src='/zh-cn/occm37/js/product-family.js'></script>
+  <script src='/zh-cn/occm37/js/FileSaver.min.js'></script>
+  <script src='/zh-cn/occm37/js/jszip-utils.min.js'></script>
+  <script src='/zh-cn/occm37/js/jszip.min.js'></script>
+  <script src='/zh-cn/occm37/js/pdf-ux.js'></script>
 </head>
 
 
@@ -275,9 +280,6 @@
       </div>
       <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
         <div class="n-language-selector-menu">
-          <div class="n-language-selector-menu__header">
-            <span class="n-language-selector-menu__title">选择您的语言</span>
-          </div>
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
@@ -289,10 +291,6 @@
                 </li></ul>
             </li>
           </ul>
-          <div class="menu__footer">
-            <p>当前语言: 简体中文
-            </p>
-          </div>
         </div>
       </div>
     </div><!-- End Language Selector -->
@@ -329,31 +327,6 @@
   <!-- End property bar -->
 </header>
 
-        <div class="ie-utility">
-  <div class="ie-menu">
-    <div class="n-breadcrumb">
-      <ul class="n-breadcrumb__list">
-        <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">主页</a>
-        </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">文档</a>
-        </li>
-        
-
-        <li class="n-breadcrumb__list-item">
-          <a href="/zh-cn/occm37/">Cloud&nbsp;Manager&nbsp;3.7</a>
-        </li>
-        <li class="n-breadcrumb__list-item">
-          响应数据主体访问请求
-        </li>
-      </ul>
-    </div>
-
-    <div style="clear: both"></div><!-- Main needs to have height -->
-  </div>
-</div>
-
 
         <main id="n-main-content" class="n-main-content">
           <!-- Start Documentation Content -->
@@ -362,70 +335,53 @@
   
   <div class="col-md-3" >
       <div class="n-pdf-header">
-  <a id="toggleButtonPdf" class="n-pdf-button" type="button">PDF<span>
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
     </span>
   </a>
 </div>
-<ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><div class="n-pdf-section">
-      <span class="n-pdf-section-title">站点</span>
-    </div>
-    <li>
-      <a target="_blank" href="/zh-cn/occm37/pdfs/fullsite-sidebar/Cloud_Manager_和_Cloud_Volumes_ONTAP_文档.pdf" >
-        <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
-        Cloud Manager 和 Cloud Volumes ONTAP 文档
-      </a>
-    </li>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/zh-cn/occm37/pdfs/fullsite-sidebar/Cloud_Manager_和_Cloud_Volumes_ONTAP_文档.pdf" >
+          <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
 
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/发行说明.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             发行说明
           </a>
-        </li>
-        <span>
           
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/云管理器.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             云管理器
           </a>
+          
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -434,10 +390,9 @@
 
 
 
-
           
-        </span>
-      </span>
+        </li>
+      </ul>
     
 
   
@@ -445,25 +400,16 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/概念.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             概念
           </a>
-        </li>
-        <span>
           
 
 
@@ -473,31 +419,27 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/云提供商帐户.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             云提供商帐户
           </a>
+          
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -505,33 +447,29 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/存储.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             存储
           </a>
+          
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -539,29 +477,25 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/高可用性对.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             高可用性对
           </a>
+          
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -576,10 +510,9 @@
 
 
 
-
           
-        </span>
-      </span>
+        </li>
+      </ul>
     
 
   
@@ -587,25 +520,16 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/入门.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             入门
           </a>
-        </li>
-        <span>
           
 
 
@@ -617,39 +541,35 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/设置_Cloud_Manager.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             设置 Cloud Manager
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -657,35 +577,31 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/网络要求.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             网络要求
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -693,39 +609,35 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/其他部署选项.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             其他部署选项
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -734,10 +646,9 @@
 
 
 
-
           
-        </span>
-      </span>
+        </li>
+      </ul>
     
 
   
@@ -745,51 +656,41 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/部署_Cloud_Volumes_ONTAP.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             部署 Cloud Volumes ONTAP
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -797,41 +698,31 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/配置存储.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             配置存储
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -839,39 +730,29 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/复制和保护数据.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             复制和保护数据
           </a>
+          
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -879,25 +760,16 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/深入了解数据隐私.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             深入了解数据隐私
           </a>
-        </li>
-        <span>
           
 
 
@@ -907,20 +779,15 @@
 
 
 
-    <div class="n-pdf-section">
-  <span class="n-pdf-section-title">此页面</span>
-</div>
-
-<li class="active">
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
   <a target="_blank" href="/zh-cn/occm37/pdfs/pages/task_responding_to_dsar.pdf" >
-    <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
-    响应数据主体访问请求
+    <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
+    PDF of this page
   </a>
 </li>
 
-
+</ul>
   
-
 
 
 
@@ -929,8 +796,8 @@
 
 
           
-        </span>
-      </span>
+        </li>
+      </ul>
     
 
   
@@ -938,47 +805,37 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/管理_Cloud_Volumes_ONTAP.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             管理 Cloud Volumes ONTAP
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -986,45 +843,35 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/管理_Cloud_Manager.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             管理 Cloud Manager
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -1032,35 +879,25 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/为文件服务配置卷.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             为文件服务配置卷
           </a>
+          
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -1068,35 +905,25 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/API_和自动化.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             API 和自动化
           </a>
+          
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -1104,53 +931,43 @@
 
 
     
-      <span class="subfolders" style="display:none;">
-        
-          <div class="n-pdf-section">
-            <span class="n-pdf-section-title">
-              小节
-            </span>
-          </div>
-        
-        <li>
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/参考.pdf" 
             
           >
-            <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>
+            <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>
             参考
           </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </li>
-        <span>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-        </span>
-      </span>
+      </ul>
     
 
   
@@ -1160,15 +977,44 @@
 
 
 
-</ul>
-
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-cn/occm37/images/pdf-zip.png" width="16" height="16"/>
+      <pre>收集单独的 PDF 文档<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
 <script>
-  $("#toggleContainerPdf li.active").parents('li').toggle('display');
-  $("#toggleContainerPdf li.active").parents('span.subfolders').toggle('display');
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
   $("#toggleButtonPdf").click(function () {
     $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/occm37/index.html">
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/occm37/index.html">
         Cloud Manager 3.7 文档
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 发行说明</div>
@@ -1432,7 +1278,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/occm37/reference_legal_notices.html">
         法律声明
       </a></li></ul>
-
+</div>
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
@@ -1442,6 +1288,30 @@
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
     <!-- Begin of page container -->
     <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">主页</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">文档</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-cn/occm37/">Cloud&nbsp;Manager&nbsp;3.7</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          响应数据主体访问请求
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
       
 <div class="ie-notification">
   <span class="ie-notification-highlight">此文档适用于上一版的 Cloud Manager。</span><br>
@@ -1469,7 +1339,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-08-09 23:47:24 +0000">08/09/2021</time>
+    <time datetime="2022-01-17 11:50:46 +0000">01/17/2022</time>
     
   
 
@@ -1483,12 +1353,6 @@
   </a>
   
 </span>
-
-
-  <span>
-    <a target="_blank" href="/zh-cn/occm37/pdfs/pages/task_responding_to_dsar.pdf" role="button">
-      <img src="/zh-cn/occm37/images/pdf.png" width="20" height="20"/>下载此页面的 PDF</a>
-  </span>
 
 
 </p>
@@ -1605,11 +1469,11 @@ NetApp 无法保证 Cloud Compliance 所识别的个人数据和敏感个人数�
   
   <!-- Start Page Toolbar -->
   <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
     <div class="page-nav-contribute"  >
-      <div class="page-nav-contribute-title">提供</div>
-      <a target="_blank" href="https://github.com/NetAppDocs/occm37/blob/main/task_responding_to_dsar.adoc" class="btn btn-default githubEditButton" role="button"><img src="/zh-cn/occm37/images/github.png" class="github-icon" />编辑这个页面</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/occm37/issues/new?body=Page%3A%20[响应数据主体访问请求](https://docs.netapp.com/zh-cn/occm37/task_responding_to_dsar.html)" class="btn btn-default githubEditButton" role="button"><img src="/zh-cn/occm37/images/github.png" class="github-icon" />请求文档更改</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >了解如何贡献</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/occm37/issues/new?body=Page%3A%20[响应数据主体访问请求](https://docs.netapp.com/zh-cn/occm37/task_responding_to_dsar.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/occm37/blob/main/task_responding_to_dsar.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/occm37/images/article-sm.svg" class="github-icon" />提供者指南</a>
     </div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
@@ -1634,7 +1498,7 @@ NetApp 无法保证 Cloud Compliance 所识别的个人数据和敏感个人数�
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2021 NetApp, Inc.</a>
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
 
 </ul>
