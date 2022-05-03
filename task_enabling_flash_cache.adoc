@@ -6,6 +6,7 @@ summary: AWS 和 Azure 中的某些 Cloud Volumes ONTAP 配置包括本地 NVMe 
 ---
 = 在 Cloud Volumes ONTAP 上启用 Flash Cache
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

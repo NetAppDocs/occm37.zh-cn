@@ -6,6 +6,7 @@ summary: 您应该在云管理器 HTTPS 证书过期之前续订该证书，以�
 ---
 = 续订 Cloud Manager HTTPS 证书
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 通过 NetApp Cloud Central 帐户，您可以轻松还原 Cloud Manage
 ---
 = 正在还原 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

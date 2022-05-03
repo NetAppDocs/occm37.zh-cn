@@ -7,6 +7,7 @@ summary: 您可以通过完成几个快速步骤开始在 AWS 中使用 Cloud Vo
 ---
 = AWS 中的 Cloud Volumes ONTAP 入门
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -22,7 +23,7 @@ summary: 您可以通过完成几个快速步骤开始在 AWS 中使用 Cloud Vo
 
 . 支持从目标 VPC 进行出站 Internet 访问，以便 Cloud Manager 和 Cloud Volumes ONTAP 可以与多个端点联系。
 +
-此步骤非常重要，因为 Cloud Manager 无法在没有出站 Internet 访问的情况下部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 。
+此步骤非常重要，因为 Cloud Manager 无法在没有出站 Internet 访问的情况下部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 link:reference_networking_aws.html#general-aws-networking-requirements-for-cloud-volumes-ontap["Cloud Volumes ONTAP"]。
 
 . 将 VPC 端点设置为 S3 服务。
 +

@@ -7,6 +7,7 @@ translate: false
 ---
 = 默认配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

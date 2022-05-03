@@ -6,6 +6,7 @@ summary: 最好使用 NetApp Cloud Central 在 Azure 中部署 Cloud Manager 、
 ---
 = 从 Azure Marketplace 部署 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -15,7 +16,7 @@ summary: 最好使用 NetApp Cloud Central 在 Azure 中部署 Cloud Manager 、
 [role="lead"]
 最好使用在 Azure 中部署 Cloud Manager https://cloud.netapp.com["NetApp Cloud Central"^]，但如果需要，您可以从 Azure Marketplace 进行部署。
 
-有关在中部署 Cloud Manager 的说明，请参见 link:task_installing_azure_gov.html["Azure 美国政府区域"] 和中的 。
+有关在中部署 Cloud Manager 的说明，请参见 link:task_installing_azure_gov.html["Azure 美国政府区域"] 和中的 link:task_installing_azure_germany.html["Azure 德国地区"]。
 
 
 TIP: 如果您从 Azure Marketplace 部署 Cloud Manager 、 Cloud Manager 仍与 NetApp Cloud Central 集成。 link:concept_cloud_central.html["了解有关集成的更多信息。"]。

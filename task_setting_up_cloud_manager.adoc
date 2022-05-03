@@ -6,6 +6,7 @@ summary: 您可以在部署 Cloud Manager 后立即开始创建 Cloud Volumes ON
 ---
 = 设置云管理器
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

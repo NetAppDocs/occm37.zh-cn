@@ -6,6 +6,7 @@ summary: 从 Azure 政府市场部署 Cloud Manager ，然后提供 Cloud Manage
 ---
 = 在美国 Azure 政府区域部署 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

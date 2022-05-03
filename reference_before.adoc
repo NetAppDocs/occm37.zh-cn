@@ -6,6 +6,7 @@ summary: 在使用 Cloud Manager 创建和管理 Cloud Volumes ONTAP 系统之�
 ---
 = 在创建 Cloud Volumes ONTAP 系统之前
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 许多 AWS 区域和 Microsoft Azure 区域均支持 Cloud Manager 和 
 ---
 = 支持的区域
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

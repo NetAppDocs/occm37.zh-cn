@@ -6,6 +6,7 @@ summary: 云合规性是一项适用于 AWS 和 Azure 中 Cloud Volumes ONTAP �
 ---
 = 了解云合规性
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

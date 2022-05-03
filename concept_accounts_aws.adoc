@@ -6,6 +6,7 @@ summary: 通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes
 ---
 = AWS 帐户和权限
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -45,7 +46,7 @@ image:screenshot_accounts_switch_aws.gif["单击详细信息和 amp ；凭据页
 
 .市场部署和内部部署如何？
 ****
-以上各节介绍了 NetApp Cloud Central 中建议的部署方法。您也可以从在 AWS 中部署 Cloud Manager link:task_launching_aws_mktp.html["AWS Marketplace"] 您可以做到 。
+以上各节介绍了 NetApp Cloud Central 中建议的部署方法。您也可以从在 AWS 中部署 Cloud Manager link:task_launching_aws_mktp.html["AWS Marketplace"] 您可以做到 link:task_installing_linux.html["在内部安装 Cloud Manager"]。
 
 如果您使用 Marketplace ，则会以相同方式提供权限。您只需手动创建和设置 IAM 角色，然后为任何其他帐户提供权限即可。
 

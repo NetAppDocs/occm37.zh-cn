@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP 高可用性（ High Availability ， HA ）对可�
 ---
 = Azure 中的高可用性对
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -27,7 +28,7 @@ image:diagram_ha_azure.png["一个概念映像，其中显示了一个负载平�
 
 Azure 标准负载平衡器:: 负载平衡器管理传入 Cloud Volumes ONTAP HA 对的流量。
 可用性集:: 可用性集可确保节点位于不同的故障域和更新域中。
-Disks::
+Disks:: 客户数据位于高级存储页面 Blobs 上。每个节点都可以访问另一节点的存储。启动，根和核心数据还需要额外的存储：
 +
 --
 * 两个用于启动卷的 90 GB 高级 SSD 磁盘（每个节点一个）

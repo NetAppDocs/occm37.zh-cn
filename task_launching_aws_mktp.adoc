@@ -6,6 +6,7 @@ summary: 最好使用 NetApp Cloud Central 在 AWS 中启动 Cloud Manager 、�
 ---
 = 从 AWS Marketplace 启动 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

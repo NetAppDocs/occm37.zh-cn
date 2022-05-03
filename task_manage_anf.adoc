@@ -6,6 +6,7 @@ summary: 直接从 Cloud Manager 查看和创建适用于 Azure NetApp Files 的
 ---
 = 管理 Azure NetApp Files 的卷
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

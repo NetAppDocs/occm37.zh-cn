@@ -6,6 +6,7 @@ summary: 首次部署 Cloud Manager 时，如果系统无法访问 Internet 、�
 ---
 = 配置 Cloud Manager 以使用代理服务器
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

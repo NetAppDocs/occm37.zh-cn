@@ -7,6 +7,7 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 ---
 = 开始在 Azure 中使用 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -14,7 +15,7 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 
 
 [role="lead"]
-首先从 Cloud Volumes ONTAP 开始，先设置 Azure ，然后从 NetApp Cloud Central 部署 Cloud Manager 软件。有关在中部署 Cloud Manager 的说明，请参见 link:task_installing_azure_gov.html["Azure 美国政府区域"] 和中的 。
+首先从 Cloud Volumes ONTAP 开始，先设置 Azure ，然后从 NetApp Cloud Central 部署 Cloud Manager 软件。有关在中部署 Cloud Manager 的说明，请参见 link:task_installing_azure_gov.html["Azure 美国政府区域"] 和中的 link:task_installing_azure_germany.html["Azure 德国地区"]。
 
 
 
@@ -24,7 +25,7 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 从目标 VNet 启用出站 Internet 访问，以便 Cloud Manager 和 Cloud Volumes ONTAP 可以与多个端点联系。
 
 [role="quick-margin-para"]
-此步骤非常重要，因为没有出站 Internet 访问、 Cloud Manager 无法部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 。
+此步骤非常重要，因为没有出站 Internet 访问、 Cloud Manager 无法部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 link:reference_networking_azure.html["Cloud Volumes ONTAP"]。
 
 
 

@@ -7,6 +7,7 @@ summary: 开始之前，您可能希望更好地了解部署 Cloud Manager 和 C
 = 部署概述
 :toc: macro
 :hardbreaks:
+:allow-uri-read: 
 :toc: 
 :nofooter: 
 :icons: font
@@ -100,7 +101,7 @@ NOTE: 您无法从 GCP Marketplace 在 Google Cloud 中部署 Cloud Manager
 
 启动并运行 Cloud Manager 后，您可以开始在云提供商中部署 Cloud Volumes ONTAP 。
 
-link:task_getting_started_aws.html["AWS 入门"]， ，和  提供有关快速启动和运行 Cloud Volumes ONTAP 的说明。有关其他帮助信息，请参阅以下内容：
+link:task_getting_started_aws.html["AWS 入门"]， link:task_getting_started_azure.html["Azure 入门"]，和 link:task_getting_started_gcp.html["GCP 入门"] 提供有关快速启动和运行 Cloud Volumes ONTAP 的说明。有关其他帮助信息，请参阅以下内容：
 
 * https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_97.html["AWS 中的 Cloud Volumes ONTAP 9.7 支持的配置"^]
 * https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_97.html["Azure 中 Cloud Volumes ONTAP 9.7 支持的配置"^]

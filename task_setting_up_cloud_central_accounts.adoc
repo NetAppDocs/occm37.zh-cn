@@ -6,6 +6,7 @@ summary: 每个 Cloud Manager 系统都与一个 NetApp Cloud Central 帐户关�
 ---
 = 在 Cloud Central 帐户中设置工作空间和用户
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

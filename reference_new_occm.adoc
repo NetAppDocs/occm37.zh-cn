@@ -6,6 +6,7 @@ summary: Cloud Manager 通常会每月推出一个新版本，为您提供新功
 ---
 = Cloud Manager 3.7 中的新增功能
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -17,8 +18,8 @@ Cloud Manager 通常会每月推出一个新版本，为您提供新功能，增
 
 
 TIP: 正在查找先前版本？link:https://docs.netapp.com/us-en/occm36/reference_new_occm.html["3.6 中的新增功能"^]
-
-
+link:https://docs.netapp.com/us-en/occm35/reference_new_occm.html["3.5 中的新增功能"^]
+link:https://docs.netapp.com/us-en/occm34/reference_new_occm.html["3.4 中的新增功能"^]
 
 
 
@@ -141,19 +142,19 @@ link:task_manage_anf.html["了解如何开始使用"]。
 
 Cloud Manager 3.7.4 为 Cloud Volumes ONTAP for Google 云平台提供了以下增强功能：
 
-GCP Marketplace 中的按需购买订阅::
+GCP Marketplace 中的按需购买订阅:: 现在，您可以通过在 Google 云平台市场中订阅 Cloud Volumes ONTAP ，随时为 Cloud Volumes ONTAP 付费。
 +
 --
 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager["Google 云平台市场：适用于 Cloud Volumes ONTAP 的 Cloud Manager"^]
 
 --
-共享 VPC::
+共享 VPC:: Cloud Manager 和 Cloud Volumes ONTAP 现在在 Google 云平台共享 VPC 中受支持。
 +
 --
 通过共享 VPC ，您可以跨多个项目配置和集中管理虚拟网络。您可以在 _host project_ 中设置共享 VPC 网络，并在 _service project_ 中部署 Cloud Manager 和 Cloud Volumes ONTAP 虚拟机实例。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud 文档：共享 VPC 概述"^]。
 
 --
-多个 Google Cloud 项目::
+多个 Google Cloud 项目:: Cloud Volumes ONTAP 不再需要与 Cloud Manager 位于同一个项目中。将 Cloud Manager 服务帐户和角色添加到其他项目中，然后您可以从部署 Cloud Volumes ONTAP 的项目中进行选择。
 +
 --
 image:screenshot_gcp_project.gif["显示 \" 工作环境 \" 向导中的项目选择选项的屏幕截图。"]
@@ -161,7 +162,7 @@ image:screenshot_gcp_project.gif["显示 \" 工作环境 \" 向导中的项目�
 有关设置 Cloud Manager 服务帐户的更多详细信息， link:task_getting_started_gcp.html#service-account["请参见此页面上的步骤 4b"]。
 
 --
-使用 Cloud Manager API 时由客户管理的加密密钥::
+使用 Cloud Manager API 时由客户管理的加密密钥:: 虽然 Google Cloud Storage 始终会在数据写入磁盘之前对数据进行加密，但您可以使用 Cloud Manager API 创建一个使用 _customer-managed encryption keys_ 的新 Cloud Volumes ONTAP 系统。这些密钥可通过云密钥管理服务在 GCP 中生成和管理。
 +
 --
 请参见 link:api.html#_creating_systems_in_gcp["API 开发人员指南"^] 有关使用 GCP 加密参数的详细信息。

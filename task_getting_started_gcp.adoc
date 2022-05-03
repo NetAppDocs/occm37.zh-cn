@@ -7,6 +7,7 @@ summary: 先设置 GCP ，然后从 NetApp Cloud Central 部署 Cloud Manager �
 ---
 = 在 Google 云平台中开始使用 Cloud Volumes ONTAP
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -26,7 +27,7 @@ summary: 先设置 GCP ，然后从 NetApp Cloud Central 部署 Cloud Manager �
 支持从目标 VPC 进行出站 Internet 访问，以便 Cloud Manager 和 Cloud Volumes ONTAP 可以与多个端点联系。
 
 [role="quick-margin-para"]
-此步骤非常重要，因为 Cloud Manager 无法在没有出站 Internet 访问的情况下部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 。
+此步骤非常重要，因为 Cloud Manager 无法在没有出站 Internet 访问的情况下部署 Cloud Volumes ONTAP 。如果需要限制出站连接，请参阅的端点列表 link:reference_networking_cloud_manager.html#outbound-internet-access["云管理器"] 和 link:reference_networking_gcp.html["Cloud Volumes ONTAP"]。
 
 
 
@@ -44,7 +45,7 @@ https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-
 您将在第 6 步中将此服务帐户与 Cloud Manager VM 关联。
 
 +
-** https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["在 GCP 中创建角色"^] 其中包括中定义的权限。同样，您需要使用 gcloud 命令行。
+** https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["在 GCP 中创建角色"^] 其中包括中定义的权限 https://occm-sample-policies.s3.amazonaws.com/Policy_for_Cloud_Manager_3.8.0_GCP.yaml["适用于 GCP 的 Cloud Manager 策略"^]。同样，您需要使用 gcloud 命令行。
 +
 此 YAML 文件中包含的权限与步骤 2a 中的权限不同。
 

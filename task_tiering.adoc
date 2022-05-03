@@ -6,6 +6,7 @@ summary: 您可以通过将热数据的 SSD 或 HDD 性能层与非活动数据�
 ---
 = 将非活动数据分层到低成本对象存储
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

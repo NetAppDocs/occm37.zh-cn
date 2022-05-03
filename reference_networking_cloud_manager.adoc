@@ -6,6 +6,7 @@ summary: 设置您的网络，以便 Cloud Manager 可以在 AWS 或 Microsoft A
 ---
 = 云管理器的网络要求
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

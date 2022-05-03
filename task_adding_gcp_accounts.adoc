@@ -6,6 +6,7 @@ summary: 要在 Cloud Volumes ONTAP 系统上启用数据分层，需要向 Clou
 ---
 = 设置 GCP 帐户并将其添加到 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

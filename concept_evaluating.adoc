@@ -6,6 +6,7 @@ summary: 您可以在为软件付费之前对 Cloud Volumes ONTAP 进行评估�
 ---
 = 评估
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -17,4 +18,4 @@ summary: 您可以在为软件付费之前对 Cloud Volumes ONTAP 进行评估�
 
 可从获取单节点 Cloud Volumes ONTAP 系统 30 天免费试用版 https://cloud.netapp.com["NetApp Cloud Central"^]。每小时不收取软件费用，但基础架构费用仍然适用。免费试用版在过期后会自动转换为按小时付费的订阅。
 
-如果您需要有关概念验证的帮助，请联系 https://cloud.netapp.com/contact-cds["销售团队"^] 或者通过提供的聊天选项联系 以及 Cloud Manager 中的。
+如果您需要有关概念验证的帮助，请联系 https://cloud.netapp.com/contact-cds["销售团队"^] 或者通过提供的聊天选项联系 https://cloud.netapp.com["NetApp Cloud Central"^] 以及 Cloud Manager 中的。

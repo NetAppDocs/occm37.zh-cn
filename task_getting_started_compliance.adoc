@@ -6,6 +6,7 @@ summary: 完成几个步骤，开始在 AWS 或 Azure 中的 Cloud Volumes ONTAP
 ---
 = Cloud Volumes ONTAP 云合规性入门
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -71,7 +72,7 @@ Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系
 
 在启用 Cloud Compliance 之前，请查看以下前提条件以确保您的配置受支持。启用 Cloud Compliance 后，您需要确保组件之间的连接。下面将介绍这些内容。
 
-启用出站 Internet 访问::
+启用出站 Internet 访问:: 云合规性要求出站 Internet 访问。如果您的虚拟网络使用代理服务器访问 Internet ，请确保 Cloud Compliance 实例可以通过出站 Internet 访问与以下端点联系：
 +
 --
 [cols="43,57"]
@@ -94,7 +95,7 @@ Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系
 | https://cognito-idp.us-east-1.amazonaws.com \https://cognito-identity.us-east-1.amazonaws.com | 支持 Cloud Compliance 访问和下载清单和模板，以及发送日志和指标。 
 |===
 --
-验证 Web 浏览器与 Cloud Compliance 的连接::
+验证 Web 浏览器与 Cloud Compliance 的连接:: Cloud Compliance 实例使用专用 IP 地址来确保索引数据无法通过 Internet 访问。因此，用于访问 Cloud Manager 的 Web 浏览器必须连接到该专用 IP 地址。此连接可以来自与 AWS 或 Azure 的直接连接（例如 VPN ），也可以来自与 Cloud Compliance 实例位于同一网络中的主机。
 +
 --
 
@@ -120,7 +121,7 @@ image:screenshot_cloud_compliance.gif["显示工作环境向导中的服务页�
 
 . 完成向导中的页面以部署系统。
 +
-有关帮助，请参见 link:task_deploying_otc_aws.html["在 AWS 中启动 Cloud Volumes ONTAP"] 和 。
+有关帮助，请参见 link:task_deploying_otc_aws.html["在 AWS 中启动 Cloud Volumes ONTAP"] 和 link:task_deploying_otc_azure.html["在 Azure 中启动 Cloud Volumes ONTAP"]。
 
 
 

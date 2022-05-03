@@ -6,6 +6,7 @@ summary: 部署 Cloud Volumes ONTAP 时、您可以选择符合工作负载要�
 ---
 = 规划 Cloud Volumes ONTAP 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -109,7 +110,7 @@ Instance type::
 
 --
 EBS 磁盘类型:: 通用 SSD 是 Cloud Volumes ONTAP 最常见的磁盘类型。要查看 EBS 磁盘的使用情形，请参见 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS 文档： EBS 卷类型"^]。
-EBS 磁盘大小::
+EBS 磁盘大小:: 启动 Cloud Volumes ONTAP 系统时，您需要选择初始磁盘大小。之后，您可以 link:concept_storage_management.html["让 Cloud Manager 为您管理系统的容量"]，但如果需要 link:task_provisioning_storage.html#creating-aggregates["自行构建聚合"]，请注意以下事项：
 +
 --
 * 聚合中的所有磁盘大小必须相同。
@@ -219,7 +220,7 @@ video::GELcXmOuYPw[youtube, width=848,height=480]
 
 对 Cloud Volumes ONTAP 系统进行规模估算有助于满足性能和容量要求。在选择虚拟机类型，磁盘类型和磁盘大小时，您应注意几个要点：
 
-虚拟机类型::
+虚拟机类型:: 在中查看支持的虚拟机类型 http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 然后查看有关每个受支持 VM 类型的详细信息。请注意，每种 VM 类型都支持特定数量的数据磁盘。
 +
 --
 * https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dsv2-series["Azure 文档：通用虚拟机大小"^]
@@ -227,7 +228,7 @@ video::GELcXmOuYPw[youtube, width=848,height=480]
 
 
 --
-Azure 磁盘类型::
+Azure 磁盘类型:: 当您为 Cloud Volumes ONTAP 创建卷时、需要选择 Cloud Volumes ONTAP 用作磁盘的底层云存储。
 +
 --
 HA 系统使用高级页面 Blobs 。同时，单节点系统可以使用两种类型的 Azure 受管磁盘：
@@ -241,7 +242,7 @@ HA 系统使用高级页面 Blobs 。同时，单节点系统可以使用两种�
 
 
 --
-Azure 磁盘大小::
+Azure 磁盘大小:: 启动 Cloud Volumes ONTAP 实例时，必须为聚合选择默认磁盘大小。Cloud Manager 将此磁盘大小用于初始聚合以及在您使用简单配置选项时创建的任何其他聚合。您可以创建使用与默认大小不同的磁盘大小的聚合 link:task_provisioning_storage.html#creating-aggregates["使用高级分配选项"]。
 +
 --
 
@@ -300,7 +301,7 @@ Azure 高级存储的性能取决于磁盘大小。更大的磁盘可提供更�
 
 对 Cloud Volumes ONTAP 系统进行规模估算有助于满足性能和容量要求。在选择计算机类型，磁盘类型和磁盘大小时，您应注意几个要点：
 
-计算机类型::
+计算机类型:: 在中查看支持的计算机类型 http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["《 Cloud Volumes ONTAP 发行说明》"^] 然后查看 Google 提供的有关每个受支持计算机类型的详细信息。将工作负载要求与此计算机类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络连接性能。
 +
 --
 有关更多详细信息，请参见以下内容：
@@ -310,13 +311,13 @@ Azure 高级存储的性能取决于磁盘大小。更大的磁盘可提供更�
 
 
 --
-GCP 磁盘类型::
+GCP 磁盘类型:: 在为 Cloud Volumes ONTAP 创建卷时，您需要选择 Cloud Volumes ONTAP 用于磁盘的底层云存储。磁盘类型可以是 _zonal SSD persistent disks_or _zonal standard persistent disks_。
 +
 --
 SSD 持久磁盘最适合需要高随机 IOPS 速率的工作负载，而标准持久磁盘经济实惠，可处理顺序读 / 写操作。有关详细信息，请参见 https://cloud.google.com/compute/docs/disks/#pdspecs["Google Cloud 文档：区域持久性磁盘（标准和 SSD ）"^]。
 
 --
-GCP 磁盘大小::
+GCP 磁盘大小:: 部署 Cloud Volumes ONTAP 系统时，您需要选择初始磁盘大小。之后，您可以让 Cloud Manager 为您管理系统的容量，但如果您要自行构建聚合，请注意以下事项：
 +
 --
 * 聚合中的所有磁盘大小必须相同。

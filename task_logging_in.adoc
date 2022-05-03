@@ -6,6 +6,7 @@ summary: 您可以从任何连接到云管理器系统的 Web 浏览器登录到
 ---
 = 登录到 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

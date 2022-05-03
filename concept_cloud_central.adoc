@@ -6,6 +6,7 @@ summary: NetApp Cloud Central 为访问和管理 NetApp 云数据服务提供了
 ---
 = NetApp Cloud Central
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

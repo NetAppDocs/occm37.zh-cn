@@ -6,6 +6,7 @@ summary: 您可以通过将工作环境与 NetApp Cloud Sync 集成来将 ONTAP 
 ---
 = 正在将数据同步到 Amazon S3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

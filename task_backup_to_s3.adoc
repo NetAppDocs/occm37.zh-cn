@@ -6,6 +6,7 @@ summary: 备份到 S3 是 Cloud Volumes ONTAP 的一项附加功能，可提供�
 ---
 = 将数据备份到 Amazon S3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -92,7 +93,7 @@ image:screenshot_backup_to_s3_restore_icon.gif["选择卷后备份的还原图�
 开始将卷备份到 S3 之前，请阅读以下要求，以确保您的配置受支持。
 
 支持的 ONTAP 版本:: Cloud Volume ONTAP 9.4 及更高版本支持备份到 S3 。
-支持的 AWS 区域::
+支持的 AWS 区域:: 在以下 AWS 地区， Cloud Volumes ONTAP 支持备份到 S3 ：
 +
 --
 * 美国东部（ N.维吉尼亚）
@@ -103,7 +104,7 @@ image:screenshot_backup_to_s3_restore_icon.gif["选择卷后备份的还原图�
 
 
 --
-需要 AWS 权限::
+需要 AWS 权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包括以下内容：
 +
 --
 [source, json]
@@ -126,13 +127,13 @@ AWS 订阅要求:: 从 3.7.3 版开始， AWS Marketplace 中提供了一个新�
 
 
 --
-出站 Internet 访问::
+出站 Internet 访问:: 确保可从 Cloud Manager 访问以下端点： \https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist
 +
 --
 Cloud Manager 会联系此端点，将您的 AWS 帐户 ID 添加到备份到 S3 的允许用户列表中。
 
 --
-接口 VPC 端点::
+接口 VPC 端点:: 启用备份到 S3 功能后， Cloud Manager 会在运行 Cloud Volumes ONTAP 的 VPC 中创建接口 VPC 端点。此 _backup endpoint_ 连接到运行备份到 S3 的 NetApp VPC 。如果还原卷， Cloud Manager 会创建一个额外的接口 VPC 端点，即 _restore endpoint_ 。
 +
 --
 VPC 中的任何其他 Cloud Volumes ONTAP 系统都使用这两个 VPC 端点。

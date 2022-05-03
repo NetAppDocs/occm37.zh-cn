@@ -6,6 +6,7 @@ summary: 您可以通过 Cloud Manager 部署 Cloud Volumes ONTAP ，为云存�
 ---
 = Cloud Manager 和 Cloud Volumes ONTAP 概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

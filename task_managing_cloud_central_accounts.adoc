@@ -6,6 +6,7 @@ summary: 执行初始设置后，您可能需要稍后管理用户，工作空�
 ---
 = 在 Cloud Central 帐户中管理工作空间和用户
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

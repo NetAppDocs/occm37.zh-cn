@@ -7,6 +7,7 @@ translate: false
 ---
 = 常见问题：将 Cloud Manager 与 NetApp Cloud Central 集成
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

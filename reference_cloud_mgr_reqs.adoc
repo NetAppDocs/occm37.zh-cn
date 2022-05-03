@@ -6,6 +6,7 @@ summary: 如果您在自己的主机上安装了 Cloud Manager 、则必须验�
 ---
 = 云管理器主机要求
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -59,7 +60,7 @@ CPU:: 具有两个内核的 2.27 GHz 或更高性能
 RAM:: 4 GB
 可用磁盘空间:: 50 GB
 出站 Internet 访问:: 安装 Cloud Manager 和使用 Cloud Manager 部署 Cloud Volumes ONTAP 时需要进行出站 Internet 访问。有关端点列表，请参见 link:reference_networking_cloud_manager.html["云管理器的网络要求"]。
-端口::
+端口:: 以下端口必须可用：
 +
 --
 * 80 用于 HTTP 访问

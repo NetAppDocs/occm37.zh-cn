@@ -6,6 +6,7 @@ summary: Azure Marketplace 在 Azure 德国地区不可用，因此您必须从 
 ---
 = 在德国 Azure 地区安装 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

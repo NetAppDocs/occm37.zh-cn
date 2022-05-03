@@ -5,6 +5,7 @@ summary: 欢迎使用 Cloud Manager 和 Cloud Volumes ONTAP 文档门户。
 ---
 = Cloud Manager 和 Cloud Volumes ONTAP 文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

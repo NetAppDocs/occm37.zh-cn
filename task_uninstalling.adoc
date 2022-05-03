@@ -6,6 +6,7 @@ summary: Cloud Manager 包含一个卸载脚本、您可以使用该脚本卸载
 ---
 = 卸载 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

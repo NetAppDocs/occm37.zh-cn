@@ -6,6 +6,7 @@ summary: 您可以将 Cloud Manager 更新为最新版本或使用 NetApp 人员
 ---
 = 更新 Cloud Manager
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

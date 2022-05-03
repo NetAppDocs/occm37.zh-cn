@@ -6,6 +6,7 @@ summary: 隐私风险评估报告概述了贵组织的隐私风险状态。生�
 ---
 = 查看隐私风险评估报告
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

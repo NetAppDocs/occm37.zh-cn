@@ -6,6 +6,7 @@ summary: Cloud Manager 应始终保持运行状态。
 ---
 = 保持 Cloud Manager 正常运行
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
