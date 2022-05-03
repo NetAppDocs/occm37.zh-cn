@@ -45,12 +45,52 @@
   <link rel="stylesheet" href='/zh-cn/occm37/css/na-utility.css' type='text/css'>
   <link rel="stylesheet" href='/zh-cn/occm37/css/na-sidebar.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/occm37/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/occm37/css/custom-dropdown.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/occm37/css/na-pagenav.css' type='text/css'>
 
   
   <link rel="stylesheet" href="/zh-cn/occm37/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/occm37/css/tabbed-blocks.css" type="text/css">
-  <link rel='stylesheet' href='/zh-cn/occm37/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-cn/occm37/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
@@ -60,15 +100,6 @@
 
   <script src='/zh-cn/occm37/js/na-utility.js'></script>
   <script src='/zh-cn/occm37/js/clouddocs.js'></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    var head = document.getElementsByTagName('head')[0];
-    var adobe = document.createElement("script");
-    adobe.type = "text/javascript";
-    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-    head.appendChild(adobe);
-  }
-  </script>
   <script src='/zh-cn/occm37/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/zh-cn/occm37/js/toc.js'></script>
@@ -121,16 +152,8 @@
               $("#tg-sb-icon").toggleClass('fa-toggle-off');
           });
       });
-  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-81697994-3');
-  }
   </script>
-  <script src='/zh-cn/occm37/js/version-dropdown.js'></script>
+  <script src='/zh-cn/occm37/js/custom-dropdown.js'></script>
   <script src='/zh-cn/occm37/js/FileSaver.min.js'></script>
   <script src='/zh-cn/occm37/js/jszip-utils.min.js'></script>
   <script src='/zh-cn/occm37/js/jszip.min.js'></script>
@@ -138,20 +161,15 @@
 </head>
 
 
-  <body class role="document">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
   <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/occm37/issues/new?body=Page%3A%20[数据分层概述](https://docs.netapp.com/zh-cn/occm37/concept_data_tiering.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/occm37/blob/main/concept_data_tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/occm37/images/article-sm.svg" class="github-icon" />提供者指南</a>
-    </div>
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/occm37/issues/new?body=Page%3A%20[数据分层概述](https://docs.netapp.com/zh-cn/occm37/concept_data_tiering.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/occm37/blob/main/concept_data_tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/occm37/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/occm37/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -161,6 +179,7 @@
       </nav>
     </div>
   </div>
+  
   
   <!-- Start top_hat -->
   <div class="n-top-hat">
@@ -244,7 +263,8 @@
           data-did-you-mean="搜索 {suggestion}。" 
           data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
           data-results-found="找到 {hitCount} 个结果"  
-          data-sk-es-pf-indexes=""></div>
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -272,13 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-tw/occm37/concept_data_tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -333,6 +355,9 @@
 </div>
 <div class="n-pdf-body-container">
   <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
         <a target="_blank" href="/zh-cn/occm37/pdfs/fullsite-sidebar/Cloud_Manager_和_Cloud_Volumes_ONTAP_文档.pdf" >
           <img src="/zh-cn/occm37/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
 
@@ -341,6 +366,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/发行说明.pdf" 
@@ -354,6 +382,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/云管理器.pdf" 
@@ -393,6 +424,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/概念.pdf" 
@@ -412,6 +446,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/云提供商帐户.pdf" 
@@ -440,6 +477,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/存储.pdf" 
@@ -479,6 +519,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/高可用性对.pdf" 
@@ -522,6 +565,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/入门.pdf" 
@@ -543,6 +589,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/设置_Cloud_Manager.pdf" 
@@ -579,6 +628,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/网络要求.pdf" 
@@ -611,6 +663,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/其他部署选项.pdf" 
@@ -658,6 +713,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/部署_Cloud_Volumes_ONTAP.pdf" 
@@ -700,6 +758,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/配置存储.pdf" 
@@ -732,6 +793,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/复制和保护数据.pdf" 
@@ -762,6 +826,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/深入了解数据隐私.pdf" 
@@ -798,6 +865,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/管理_Cloud_Volumes_ONTAP.pdf" 
@@ -836,6 +906,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/管理_Cloud_Manager.pdf" 
@@ -872,6 +945,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/为文件服务配置卷.pdf" 
@@ -898,6 +974,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/API_和自动化.pdf" 
@@ -924,6 +1003,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/occm37/pdfs/sidebar/参考.pdf" 
@@ -1280,6 +1362,7 @@
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
+
   </div>
   
 
@@ -1333,7 +1416,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-08-09 23:47:24 +0000">08/09/2021</time>
+    <time datetime="2022-05-03 05:59:00 +0000">05/03/2022</time>
     
   
 
@@ -1379,6 +1462,7 @@
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
+<p>Cloud Volumes ONTAP 系统使用 <em>Standard</em> 存储类将非活动数据分层到一个 S3 存储分段。Standard 是存储在多个可用性区域中的频繁访问数据的理想选择。</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -1398,6 +1482,7 @@ Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其�
 </dd>
 <dt class="hdlist1">分层级别</dt>
 <dd>
+<p>如果您不打算访问非活动数据，可以通过将系统的分层级别更改为以下级别之一来降低存储成本： <em>Intelligent Tierage</em> ， <em>one-Zone Inrequent Access</em> 或 <em>Standard-Intimic Access</em> 。更改分层级别后，如果 30 天后未访问非活动数据，则非活动数据将从标准存储类开始，并移至选定的存储类。</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -1430,6 +1515,7 @@ Cloud Manager 会为每个工作环境创建一个 S3 存储分段，并将其�
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
+<p>Cloud Volumes ONTAP 系统会使用 Azure <em>hot</em> 存储层将非活动数据分层到一个 Blob 容器中。热层非常适合经常访问的数据。</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -1449,6 +1535,7 @@ Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新的存
 </dd>
 <dt class="hdlist1">分层级别</dt>
 <dd>
+<p>如果您不打算访问非活动数据，可以通过将系统的分层级别更改为 Azure <em>cool</em> 存储层来降低存储成本。更改分层级别后，如果 30 天后未访问非活动数据，则非活动数据将从热存储层开始，并移至冷存储层。</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -1481,6 +1568,7 @@ Cloud Manager 会为每个 Cloud Volumes ONTAP 工作环境创建一个新的存
 </dd>
 <dt class="hdlist1">Capacity tier</dt>
 <dd>
+<p>Cloud Volumes ONTAP 系统使用 <em>Region</em> 存储类将非活动数据分层到一个 Google Cloud 存储分段。</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -1530,6 +1618,7 @@ Cloud Manager 会为每个工作环境创建一个分段，并将其命名为 fa
 <dl>
 <dt class="hdlist1">仅快照</dt>
 <dd>
+<p>在聚合达到 50% 容量后、 Cloud Volumes ONTAP 将不与活动文件系统关联的 Snapshot 副本的冷用户数据分层到容量层。冷却时间约为 2 天。</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -1540,6 +1629,7 @@ Cloud Manager 会为每个工作环境创建一个分段，并将其命名为 fa
 </dd>
 <dt class="hdlist1">自动</dt>
 <dd>
+<p>在聚合达到 50% 容量后、 Cloud Volumes ONTAP 会将卷中的冷数据块分层到容量层。冷数据不仅包括 Snapshot 副本、还包括来自活动文件系统的冷用户数据。冷却期约为 31 天。</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -1602,98 +1692,122 @@ Cloud Manager 会为每个工作环境创建一个分段，并将其命名为 fa
   <div class="n-footer__bottom">
     <div class="n-container">
       <div class="n-footer__bottom-left">
-
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
-
-</ul>
-</div>
-<div class="n-footer__social-links">
-<ul class="n-footer__social-link-list">
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
-<span class="n-footer__social-link-text">blog</span>
-<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
-  <title>blog@</title>
-  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#blog"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
-<span class="n-footer__social-link-text">community</span>
-<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
-<title>community@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#comments"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
-<span class="n-footer__social-link-text">twitter</span>
-<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
-<title>twitter@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#twitter"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
-<span class="n-footer__social-link-text">facebook</span>
-<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
-<title>facebook@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#facebook"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
-<span class="n-footer__social-link-text">linkedin</span>
-<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
-<title>linkedin@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#linkedin"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
-<span class="n-footer__social-link-text">youtube</span>
-<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
-<title>youtube@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#youtube"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
-<span class="n-footer__social-link-text">slideshare</span>
-<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
-<title>slideshare@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/occm37/common/svg/sprite.svg#slideshare"></use>
-</svg>
-
-</a>
-</li>
-</ul>
-</div>
-
-</div>
-<div class="n-footer__bottom-right">
-  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
-  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
-  </p>
-</div>
-</div>
-</div>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">条款和条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隐私政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 设置</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">想就我们的网站提供反馈?</span>
+              <a target="_self" href="javascript:netapp_mailto()">请告诉我们</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-cn/announcements/">通知</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/occm37/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
       </div><!-- Elasticsearch JS -->
