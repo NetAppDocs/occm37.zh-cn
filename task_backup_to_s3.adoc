@@ -160,13 +160,13 @@ image:screenshot_backup_to_s3.gif["显示了工作环境向导中的备份到 S3
 . 完成向导中的页面以部署系统。
 
 
-系统上已启用备份到 S3 功能，每天备份卷并保留 30 个备份副本。 <<Changing the backup retention,了解如何修改备份保留>>。
+系统上已启用备份到 S3 功能，每天备份卷并保留 30 个备份副本。  the backup retention,了解如何修改备份保留。
 
 
 
 == 在现有系统上启用 S3 备份
 
-您可以在现有 Cloud Volumes ONTAP 系统上启用到 S3 的备份，前提是您运行的配置受支持。有关详细信息，请参见 <<Requirements>>。
+您可以在现有 Cloud Volumes ONTAP 系统上启用到 S3 的备份，前提是您运行的配置受支持。有关详细信息，请参见 。
 
 .步骤
 . 打开工作环境。

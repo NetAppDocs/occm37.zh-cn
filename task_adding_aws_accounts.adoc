@@ -21,8 +21,8 @@ NOTE: 从 Cloud Central 部署 Cloud Manager 时， Cloud Manager 会自动添�
 
 * 选项 *
 
-* <<Granting permissions by providing AWS keys>>
-* <<Granting permissions by assuming IAM roles in other accounts>>
+*  permissions by providing AWS keys
+*  permissions by assuming IAM roles in other accounts
 
 
 
@@ -45,7 +45,7 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["AW
 
 
 
-现在，此帐户具有所需权限。 <<Adding AWS accounts to Cloud Manager,现在，您可以将其添加到 Cloud Manager 中>>。
+现在，此帐户具有所需权限。  AWS accounts to Cloud Manager,现在，您可以将其添加到 Cloud Manager 中。
 
 
 
@@ -89,7 +89,7 @@ image:screenshot_iam_create_role.gif["屏幕截图显示了 AWS IAM 控制台中
 
 
 
-现在，此帐户具有所需权限。 <<Adding AWS accounts to Cloud Manager,现在，您可以将其添加到 Cloud Manager 中>>。
+现在，此帐户具有所需权限。  AWS accounts to Cloud Manager,现在，您可以将其添加到 Cloud Manager 中。
 
 
 

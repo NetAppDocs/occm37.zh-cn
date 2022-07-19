@@ -85,8 +85,8 @@ NetApp 存储效率功能具有以下优势：
 
 通过调整系统规模并查看需要输入的网络信息，规划 Cloud Volumes ONTAP 在 AWS 中的部署。
 
-* <<Sizing your system in AWS>>
-* <<AWS network information worksheet>>
+*  your system in AWS
+*  network information worksheet
 
 
 
@@ -210,8 +210,8 @@ video::GELcXmOuYPw[youtube,width=848,height=480]
 
 通过调整系统规模并查看需要输入的网络信息，规划 Cloud Volumes ONTAP 在 Azure 中的部署。
 
-* <<Sizing your system in Azure>>
-* <<Azure network information worksheet>>
+*  your system in Azure
+*  network information worksheet
 
 
 
@@ -291,8 +291,8 @@ Azure 高级存储的性能取决于磁盘大小。更大的磁盘可提供更�
 
 通过调整系统规模并查看需要输入的网络信息，规划 Cloud Volumes ONTAP 在 Google 云平台中的部署。
 
-* <<Sizing your system in GCP>>
-* <<GCP network information worksheet>>
+*  your system in GCP
+*  network information worksheet
 
 
 

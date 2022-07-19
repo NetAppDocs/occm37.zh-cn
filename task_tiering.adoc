@@ -29,9 +29,9 @@ summary: 您可以通过将热数据的 SSD 或 HDD 性能层与非活动数据�
 
 ==== 确保 Cloud Volumes ONTAP 与对象存储之间的连接
 
-* 对于 AWS ， S3 需要一个 VPC 端点。 <<Requirements for tiering data in AWS,了解更多信息。>>。
-* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。 <<Requirements for tiering data in Microsoft Azure,了解更多信息。>>。
-* 对于 GCP ，您需要向 Cloud Manager 添加一个 GCP 帐户并为 Private Google Access 配置子网。 <<Requirements for tiering data in Google Cloud Platform,了解更多信息。>>。
+* 对于 AWS ， S3 需要一个 VPC 端点。  for tiering data in AWS,了解更多信息。。
+* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。  for tiering data in Microsoft Azure,了解更多信息。。
+* 对于 GCP ，您需要向 Cloud Manager 添加一个 GCP 帐户并为 Private Google Access 配置子网。  for tiering data in Google Cloud Platform,了解更多信息。。
 
 
 
