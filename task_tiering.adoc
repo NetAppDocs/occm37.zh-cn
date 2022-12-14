@@ -20,27 +20,29 @@ summary: 您可以通过将热数据的 SSD 或 HDD 性能层与非活动数据�
 
 
 
-==== 选择支持的配置
+==== image:number1.png["数字 1"] 选择支持的配置
 
 [role="quick-margin-para"]
 支持大多数配置。如果您的 Cloud Volumes ONTAP 标准版，高级版或 BYOL 系统运行的是最新版本，则最好继续操作。 link:task_tiering.html#configurations-that-support-data-tiering["了解更多信息。"]。
 
 
 
-==== 确保 Cloud Volumes ONTAP 与对象存储之间的连接
+==== image:number2.png["第2个"] 确保 Cloud Volumes ONTAP 与对象存储之间的连接
 
-* 对于 AWS ， S3 需要一个 VPC 端点。  for tiering data in AWS,了解更多信息。。
-* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。  for tiering data in Microsoft Azure,了解更多信息。。
-* 对于 GCP ，您需要向 Cloud Manager 添加一个 GCP 帐户并为 Private Google Access 配置子网。  for tiering data in Google Cloud Platform,了解更多信息。。
+[role="quick-margin-list"]
+* 对于 AWS ， S3 需要一个 VPC 端点。 <<Requirements for tiering data in AWS,了解更多信息。>>。
+* 对于 Azure ，只要 Cloud Manager 具有所需权限，您就无需执行任何操作。 <<Requirements for tiering data in Microsoft Azure,了解更多信息。>>。
+* 对于 GCP ，您需要向 Cloud Manager 添加一个 GCP 帐户并为 Private Google Access 配置子网。 <<Requirements for tiering data in Google Cloud Platform,了解更多信息。>>。
 
 
 
 
-==== 创建，修改或复制卷时，请选择分层策略
+==== image:number3.png["第3个"] 创建，修改或复制卷时，请选择分层策略
 
 [role="quick-margin-para"]
 在创建，修改或复制卷时， Cloud Manager 会提示您选择分层策略。
 
+[role="quick-margin-list"]
 * link:task_tiering.html#tiering-data-from-read-write-volumes["对读写卷上的数据进行分层"]
 * link:task_tiering.html#tiering-data-from-data-protection-volumes["分层数据保护卷上的数据"]
 
@@ -176,6 +178,7 @@ image:screenshot_replication_tiering.gif["复制卷时显示 S3 分层选项的�
 
 NOTE: 您不能更改 GCP 中的分层级别，因为此时仅支持 _Region_storage 类。
 
+.关于此任务
 分层级别为 System Wide - 恢复不是每个卷。
 
 在 AWS 中，您可以更改分层级别，以便非活动数据在 30 天后移至以下存储类之一：

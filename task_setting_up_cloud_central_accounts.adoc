@@ -34,6 +34,7 @@ image:screenshot_account_settings_menu.gif["一个屏幕截图，显示 Cloud Ma
 . 输入工作空间的名称，然后单击 * 添加 * 。
 
 
+.完成后
 现在，您可以将用户和服务连接器与工作空间相关联。
 
 
@@ -59,6 +60,7 @@ image:screenshot_associate_user.gif["屏幕截图显示了如何通过选择角�
 . 单击 * 关联用户 * 。
 
 
+.结果
 用户应从 NetApp Cloud Central 收到一封标题为 " 客户关联 " 的电子邮件。 此电子邮件包含访问 Cloud Manager 所需的信息。
 
 
@@ -77,6 +79,7 @@ image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬
 . 选择一个或多个工作空间，然后单击 * 应用 * 。
 
 
+.结果
 现在，只要服务连接器也与这些工作空间关联，用户就可以从 Cloud Manager 访问这些工作空间。
 
 
@@ -96,4 +99,5 @@ link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors
 . 选择一个或多个工作空间，然后单击 * 应用 * 。
 
 
+.结果
 现在，只要用户同时与工作空间关联， Workspace 管理员就可以访问关联的工作空间。

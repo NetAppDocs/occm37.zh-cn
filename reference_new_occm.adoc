@@ -27,8 +27,8 @@ link:https://docs.netapp.com/us-en/occm34/reference_new_occm.html["3.4 中的新
 
 此更新包括以下增强功能：
 
-*  Volumes ONTAP 9.7
-*  Compliance for Cloud Volumes ONTAP
+* <<Cloud Volumes ONTAP 9.7>>
+* <<适用于 Cloud Volumes ONTAP 的云合规性>>
 
 
 
@@ -55,11 +55,11 @@ link:concept_cloud_compliance.html["了解有关云合规性的更多信息"]。
 
 Cloud Manager 3.7.5 包括以下增强功能。
 
-*  write speed for Cloud Volumes ONTAP in GCP
-*  ONTAP clusters as persistent storage for Kubernetes
-*  Trident version for Kubernetes
-*  for Azure general-purpose v2 storage accounts
-*  in Azure storage account names using APIs
+* <<GCP 中的 Cloud Volumes ONTAP 写入速度较快>>
+* <<将内部 ONTAP 集群作为 Kubernetes 的永久性存储>>
+* <<适用于 Kubernetes 的最新 Trident 版本>>
+* <<支持 Azure 通用 v2 存储帐户>>
+* <<使用 API 的 Azure 存储帐户名称中的前缀>>
 
 
 
@@ -110,12 +110,12 @@ link:api.html["有关使用 API 的详细信息，请参见 API 开发人员指�
 
 Cloud Manager 3.7.4 包括以下增强功能。
 
-*  for Azure NetApp Files
-*  Volumes ONTAP for GCP enhancements
-*  to S3 enhancement
-*  of boot and root disks in AWS
-*  for the AWS Bahrain region
-*  for the Azure UAE North region
+* <<支持 Azure NetApp Files>>
+* <<适用于 GCP 的 Cloud Volumes ONTAP 增强功能>>
+* <<备份到 S3 增强功能>>
+* <<AWS 中的启动和根磁盘加密>>
+* <<支持 AWS 巴林地区>>
+* <<支持 Azure UAE 北部地区>>
 
 
 
@@ -239,9 +239,9 @@ link:task_backup_to_s3.html["了解如何开始使用"]。
 
 Cloud Manager 3.7.3 包括以下增强功能。
 
-*  and management of Cloud Volumes Service for AWS
-*  subscription required in the AWS Marketplace
-*  for AWS GovCloud (US-East)
+* <<发现和管理适用于 AWS 的 Cloud Volumes Service>>
+* <<AWS Marketplace 需要新订阅>>
+* <<支持 AWS GovCloud （美国东部）>>
 
 
 
@@ -282,11 +282,11 @@ Cloud Manager 和 Cloud Volumes ONTAP 现在在 AWS GovCloud （美国东部）�
 
 == Cloud Manager 3.7.2 （ 2019 年 8 月 5 日）
 
-*  licenses
-*  storage classes for iSCSI
-*  of inodes
-*  for the Hong Kong region in AWS
-*  for the Australia Central regions in Azure
+* <<FlexCache 许可证>>
+* <<适用于 iSCSI 的 Kubernetes 存储类>>
+* <<管理索引节点>>
+* <<在 AWS 中为香港地区提供支持>>
+* <<支持 Azure 中的澳大利亚中部地区>>
 
 
 
@@ -370,9 +370,9 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_96.html["了解 
 
 == Cloud Manager 3.7 （ 2019 年 6 月 5 日）
 
-*  for upcoming Cloud Volumes ONTAP 9.6 release
-*  Cloud Central accounts
-*  and restore with the Cloud Backup Service
+* <<支持即将发布的 Cloud Volumes ONTAP 9.6 版>>
+* <<NetApp Cloud Central 帐户>>
+* <<使用 Cloud Backup Service 进行备份和还原>>
 
 
 

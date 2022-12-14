@@ -69,6 +69,7 @@ image:screenshot_set_up_cloud_manager.gif["屏幕截图显示了设置 Cloud Man
 
 
 
+.结果
 现在已安装并设置了 Cloud Manager 。您必须先授予 Azure 权限，然后用户才能在 Azure 中部署 Cloud Volumes ONTAP 。
 
 
@@ -125,4 +126,5 @@ NOTE: OnCommand 云管理器操作员是中提供的默认名称 https://mysuppo
 
 
 
+.结果
 Cloud Manager 现在拥有在 Azure 中部署和管理 Cloud Volumes ONTAP 所需的权限。

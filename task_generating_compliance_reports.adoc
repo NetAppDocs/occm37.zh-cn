@@ -40,6 +40,7 @@ image:screenshot_privacy_risk_assessment.gif["Cloud Manager 中的合规性选�
 
 
 
+.结果
 Cloud Compliance 会生成 PDF 报告，您可以根据需要查看该报告并将其发送给其他组。
 
 

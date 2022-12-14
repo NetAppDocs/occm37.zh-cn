@@ -21,6 +21,7 @@ Cloud Manager 可以在内部环境、 NetApp 私有存储配置和 IBM Cloud �
 
 通过在 Cloud Manager 中发现 ONTAP 集群、您可以在混合云中配置存储和复制数据。
 
+.开始之前
 要将集群添加到云管理器中、您必须具有管理员用户帐户的集群管理 IP 地址和密码。
 
 Cloud Manager 使用 HTTPS 发现 ONTAP 集群。如果使用自定义防火墙策略，则它们必须满足以下要求：
@@ -44,6 +45,7 @@ image:screenshot_discover_ontap.gif["屏幕截图显示了 ONTAP 集群详细信
 . 在详细信息页面上，输入工作环境的名称和问题描述，然后单击 * 执行 * 。
 
 
+.结果
 Cloud Manager 可发现集群。您现在可以创建卷、将数据复制到集群或从集群复制数据、并启动 OnCommand System Manager 来执行高级任务。
 
 
@@ -52,8 +54,10 @@ Cloud Manager 可发现集群。您现在可以创建卷、将数据复制到集
 
 利用 Cloud Manager ，您可以在 ONTAP 集群上配置 NFS 和 CIFS 卷。
 
+.开始之前
 必须在集群上设置 NFS 或 CIFS 。您可以使用 System Manager 或 CLI 设置 NFS 和 CIFS 。
 
+.关于此任务
 您可以在现有聚合上创建卷。无法从 Cloud Manager 创建新聚合。
 
 .步骤

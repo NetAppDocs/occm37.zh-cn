@@ -53,6 +53,7 @@ Cloud Manager 将显示证书签名请求。
 |===
 
 
+.结果
 Cloud Manager 现在使用 CA 签名的证书提供安全 HTTPS 访问。下图显示了为安全访问配置的 Cloud Manager 系统：
 
 image:screenshot_https_cert.gif["屏幕截图：在安装签名证书后显示 HTTPS 设置页面。该页显示证书属性和续订证书的选项。"]

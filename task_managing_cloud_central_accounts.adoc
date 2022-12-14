@@ -41,8 +41,10 @@ image:screenshot_associate_user.gif["屏幕截图显示了如何通过选择角�
 . 单击 * 关联用户 * 。
 
 
+.结果
 用户应从 NetApp Cloud Central 收到一封标题为 " 客户关联 " 的电子邮件。 此电子邮件包含访问 Cloud Manager 所需的信息。
 
+.结果
 用户应从 NetApp Cloud Central 收到一封标题为 " 客户关联 " 的电子邮件。 此电子邮件包含访问 Cloud Manager 所需的信息。
 
 
@@ -60,11 +62,12 @@ image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬
 . 单击 * 解除关联用户 * ，然后单击 * 解除关联 * 进行确认。
 
 
+.结果
 用户无法再访问此 Cloud Central 帐户中的资源。
 
 
 
-== 管理 Workspace Admin 的工作空间
+== 管理Workspace Admin的工作空间
 
 您可以随时将 Workspace Admins 与工作空间关联和解除关联。通过关联用户，用户可以在该工作空间中创建和查看工作环境。
 
@@ -78,6 +81,7 @@ image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬
 . 选择要与用户关联的工作空间，然后单击 * 应用 * 。
 
 
+.结果
 现在，只要服务连接器也与这些工作空间关联，用户就可以从 Cloud Manager 访问这些工作空间。
 
 
@@ -100,7 +104,7 @@ image:screenshot_associate_user_workspace.gif["屏幕截图，显示将鼠标悬
 
 
 
-== 管理 Service Connector 的工作空间
+== 管理Service Connector的工作空间
 
 您需要将服务连接器与工作空间关联，以便 Workspace 管理员可以从 Cloud Manager 访问这些工作空间。
 

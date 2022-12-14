@@ -22,6 +22,7 @@ summary: 您可以将 Cloud Manager 更新为最新版本或使用 NetApp 人员
 
 Cloud Manager 可以在新版本可用时自动更新自身。这样可以确保您运行的是最新版本。
 
+.关于此任务
 如果没有运行任何操作，则 Cloud Manager 会在午夜 12 点自动更新。
 
 .步骤
@@ -35,8 +36,10 @@ Cloud Manager 可以在新版本可用时自动更新自身。这样可以确保
 
 您应该启用对 Cloud Manager 的自动更新，但您始终可以直接从 Web 控制台执行手动更新。Cloud Manager 从 AWS 中 NetApp 拥有的 S3 存储区获取软件更新。
 
+.开始之前
 您应已查看 link:reference_new_occm.html["此版本中的新增功能"] 确定新要求和支持变更。
 
+.关于此任务
 软件更新需要几分钟时间。在更新期间， Cloud Manager 不可用。
 
 .步骤
@@ -53,6 +56,7 @@ image:screenshot_new_version.gif["屏幕截图：显示了可从 Cloud Manager W
 . 完成确认对话框，然后单击 * 确定 * ：
 
 
+.结果
 Cloud Manager 将启动更新过程。您可以在几分钟后登录控制台。
 
 
@@ -61,6 +65,7 @@ Cloud Manager 将启动更新过程。您可以在几分钟后登录控制台。
 
 如果 NetApp 与您共享修补程序、您可以直接从 Cloud Manager Web 控制台使用提供的修补程序更新 Cloud Manager 。
 
+.关于此任务
 修补程序更新通常需要几分钟时间。在更新期间， Cloud Manager 不可用。
 
 .步骤
@@ -76,4 +81,5 @@ image:screenshot_patch.gif["屏幕截图：显示了使用修补程序更新云�
 . 选择提供的修补程序。
 
 
+.结果
 Cloud Manager 将应用此修补程序。您可以在几分钟后登录控制台。

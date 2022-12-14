@@ -108,6 +108,7 @@ image:screenshot_set_up_cloud_manager.gif["屏幕截图显示了设置 Cloud Man
 
 
 
+.完成后
 设置权限，以便 Cloud Manager 可以在您的云提供商中部署 Cloud Volumes ONTAP ：
 
 * AWS link:task_adding_aws_accounts.html["设置 AWS 帐户，然后将其添加到 Cloud Manager"]。

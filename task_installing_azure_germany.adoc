@@ -23,4 +23,5 @@ Azure Marketplace 在德国 Azure 地区不可用，因此您必须从 NetApp �
 . link:task_adding_azure_accounts.html["使用服务主体向 Cloud Manager 授予 Azure 权限"]。
 
 
+.完成后
 Cloud Manager 现在可以像任何其他地区一样在 Azure Germany 地区部署 Cloud Volumes ONTAP 。但是，您可能需要先执行其他设置。

@@ -24,8 +24,9 @@ summary: 完成几个步骤，开始在 AWS 或 Azure 中的 Cloud Volumes ONTAP
 
 
 
-==== 验证您的配置是否符合要求
+==== image:number1.png["数字 1"] Verify that your configuration can meet the requirements
 
+[role="quick-margin-list"]
 * 确保 Cloud Compliance 实例可以访问出站 Internet 。
 +
 Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系统相同的 VPC 或 vNet 中。
@@ -36,19 +37,21 @@ Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系
 
 
 
-==== 在 Cloud Volumes ONTAP 上启用云合规性
+==== image:number2.png["第2个"] Enable Cloud Compliance on Cloud Volumes ONTAP
 
+[role="quick-margin-list"]
 * 新工作环境：在创建工作环境时，请确保始终启用 Cloud Compliance （默认情况下处于启用状态）。
 * 现有工作环境：单击 * 合规性 * ，也可以编辑工作环境列表，然后单击 * 显示合规性信息板 * 。
 
 
 
 
-==== 确保能够访问卷
+==== image:number3.png["第3个"] 确保能够访问卷
 
 [role="quick-margin-para"]
 现在已启用 Cloud Compliance ，请确保它可以访问卷。
 
+[role="quick-margin-list"]
 * 云合规性实例需要与每个 Cloud Volumes ONTAP 子网建立网络连接。
 * Cloud Volumes ONTAP 的安全组必须允许来自云合规性实例的入站连接。
 * NFS 卷导出策略必须允许从 Cloud Compliance 实例进行访问。
@@ -60,8 +63,9 @@ Cloud Manager 将实例部署在与请求中的第一个 Cloud Volumes ONTAP 系
 
 
 
-==== 确保 Cloud Manager 与 Cloud Compliance 之间的连接
+==== image:number4.png["第4个"] Ensure connectivity between Cloud Manager and Cloud Compliance
 
+[role="quick-margin-list"]
 * Cloud Manager 的安全组必须允许通过端口 80 与 Cloud Compliance 实例之间的入站和出站流量。
 * 如果您的 AWS 网络不使用 NAT 或代理访问 Internet ，则 Cloud Manager 的安全组必须允许通过 TCP 端口 3128 从 Cloud Compliance 实例传输入站流量。
 
@@ -125,6 +129,7 @@ image:screenshot_cloud_compliance.gif["显示工作环境向导中的服务页�
 
 
 
+.结果
 已在 Cloud Volumes ONTAP 系统上启用云合规性。如果这是您首次启用 Cloud Compliance ， Cloud Manager 会在您的云提供商中部署 Cloud Compliance 实例。一旦实例可用，它就会在将数据写入您创建的每个卷时开始扫描数据。
 
 
@@ -156,6 +161,7 @@ image:screenshot_enable_compliance.gif["一个屏幕截图，其中显示了启�
 
 
 
+.结果
 如果这是您首次启用 Cloud Compliance ， Cloud Manager 会在您的云提供商中部署 Cloud Compliance 实例。
 
 Cloud Compliance 开始扫描每个工作环境中的数据。一旦 Cloud Compliance 完成初始扫描，合规性信息板中就会显示数据。所需时间取决于数据量—可能需要几分钟或几小时。

@@ -27,6 +27,7 @@ image:workflow_storage_provisioning.png["此图显示了为 Cloud Volumes ONTAP 
 
 如果在启动 Cloud Volumes ONTAP 系统后需要更多存储，则可以从 Cloud Manager 为 NFS 或 CIFS 创建新的 FlexVol 卷。
 
+.开始之前
 如果要在 AWS 中使用 CIFS 、则必须设置 DNS 和 Active Directory 。有关详细信息，请参见 link:reference_networking_aws.html["Cloud Volumes ONTAP for AWS 的网络要求"]。
 
 .步骤
@@ -116,8 +117,10 @@ AD 域中要与 CIFS 服务器关联的组织单元。默认值为 cn = computer
 . 单击 * 执行 * 。
 
 
+.结果
 Cloud Volumes ONTAP 配置卷。
 
+.完成后
 如果配置了 CIFS 共享、请授予用户或组对文件和文件夹的权限、并验证这些用户是否可以访问该共享并创建文件。
 
 如果要对卷应用配额、则必须使用系统管理器或 CLI 。配额允许您限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
@@ -137,6 +140,7 @@ Cloud Volumes ONTAP 配置卷。
 . 输入新卷的详细信息，然后单击 * 创建 * 。
 
 
+.完成后
 如果需要，您可以在此聚合上创建其他卷。
 
 
@@ -170,6 +174,7 @@ IMPORTANT: 对于部署在多个 AWS 可用性区域中的 HA 对，您必须使
 * 在 System Manager 中创建卷之前，必须确保具有具有足够空间的聚合。您需要在 Cloud Manager 中创建聚合。有关详细信息，请参见 link:task_provisioning_storage.html#creating-aggregates["创建聚合"]。
 
 
+.关于此任务
 这些步骤介绍了如何将 System Manager 用于版本 9.3 和更高版本。
 
 .步骤

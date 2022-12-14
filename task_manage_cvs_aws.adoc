@@ -54,6 +54,7 @@ image:screenshot_cvs_aws_details.gif["Cloud Volumes Service 详细信息页面�
 
 
 
+.结果
 Cloud Manager 现在应在 " 工作环境 " 页面上显示您的 Cloud Volumes Service for AWS 配置。
 
 image:screenshot_cvs_aws_cloud.gif["Cloud Volumes Service for AWS 在 \" 工作环境 \" 页面上的屏幕截图。"]
@@ -79,6 +80,7 @@ image:screenshot_cvs_discover_region.gif["显示 \"Discover Cloud Volumes Servic
 
 
 
+.结果
 Cloud Manager 可发现有关选定区域中的云卷的信息。
 
 

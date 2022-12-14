@@ -24,4 +24,5 @@ summary: 您应该在云管理器 HTTPS 证书过期之前续订该证书，以�
 . 单击 * 续订 HTTPS 证书 * ，然后按照以下步骤生成 CSR 或安装您自己的 CA 签名证书。
 
 
+.结果
 Cloud Manager 使用新的 CA 签名证书提供安全 HTTPS 访问。

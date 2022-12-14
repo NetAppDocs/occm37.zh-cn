@@ -19,7 +19,7 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 
 
 
-=== 设置网络
+=== image:number1.png["数字 1"] 设置网络
 
 [role="quick-margin-para"]
 从目标 VNet 启用出站 Internet 访问，以便 Cloud Manager 和 Cloud Volumes ONTAP 可以与多个端点联系。
@@ -29,11 +29,12 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 
 
 
-=== 提供所需的 Azure 权限
+=== image:number2.png["第2个"] 提供所需的 Azure 权限
 
 [role="quick-margin-para"]
 从 NetApp Cloud Central 部署 Cloud Manager 时，您需要使用具有部署 Cloud Manager 虚拟机权限的 Azure 帐户。
 
+[role="quick-margin-list"]
 . 下载 https://mysupport.netapp.com/cloudontap/iampolicies["适用于 Azure 的 NetApp Cloud Central 策略"^]。
 . 通过将 Azure 订阅 ID 添加到 "AssignableScops" 字段来修改 JSON 文件。
 . 使用 JSON 文件在 Azure 中创建名为 _Azure SetupAsService_ 的自定义角色。
@@ -45,14 +46,14 @@ summary: 您可以通过完成几个快速步骤开始使用 Azure 中的 Cloud 
 
 
 
-=== 从 NetApp Cloud Central 启动 Cloud Manager
+=== image:number3.png["第3个"] 从 NetApp Cloud Central 启动 Cloud Manager
 
 [role="quick-margin-para"]
 部署和管理 Cloud Volumes ONTAP 需要 Cloud Manager 软件。从启动 Cloud Manager 实例只需几分钟 https://cloud.netapp.com["Cloud Central"^]。
 
 
 
-=== 使用 Cloud Manager 启动 Cloud Volumes ONTAP
+=== image:number4.png["第4个"] 使用 Cloud Manager 启动 Cloud Volumes ONTAP
 
 [role="quick-margin-para"]
 在 Cloud Manager 准备就绪后、只需单击“创建”、选择要部署的系统类型并完成向导中的步骤。25 分钟后、您的第一个 Cloud Volumes ONTAP 系统应该已启动并正在运行。

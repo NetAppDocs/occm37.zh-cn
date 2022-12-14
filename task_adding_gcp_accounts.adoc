@@ -62,6 +62,7 @@ Cloud Manager 可通过这些密钥设置用于数据分层的云存储分段。
 . 确认已满足策略要求，然后单击 * 创建帐户 * 。
 
 
+.下一步是什么？
 现在，您可以在创建，修改或复制单个卷时对其启用数据分层。有关详细信息，请参见 link:task_tiering.html["将非活动数据分层到低成本对象存储"]。
 
 但是，在执行此操作之前，请确保 Cloud Volumes ONTAP 所在的子网已配置为专用 Google 访问。有关说明，请参见 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文档：配置私有 Google Access"^]。

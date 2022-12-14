@@ -45,4 +45,5 @@ link:reference_deployment_overview.html["部署选项"]
 
 
 
+.结果
 现在， Cloud Manager 配置将随您的帐户，设置和工作环境一起还原。

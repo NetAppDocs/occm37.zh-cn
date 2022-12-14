@@ -30,11 +30,12 @@ https://cloud.netapp.com/cloud-backup-service["有关定价详细信息，请访
 
 
 
-==== 验证是否支持您的配置
+==== image:number1.png["数字 1"] 验证是否支持您的配置
 
 [role="quick-margin-para"]
 验证以下内容：
 
+[role="quick-margin-list"]
 * Cloud Volumes ONTAP 9.4 或更高版本正在受支持的 AWS 区域中运行： N.弗吉尼亚州，俄勒冈州，爱尔兰，法兰克福或悉尼
 * 您已订阅新的 https://aws.amazon.com/marketplace/pp/B07QX2QLXX["Cloud Manager Marketplace 产品"^]
 * 对于 Cloud Volumes ONTAP 安全组上的出站流量， TCP 端口 5010 处于打开状态（默认情况下处于打开状态）
@@ -57,8 +58,9 @@ https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist
 
 
 
-==== 在新系统或现有系统上启用备份到 S3
+==== image:number2.png["第2个"] 在新系统或现有系统上启用备份到云
 
+[role="quick-margin-list"]
 * 新系统：在工作环境向导中，默认情况下会启用备份到 S3 功能。请务必保持此选项处于启用状态。
 * 现有系统：打开工作环境，单击备份设置图标并启用备份。
 +
@@ -68,7 +70,7 @@ image:screenshot_backup_to_s3_icon.gif["显示 Backup to S3 图标的屏幕截�
 
 
 
-==== 如果需要，请修改备份策略
+==== image:number3.png["第3个"] If needed, modify the backup policy
 
 [role="quick-margin-para"]
 默认策略每天备份卷，并为每个卷保留 30 个备份副本。如果需要，您可以更改要保留的备份副本数。
@@ -78,7 +80,7 @@ image:screenshot_backup_to_s3_settings.gif["屏幕截图显示了备份到 S3 �
 
 
 
-==== 根据需要还原数据
+==== image:number4.png["第4个"] 根据需要还原数据
 
 [role="quick-margin-para"]
 在 Cloud Manager 顶部，单击 * 备份和还原 * ，选择一个卷，选择一个备份，然后将数据从备份还原到新卷。
@@ -160,13 +162,14 @@ image:screenshot_backup_to_s3.gif["显示了工作环境向导中的备份到 S3
 . 完成向导中的页面以部署系统。
 
 
-系统上已启用备份到 S3 功能，每天备份卷并保留 30 个备份副本。  the backup retention,了解如何修改备份保留。
+.结果
+系统上已启用备份到 S3 功能，每天备份卷并保留 30 个备份副本。 <<更改备份保留,了解如何修改备份保留>>。
 
 
 
 == 在现有系统上启用 S3 备份
 
-您可以在现有 Cloud Volumes ONTAP 系统上启用到 S3 的备份，前提是您运行的配置受支持。有关详细信息，请参见 。
+您可以在现有 Cloud Volumes ONTAP 系统上启用到 S3 的备份，前提是您运行的配置受支持。有关详细信息，请参见 <<要求>>。
 
 .步骤
 . 打开工作环境。
@@ -181,6 +184,7 @@ image:screenshot_backup_to_s3_settings.gif["屏幕截图显示了备份到 S3 �
 
 
 
+.结果
 备份到 S3 功能将开始对每个卷进行初始备份。
 
 

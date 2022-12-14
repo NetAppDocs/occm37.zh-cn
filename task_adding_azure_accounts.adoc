@@ -25,16 +25,17 @@ NOTE: 从 Cloud Central 部署 Cloud Manager 时， Cloud Manager 会自动添�
 
 Cloud Manager 需要权限才能在 Azure 中执行操作。您可以通过在 Azure Active Directory 中创建和设置服务主体以及获取 Cloud Manager 所需的 Azure 凭据来为 Azure 帐户授予所需权限。
 
+.关于此任务
 下图描述了 Cloud Manager 如何获得在 Azure 中执行操作的权限。与一个或多个 Azure 订阅绑定的服务主体对象表示 Azure Active Directory 中的 Cloud Manager 并分配给允许所需权限的自定义角色。
 
 image:diagram_azure_authentication.png["概念映像，显示云管理器在进行 API 调用之前从 Azure Active Directory 获取身份验证和授权。在 Active Directory 中， Cloud Manager 操作员角色定义权限。它与一个或多个 Azure 订阅以及一个表示 Cloud Manger 应用程序的服务主体对象相关联。"]
 
 .步骤
-.  an Azure Active Directory application,创建 Azure Active Directory 应用程序。
-.  the application to a role,将应用程序分配给角色。
-.  Windows Azure Service Management API permissions,添加 Windows Azure 服务管理 API 权限。
-.  the application ID and directory ID,获取应用程序 ID 和目录 ID。
-.  a client secret,创建客户端密钥。
+. <<创建 Azure Active Directory 应用程序,创建 Azure Active Directory 应用程序>>。
+. <<将应用程序分配给角色,将应用程序分配给角色>>。
+. <<添加 Windows Azure 服务管理 API 权限,添加 Windows Azure 服务管理 API 权限>>。
+. <<获取应用程序 ID 和目录 ID,获取应用程序 ID 和目录 ID>>。
+. <<创建客户端密钥,创建客户端密钥>>。
 
 
 
@@ -43,6 +44,7 @@ image:diagram_azure_authentication.png["概念映像，显示云管理器在进�
 
 创建一个 Azure Active Directory （ AD ）应用程序和服务主体， Cloud Manager 可使用该应用程序和服务主体进行基于角色的访问控制。
 
+.开始之前
 要创建 Active Directory 应用程序并将此应用程序分配给角色，您必须在 Azure 中拥有适当的权限。有关详细信息，请参见 https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions/["Microsoft Azure 文档：所需权限"^]。
 
 .步骤
@@ -62,6 +64,7 @@ image:screenshot_azure_ad.gif["显示了 Microsoft Azure 中的 Active Directory
 . 单击 * 注册 * 。
 
 
+.结果
 您已创建 AD 应用程序和服务主体。
 
 
@@ -177,6 +180,7 @@ image:screenshot_azure_client_secret.gif["Azure 门户的屏幕截图，其中�
 
 
 
+.结果
 此时，您的服务主体已设置完毕，您应已复制应用程序（客户端） ID ，目录（租户） ID 和客户端密钥值。添加 Azure 帐户时，您需要在 Cloud Manager 中输入此信息。
 
 
@@ -193,14 +197,15 @@ image:screenshot_settings_icon.gif["一个屏幕截图，显示 Cloud Manager �
 . 单击 * 添加新帐户 * 并选择 * Microsoft Azure* 。
 . 输入有关授予所需权限的 Azure Active Directory 服务主体的信息：
 +
-** 应用程序 ID ：请参见  the application ID and directory ID。
-** 租户 ID （或目录 ID ）：请参见  the application ID and directory ID。
-** 应用程序密钥（客户端密钥）：请参见  a client secret。
+** 应用程序 ID ：请参见 <<获取应用程序 ID 和目录 ID>>。
+** 租户 ID （或目录 ID ）：请参见 <<获取应用程序 ID 和目录 ID>>。
+** 应用程序密钥（客户端密钥）：请参见 <<创建客户端密钥>>。
 
 
 . 确认已满足策略要求，然后单击 * 创建帐户 * 。
 
 
+.结果
 现在，在创建新的工作环境时，您可以从 " 详细信息和凭据 " 页面切换到其他帐户：
 
 image:screenshot_accounts_switch_azure.gif["单击详细信息和 amp ；凭据页面中的切换帐户后，显示在云提供商帐户之间进行选择的屏幕截图。"]
@@ -211,6 +216,7 @@ image:screenshot_accounts_switch_azure.gif["单击详细信息和 amp ；凭据�
 
 通过 Cloud Manager ，您可以选择要在其中部署 Cloud Volumes ONTAP 的 Azure 帐户和订阅。除非关联，否则您无法为托管身份配置文件选择其他 Azure 订阅 https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["托管身份"^] 这些订阅。
 
+.关于此任务
 托管身份为 link:concept_accounts_azure.html["初始 Azure 帐户"] 从 NetApp Cloud Central 部署 Cloud Manager 时。部署云管理器后、 Cloud Central 创建了 OnCommand Cloud Manager 操作员角色并将其分配给云管理器虚拟机。
 
 .步骤
@@ -236,6 +242,7 @@ NOTE: OnCommand 云管理器操作员是中提供的默认名称 https://mysuppo
 . 对其他订阅重复这些步骤。
 
 
+.结果
 创建新的工作环境时，您现在应该能够为托管身份配置文件从多个 Azure 订阅中进行选择。
 
 image:screenshot_accounts_switch_azure_subscription.gif["屏幕截图显示了在选择 Microsoft Azure Provider 帐户时可以选择多个 Azure 订阅的功能。"]
