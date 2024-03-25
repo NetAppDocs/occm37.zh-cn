@@ -16,6 +16,14 @@ summary: 欢迎使用 Cloud Manager 和 Cloud Volumes ONTAP 文档门户。
 
 
 
+== BlueXP
+
+NetApp BlueXP扩展并增强了Cloud Manager提供的功能。
+
+https://docs.netapp.com/us-en/bluexp-family/["转到BlueXP文档"^]
+
+
+
 == 了解新增功能
 
 * link:reference_new_occm.html["Cloud Manager 中的新增功能"]
